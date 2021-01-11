@@ -1,0 +1,34 @@
+{
+    "type": "FeatureCollection",
+    "features": [
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    "90.369984",
+                    "23.829494"
+                ]
+            },
+            "properties": {
+                "id": "dcf4dbd52bd5c8ca71b51cd4f882581d",
+                "index": 0,
+                "isActive": true,
+                "logo": "thumbnail.png",
+                "image": "thumbnail.png",
+                "link": "http://localhost/atlas_2.2/shop/voluptas-aliquip-lab/1",
+                "url": "https://www.tyzeveliqyxef.co.uk",
+                "name": "Voluptas aliquip lab",
+                "category": "shop",
+                "email": "kokepekexo@mailinator.com",
+                "stars": "0.0",
+                "phone": "+1 (504) 347-1072",
+                "address": "",
+                "about": "Voluptate quide\r\n",
+                "tags": [
+                    ""
+                ]
+            }
+        }
+    ]
+}
