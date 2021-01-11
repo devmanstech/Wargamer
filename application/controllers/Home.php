@@ -230,12 +230,6 @@ class Home extends CI_Controller {
         $this->load->view('frontend/index', $page_data);
     }
 
-    function pricing()
-    {
-        $page_data['page_name']     =   'pricing';
-        $page_data['title']         =   get_phrase('pricing');
-        $this->load->view('frontend/index', $page_data);
-    }
 
     function blog($param1 = "", $param2 = "")
     {
@@ -561,10 +555,6 @@ class Home extends CI_Controller {
     function get_city_list_by_country_id() {
         $page_data['country_id'] = sanitizer($this->input->post('country_id'));
         return $this->load->view('frontend/city_list_dropdown', $page_data);
-    }
-    function add_to_wishlist() {
-        $listing_id = sanitizer($this->input->post('listing_id'));
-        echo $this->frontend_model->toggle_wishlist($listing_id);
     }
 
     function page_missing() {

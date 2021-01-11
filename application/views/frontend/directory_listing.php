@@ -162,18 +162,10 @@
 						<input type="hidden" name="listing_id" value="<?php echo $listing_details['id']; ?>">
 						<input type="hidden" name="listing_type" value="<?php echo $listing_details['listing_type']; ?>">
 						<input type="hidden" name="slug" value="<?php echo slugify($listing_details['name']); ?>">
-						<?php if ($listing_details['listing_type'] == 'hotel'): ?>
-							<?php include 'hotel_room_booking_contact_form.php'; ?>
-						<?php elseif ($listing_details['listing_type'] == 'restaurant'): ?>
-							<?php include 'restaurant_booking_contact_form.php'; ?>
-						<?php elseif ($listing_details['listing_type'] == 'beauty'): ?>
-							<?php include 'beauty_service_contact_form.php'; ?>
-						<?php else: ?>
-							<?php include 'general_contact_form.php'; ?>
-						<?php endif; ?>
+
 						<a href="javascript::" class=" add_top_30 btn_1 full-width purchase" onclick="getTheGuestNumberForBooking('<?php echo $listing_details['listing_type']; ?>')"><?php echo get_phrase('submit'); ?></a>
 					</form>
-					<a href="javascript:" onclick="addToWishList('<?php echo $listing_details['id']; ?>')" class="btn_1 full-width outline wishlist" id = "btn-wishlist"><i class="icon_heart"></i> <?php echo is_wishlisted($listing_details['id']) ? get_phrase('remove_from_wishlist') : get_phrase('add_to_wishlist'); ?></a>
+
 					<div class="text-center"><small><?php echo get_phrase('no_money_charged_in_this_step'); ?></small></div>
 				</div>
 
@@ -194,25 +186,6 @@
 <script type="text/javascript">
 var isLoggedIn = '<?php echo $this->session->userdata('is_logged_in'); ?>';
 
-// This function performs all the functionalities to add to wishlist
-function addToWishList(listing_id) {
-	if (isLoggedIn === '1') {
-		$.ajax({
-			type : 'POST',
-			url : '<?php echo site_url('home/add_to_wishlist'); ?>',
-			data : {listing_id : listing_id},
-			success : function(response) {
-				if (response == 'added') {
-					$('#btn-wishlist').html('<i class="icon_heart"></i> <?php echo get_phrase('remove_from_wishlist'); ?>');
-				}else {
-					$('#btn-wishlist').html('<i class="icon_heart"></i> <?php echo get_phrase('add_to_wishlist'); ?>');
-				}
-			}
-		});
-	}else {
-		loginAlert();
-	}
-}
 
 // This function shows the Report listing form
 function showClaimForm(){

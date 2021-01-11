@@ -167,16 +167,7 @@
                     <span><i class="entypo-dot"></i> <?php echo get_phrase('frontend_settings'); ?></span>
                 </a>
             </li>
-            <li class="<?php if ($page_name == 'payment_settings') echo 'active'; ?> ">
-                <a href="<?php echo site_url('admin/payment_settings'); ?>">
-                    <span><i class="entypo-dot"></i> <?php echo get_phrase('payment_settings'); ?></span>
-                </a>
-            </li>
-            <li class="<?php if ($page_name == 'manage_language') echo 'active'; ?> ">
-                <a href="<?php echo site_url('admin/manage_language'); ?>">
-                    <span><i class="entypo-dot"></i> <?php echo get_phrase('language_settings'); ?></span>
-                </a>
-            </li>
+
             <li class="<?php if ($page_name == 'smtp_settings') echo 'active'; ?> ">
                 <a href="<?php echo site_url('admin/smtp_settings'); ?>">
                     <span><i class="entypo-dot"></i> <?php echo get_phrase('smtp_settings'); ?></span>

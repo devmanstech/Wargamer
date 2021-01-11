@@ -84,90 +84,6 @@ class Admin extends CI_Controller {
 		$this->load->view('backend/index.php', $page_data);
 	}
 
-	public function cities($param1 = "", $param2 = "") {
-		if ($this->session->userdata('admin_login') != true) {
-			redirect(site_url('login'), 'refresh');
-		}
-		if ($param1 == 'add') {
-			$this->crud_model->add_city();
-			$this->session->set_flashdata('flash_message', get_phrase('city_added'));
-			redirect(site_url('admin/cities'), 'refresh');
-		}
-		else if ($param1 == 'edit') {
-			$this->crud_model->edit_city($param2);
-			$this->session->set_flashdata('flash_message', get_phrase('city_updated'));
-			redirect(site_url('admin/cities'), 'refresh');
-		}
-		else if ($param1 == 'delete') {
-			$this->crud_model->delete_from_table('city', $param2);
-			$this->session->set_flashdata('flash_message', get_phrase('city_deleted'));
-			redirect(site_url('admin/cities'), 'refresh');
-		}
-		$page_data['page_name'] = 'cities';
-		$page_data['page_title'] = get_phrase('cities');
-		$page_data['cities'] = $this->crud_model->get_cities()->result_array();
-		$this->load->view('backend/index', $page_data);
-	}
-
-	public function city_form($param1 = "", $param2 = "") {
-		if ($this->session->userdata('admin_login') != true) {
-			redirect(site_url('login'), 'refresh');
-		}
-		if ($param1 == 'add') {
-			$page_data['page_name']  = 'city_add';
-			$page_data['page_title'] = get_phrase('add_new_city');
-			$page_data['countries']  = $this->crud_model->get_countries()->result_array();
-
-		}elseif ($param1 == 'edit') {
-			$page_data['page_name']  = 'city_edit';
-			$page_data['city_id']    = $param2;
-			$page_data['page_title'] = get_phrase('update_city');
-			$page_data['countries']  = $this->crud_model->get_countries()->result_array();
-		}
-		$this->load->view('backend/index.php', $page_data);
-	}
-
-	public function packages($param1 = "", $param2 = "") {
-		if ($this->session->userdata('admin_login') != true) {
-			redirect(site_url('login'), 'refresh');
-		}
-		if ($param1 == 'add') {
-			$this->crud_model->add_package();
-			$this->session->set_flashdata('flash_message', get_phrase('package_added'));
-			redirect(site_url('admin/packages'), 'refresh');
-
-		}elseif ($param1 == 'edit') {
-			$this->crud_model->edit_package($param2);
-			$this->session->set_flashdata('flash_message', get_phrase('package_updated'));
-			redirect(site_url('admin/packages'), 'refresh');
-
-		}elseif ($param1 == 'delete') {
-			$this->crud_model->delete_from_table('package', $param2);
-			$this->session->set_flashdata('flash_message', get_phrase('package_deleted'));
-			redirect(site_url('admin/packages'), 'refresh');
-		}
-
-		$page_data['page_name'] = 'packages';
-		$page_data['page_title'] = get_phrase('packages');
-		$page_data['packages'] = $this->crud_model->get_packages()->result_array();
-		$this->load->view('backend/index', $page_data);
-	}
-
-	public function package_form($param1 = "", $param2 = "") {
-		if ($this->session->userdata('admin_login') != true) {
-			redirect(site_url('login'), 'refresh');
-		}
-		if ($param1 == 'add') {
-			$page_data['page_name']  = 'package_add';
-			$page_data['page_title'] = get_phrase('add_new_package');
-		}elseif ($param1 == 'edit') {
-			$page_data['page_name']  = 'package_edit';
-			$page_data['page_title'] = get_phrase('update_package');
-			$page_data['package_id'] = $param2;
-		}
-		$this->load->view('backend/index.php', $page_data);
-	}
-
 
 	public function users($param1 = "", $param2 = "") {
 		if ($this->session->userdata('admin_login') != true) {
@@ -245,16 +161,6 @@ class Admin extends CI_Controller {
 		$this->load->view('backend/index', $page_data);
 	}
 
-
-	function package_invoice($package_purchase_history_id = "") {
-		if ($this->session->userdata('admin_login') != true) {
-			redirect(site_url('login'), 'refresh');
-		}
-		$page_data['page_name'] = 'package_invoice';
-		$page_data['page_title'] = get_phrase('invoice');
-		$page_data['purchase_history'] = $this->db->get_where('package_purchased_history', array('id' => $package_purchase_history_id))->row_array();
-		$this->load->view('backend/index.php', $page_data);
-	}
 
 	public function user_form($param1 = "", $param2 = "") {
 		if ($this->session->userdata('admin_login') != true) {
@@ -336,95 +242,6 @@ class Admin extends CI_Controller {
 		$this->load->view('backend/index.php', $page_data);
 	}
 
-	function booking_request_hotel($param1 ='', $param2 = ''){
-		if ($this->session->userdata('admin_login') != 1)
-			redirect(site_url('login'), 'refresh');
-
-		if($param1 == 'approved'){
-			$data['status'] = 1;
-			$this->db->where('id', $param2);
-			$this->db->update('booking', $data);
-			$this->email_model->request_approved_mail($param2);
-			$this->session->set_flashdata('flash_message', get_phrase('request_approved_successfully'));
-			redirect(site_url('admin/booking_request_hotel'), 'refresh');
-		}
-		if($param1 == 'pending'){
-			$data['status'] = 0;
-			$this->db->where('id', $param2);
-			$this->db->update('booking', $data);
-			$this->session->set_flashdata('flash_message', get_phrase('request_pending_successfully'));
-			redirect(site_url('admin/booking_request_hotel'), 'refresh');
-		}
-		if($param1 == 'delete'){
-			$this->db->where('id', $param2);
-			$this->db->delete('booking');
-			$this->session->set_flashdata('flash_message', get_phrase('booking_request_deleted_successfully'));
-			redirect(site_url('admin/booking_request_hotel'), 'refresh');
-		}
-		$page_data['page_name'] = 'booking_request_hotel';
-		$page_data['page_title'] = get_phrase('booking_request');
-		$this->load->view('backend/index.php', $page_data);
-	}
-
-	function booking_request_restaurant($param1 ='', $param2 = ''){
-		if ($this->session->userdata('admin_login') != 1)
-			redirect(site_url('login'), 'refresh');
-
-		if($param1 == 'approved'){
-			$data['status'] = 1;
-			$this->db->where('id', $param2);
-			$this->db->update('booking', $data);
-			$this->email_model->request_approved_mail($param2);
-			$this->session->set_flashdata('flash_message', get_phrase('request_approved_successfully'));
-			redirect(site_url('admin/booking_request_restaurant'), 'refresh');
-		}
-		if($param1 == 'pending'){
-			$data['status'] = 0;
-			$this->db->where('id', $param2);
-			$this->db->update('booking', $data);
-			$this->session->set_flashdata('flash_message', get_phrase('request_pending_successfully'));
-			redirect(site_url('admin/booking_request_restaurant'), 'refresh');
-		}
-		if($param1 == 'delete'){
-			$this->db->where('id', $param2);
-			$this->db->delete('booking');
-			$this->session->set_flashdata('flash_message', get_phrase('booking_request_deleted_successfully'));
-			redirect(site_url('admin/booking_request_restaurant'), 'refresh');
-		}
-		$page_data['page_name'] = 'booking_request_restaurant';
-		$page_data['page_title'] = get_phrase('booking_request');
-		$this->load->view('backend/index.php', $page_data);
-	}
-
-	function booking_request_beauty($param1 ='', $param2 = ''){
-		if ($this->session->userdata('admin_login') != 1)
-			redirect(site_url('login'), 'refresh');
-
-		if($param1 == 'approved'){
-			$data['status'] = 1;
-			$this->db->where('id', $param2);
-			$this->db->update('booking', $data);
-			$this->email_model->request_approved_mail($param2);
-			$this->session->set_flashdata('flash_message', get_phrase('request_approved_successfully'));
-			redirect(site_url('admin/booking_request_beauty'), 'refresh');
-		}
-		if($param1 == 'pending'){
-			$data['status'] = 0;
-			$this->db->where('id', $param2);
-			$this->db->update('booking', $data);
-			$this->session->set_flashdata('flash_message', get_phrase('request_pending_successfully'));
-			redirect(site_url('admin/booking_request_beauty'), 'refresh');
-		}
-		if($param1 == 'delete'){
-			$this->db->where('id', $param2);
-			$this->db->delete('booking');
-			$this->session->set_flashdata('flash_message', get_phrase('booking_request_deleted_successfully'));
-			redirect(site_url('admin/booking_request_beauty'), 'refresh');
-		}
-		$page_data['page_name'] = 'booking_request_beauty';
-		$page_data['page_title'] = get_phrase('booking_request');
-		$this->load->view('backend/index', $page_data);
-	}
 
 	public function blogs(){
 		if ($this->session->userdata('admin_login') != true) {
@@ -494,19 +311,6 @@ class Admin extends CI_Controller {
 		redirect(site_url('admin/blogs'), 'refresh');
 	}
 
-	public function offline_payment($param1 = '', $param2 = ''){
-		if ($this->session->userdata('admin_login') != true) {
-			redirect(site_url('login'), 'refresh');
-		}
-		if($param1 == 'pay'){
-			$this->crud_model->offline_payment();
-			$this->session->set_flashdata('flash_message', get_phrase('offline_payment_success'));
-			redirect(site_url('admin/report'), 'refresh');
-		}
-		$page_data['page_name']  = 'offline_payment';
-		$page_data['page_title'] = get_phrase('offline_payment');
-		$this->load->view('backend/index', $page_data);
-	}
 
 	public function reported_listings($param1 = "", $param2 = "") {
 		if ($this->session->userdata('admin_login') != true) {
@@ -613,31 +417,6 @@ class Admin extends CI_Controller {
 		$page_data['page_title'] = get_phrase('frontend_settings');
 		$this->load->view('backend/index', $page_data);
 	}
-	public function payment_settings($param1 = "") {
-		if ($this->session->userdata('admin_login') != true) {
-			redirect(site_url('login'), 'refresh');
-		}
-
-		if ($param1 == 'system_currency_settings') {
-			$this->crud_model->update_system_currency_settings();
-			$this->session->set_flashdata('flash_message', get_phrase('system_currency_settings_updated'));
-			redirect(site_url('admin/payment_settings'), 'refresh');
-		}
-		if ($param1 == 'paypal_settings') {
-			$this->crud_model->update_paypal_settings();
-			$this->session->set_flashdata('flash_message', get_phrase('paypal_settings_updated'));
-			redirect(site_url('admin/payment_settings'), 'refresh');
-		}
-		if ($param1 == 'stripe_settings') {
-			$this->crud_model->update_stripe_settings();
-			$this->session->set_flashdata('flash_message', get_phrase('stripe_settings_updated'));
-			redirect(site_url('admin/payment_settings'), 'refresh');
-		}
-
-		$page_data['page_name'] = 'payment_settings';
-		$page_data['page_title'] = get_phrase('payment_settings');
-		$this->load->view('backend/index', $page_data);
-	}
 
 	public function map_settings($param1 = "") {
 		if ($this->session->userdata('admin_login') != true) {
@@ -671,12 +450,6 @@ class Admin extends CI_Controller {
 		$this->load->view('backend/index', $page_data);
 	}
 
-
-	// Ajax calls
-	function get_city_list_by_country_id() {
-		$page_data['country_id'] = sanitizer($this->input->post('country_id'));
-		return $this->load->view('backend/admin/city_list_dropdown', $page_data);
-	}
 
 	function filter_listing_table() {
 		$page_data['status'] 	= $_GET['status'];
@@ -757,50 +530,6 @@ class Admin extends CI_Controller {
 		return $language_files;
 	}
 
-	// Language Functions
-	public function manage_language($param1 = '', $param2 = '', $param3 = ''){
-		if ($param1 == 'add_language') {
-			saveDefaultJSONFile(sanitizer($this->input->post('language')));
-			$this->session->set_flashdata('flash_message', get_phrase('language_added_successfully'));
-			redirect(site_url('admin/manage_language'), 'refresh');
-		}
-
-		if ($param1 == 'delete_language') {
-		    if (file_exists('application/language/'.$param2.'.json')) {
-		        unlink('application/language/'.$param2.'.json');
-		        $this->session->set_flashdata('flash_message', get_phrase('language_deleted_successfully'));
-			    redirect(site_url('admin/manage_language'), 'refresh');
-		    }
-		}
-
-		if ($param1 == 'add_phrase') {
-			$new_phrase = get_phrase(sanitizer($this->input->post('phrase')));
-			$this->session->set_flashdata('flash_message', $new_phrase.' '.get_phrase('has_been_added_successfully'));
-			redirect(site_url('admin/manage_language'), 'refresh');
-		}
-
-		if ($param1 == 'edit_phrase') {
-			$page_data['edit_profile'] = $param2;
-		}
-
-		$page_data['languages']				= $this->get_all_languages();
-		$page_data['page_name']				=	'manage_language';
-		$page_data['page_title']			=	get_phrase('multi_language_settings');
-		$this->load->view('backend/index', $page_data);
-	}
-
-	public function update_phrase_with_ajax() {
-		$current_editing_language = sanitizer($this->input->post('currentEditingLanguage'));
-		$updatedValue = sanitizer($this->input->post('updatedValue'));
-		$key = sanitizer($this->input->post('key'));
-		saveJSONFile($current_editing_language, $key, $updatedValue);
-		echo $current_editing_language.' '.$key.' '.$updatedValue;
-	}
-
-	function remove_listing_inner_feature() {
-		return $this->crud_model->remove_listing_inner_feature();
-	}
-
 
 	/******MANAGE OWN PROFILE AND CHANGE PASSWORD***/
 	function manage_profile($param1 = '', $param2 = '', $param3 = '')
@@ -868,15 +597,6 @@ class Admin extends CI_Controller {
 		$this->load->view('backend/index.php', $page_data);
 	}
 
-	function about() {
-		if ($this->session->userdata('admin_login') != 1)
-		redirect(site_url('login'), 'refresh');
-
-		$page_data['application_details'] = $this->crud_model->get_application_details();
-		$page_data['page_name']  = 'about';
-		$page_data['page_title'] = get_phrase('about');
-		$this->load->view('backend/index', $page_data);
-	}
 
 	function add_listing_validity(){
 		if ($this->session->userdata('admin_login') != 1)
@@ -907,59 +627,4 @@ class Admin extends CI_Controller {
 		endif;
 	}
 
-
-	//ADDON part
-	function addon_manager($param = ''){
-		if ($this->session->userdata('admin_login') != 1)
-		redirect(site_url('login'), 'refresh');
-
-		$page_data['addons'] = $this->addon_model->get_addons()->result_array();
-		$page_data['page_name']  = 'addon_manager';
-		$page_data['page_title'] = get_phrase('addon_manager');
-		$this->load->view('backend/index', $page_data);
-	}
-
-	function add_addon(){
-		if ($this->session->userdata('admin_login') != 1)
-		redirect(site_url('login'), 'refresh');
-
-		$page_data['page_name']  = 'addon_add';
-		$page_data['page_title'] = get_phrase('add_addon');
-		$this->load->view('backend/index', $page_data);
-	}
-	function addon_status($param1 = "", $param2 = ""){
-		if ($this->session->userdata('admin_login') != 1)
-		redirect(site_url('login'), 'refresh');
-	
-		if($param2 == 'active'):
-			$this->addon_model->addon_activate($param1);
-		else:
-			$this->addon_model->addon_deactivate($param1);
-		endif;
-		$this->session->set_flashdata('flash_message', get_phrase('addon_updated_successfully'));
-		redirect(site_url('admin/addon_manager'), 'refresh');
-	}
-	function addon_delete($param1 = ""){
-		if ($this->session->userdata('admin_login') != 1)
-		redirect(site_url('login'), 'refresh');
-	
-		$this->addon_model->addon_delete($param1);
-		$this->session->set_flashdata('flash_message', get_phrase('addon_deleted_successfully'));
-		redirect(site_url('admin/addon_manager'), 'refresh');
-	}
-
-	//Available Addon
-	function available_addon(){
-		$page_data['page_name']  = 'available_addon';
-		$page_data['page_title'] = get_phrase('available_addon');
-		$this->load->view('backend/index', $page_data);
-	}
-
-	function install_addon(){
-		if ($this->session->userdata('admin_login') != 1)
-		redirect(site_url('login'), 'refresh');
-		$response = $this->addon_model->install_addon();
-		$this->session->set_flashdata('flash_message', $response);
-		redirect(site_url('admin/addon_manager'), 'refresh');
-	}
 }

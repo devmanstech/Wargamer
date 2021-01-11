@@ -8,5 +8,5 @@
 <meta name="keywords" content="<?php echo $title.', '.get_settings('system_title'); ?>">
 <meta name="description" content="<?php echo get_settings('system_title'); ?>">
 <?php endif; ?>
-<meta name="author" content="Creativeitem">
+<meta name="author" content="devman">
 <title><?php echo $title.' | '.get_settings('system_title');?></title>

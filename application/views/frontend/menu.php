@@ -1,7 +1,7 @@
 <nav id="menu" class="main-menu">
     <ul>
         <li><span><a href="<?php echo base_url();?>"><?php echo get_phrase('home'); ?></a></span></li>
-        <li><span><a href="<?php echo base_url();?>home/listings"><?php echo get_phrase('listings'); ?></a></span></li>
+        <li><span><a href="<?php echo base_url();?>home/listings"><?php echo get_phrase('Matches'); ?></a></span></li>
         <li><span><a href="<?php echo base_url();?>home/category"><?php echo get_phrase('category'); ?></a></span></li>
 
         <li><span><a href="<?php echo base_url();?>home/blog"><?php echo get_phrase('blog'); ?></a></span></li>

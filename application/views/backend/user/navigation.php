@@ -41,18 +41,18 @@
 		<li class="<?php if ($page_name == 'listings' || $page_name == 'listing_add_wiz' || $page_name == 'listing_edit_wiz') echo 'opened active has-sub'; ?>">
 			<a href="#">
 				<i class="fa fa-sitemap"></i>
-				<span><?php echo get_phrase('directory'); ?></span>
+				<span><?php echo get_phrase('matches'); ?></span>
 			</a>
 			<ul>
-				<li class="<?php if ($page_name == 'listings') echo 'active'; ?> ">
-					<a href="<?php echo site_url('user/listings'); ?>">
-						<span><i class="entypo-dot"></i> <?php echo get_phrase('all_directories'); ?></span>
+				<li class="<?php if ($page_name == 'current_match') echo 'active'; ?> ">
+					<a href="<?php echo site_url('user/current_match'); ?>">
+						<span><i class="entypo-dot"></i> <?php echo get_phrase('current_match'); ?></span>
 					</a>
 				</li>
 
-				<li class="<?php if ($page_name == 'listing_add_wiz') echo 'active'; ?> ">
-					<a href="<?php echo site_url('user/listing_form/add'); ?>">
-						<span><i class="entypo-dot"></i> <?php echo get_phrase('add_new_directory'); ?></span>
+				<li class="<?php if ($page_name == 'history') echo 'active'; ?> ">
+					<a href="<?php echo site_url('user/history'); ?>">
+						<span><i class="entypo-dot"></i> <?php echo get_phrase('history'); ?></span>
 					</a>
 				</li>
 			</ul>
@@ -61,11 +61,11 @@
 
 
 
-			<!-- Wishlist -->
-			<li class="<?php if ($page_name == 'wishlists') echo 'active'; ?>">
-				<a href="<?php echo site_url('user/wishlists'); ?>">
-					<i class="fa fa-heart"></i>
-					<span><?php echo get_phrase('wishlist'); ?></span>
+			<!-- Report -->
+			<li class="<?php if ($page_name == 'battle report') echo 'active'; ?>">
+				<a href="<?php echo site_url('user/report'); ?>">
+					<i class="fa fa-book"></i>
+					<span><?php echo get_phrase('report'); ?></span>
 				</a>
 			</li>
 

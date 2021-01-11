@@ -43,20 +43,6 @@
             </div>
           </div>
 
-          <div class="form-group">
-            <label for="country_id" class="col-sm-3 control-label"><?php echo get_phrase('country'); ?></label>
-
-            <div class="col-sm-7">
-              <select name="country_id" id = "country_id" class="select2" data-allow-clear="true" data-placeholder="<?php echo get_phrase('select_country'); ?>">
-                <?php
-                $countries = $this->crud_model->get_countries()->result_array();
-                foreach ($countries as $country): ?>
-                <option value="<?php echo $country['id']; ?>" <?php if($country['id'] == get_settings('country_id')) echo 'selected'; ?>><?php echo $country['name']; ?></option>
-              <?php endforeach; ?>
-            </select>
-          </div>
-        </div>
-
         <div class="form-group">
           <label for="timezone" class="col-sm-3 control-label"><?php echo get_phrase('timezone'); ?></label>
 
@@ -83,13 +69,6 @@
         </div>
 
         <div class="form-group">
-          <label for="purchase_code" class="col-sm-3 control-label"><?php echo get_phrase('purchase_code'); ?></label>
-          <div class="col-sm-7">
-            <input type="text" class="form-control" name="purchase_code" id="purchase_code" placeholder="<?php echo get_phrase('purchase_code'); ?>" value="<?php echo get_settings('purchase_code');  ?>">
-          </div>
-        </div>
-
-        <div class="form-group">
           <label for="footer_text" class="col-sm-3 control-label"><?php echo get_phrase('footer_text'); ?></label>
           <div class="col-sm-7">
             <input type="text" class="form-control" name="footer_text" id="footer_text" placeholder="<?php echo get_phrase('text'); ?>" value="<?php echo get_settings('footer_text');  ?>">
@@ -110,27 +89,4 @@
     </div>
   </div>
 </div><!-- end col-->
-<div class="col-lg-5">
-  <div class="panel panel-primary" data-collapsed="0">
-    <div class="panel-heading">
-      <div class="panel-title">
-        <?php echo get_phrase('update_product'); ?>
-      </div>
-    </div>
-    <div class="panel-body">
-      <form action="<?php echo site_url('updater/update'); ?>" method="post" enctype="multipart/form-data" role="form" class="form-horizontal form-groups-bordered">
-        <div class="form-group">
-          <label for="name" class="col-sm-3 control-label"><?php echo get_phrase('file'); ?></label>
-          <div class="col-sm-7">
-            <input type="file" class="form-control btn-primary" data-label="<i class='glyphicon glyphicon-file'></i> <?php echo get_phrase('browse'); ?>" id="file_name" name="file_name" />
-          </div>
-        </div>
-
-        <div class="col-sm-offset-3 col-sm-5" style="padding-top: 10px;">
-          <button type="submit" class="btn btn-info"><?php echo get_phrase('update_product'); ?></button>
-        </div>
-      </form>
-    </div>
-  </div>
-</div>
 </div>

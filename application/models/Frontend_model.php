@@ -164,32 +164,6 @@ class Frontend_model extends CI_Model {
         }
     }
 
-    public function toggle_wishlist($listing_id = "") {
-        $existing_wishlist = array();
-        $status = "";
-        $user_details = $this->db->get_where('user', array('id' => $this->session->userdata('user_id')))->row_array();
-        if ($user_details['wishlists'] != "") {
-            $existing_wishlist = json_decode($user_details['wishlists']);
-            if (in_array($listing_id, $existing_wishlist)) {
-                if (($key = array_search($listing_id, $existing_wishlist)) !== false) {
-                    unset($existing_wishlist[$key]);
-                }
-                $status = 'removed';
-            }else {
-                array_push($existing_wishlist, $listing_id);
-                $status = 'added';
-            }
-        }else {
-            array_push($existing_wishlist, $listing_id);
-            $status = 'added';
-        }
-        $updater = array(
-            'wishlists' => json_encode($existing_wishlist)
-        );
-        $this->db->where('id', $this->session->userdata('user_id'));
-        $this->db->update('user', $updater);
-        return $status;
-    }
 
     function claim_this_listing() {
       $data['listing_id'] = sanitizer($this->input->post('listing_id'));

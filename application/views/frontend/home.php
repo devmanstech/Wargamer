@@ -77,7 +77,7 @@
 <div class="container-fluid margin_80_55">
 	<div class="main_title_2">
 		<span><em></em></span>
-		<h2><?php echo get_phrase('popular_listings'); ?></h2>
+		<h2><?php echo get_phrase('popular_matches'); ?></h2>
 	</div>
 
 	<div id="reccomended" class="owl-carousel owl-theme">

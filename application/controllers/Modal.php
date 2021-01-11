@@ -1,10 +1,9 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 /*
- *  @author   : Creativeitem
- *  date    : 14 september, 2017
- *  ATLAS Directory Listing
- *  http://codecanyon.net/user/Creativeitem
- *  http://support.creativeitem.com
+ *  @author   : devman
+ *  date    : 14 september, 2021
+ *  Match Listing
+ *  http://devmans.org
  */
 class Modal extends CI_Controller {
 

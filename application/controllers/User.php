@@ -187,44 +187,23 @@ class User extends CI_Controller {
 
 	}
 
-	function wishlists() {
+	function report() {
 		if ($this->session->userdata('user_login') != true) {
 			redirect(site_url('login'), 'refresh');
 		}
-		$page_data['page_name'] = 'wishlists';
-		$page_data['page_title'] = get_phrase('wishlists');
+		$page_data['page_name'] = 'report';
+		$page_data['page_title'] = get_phrase('report');
 		$this->load->view('backend/index.php', $page_data);
 	}
 
-	function packages() {
+	function current_match() {
 		if ($this->session->userdata('user_login') != true) {
 			redirect(site_url('login'), 'refresh');
 		}
-		$page_data['page_name'] = 'packages';
-		$page_data['page_title'] = get_phrase('packages');
-		$page_data['packages'] = $this->crud_model->get_packages()->result_array();
+		$page_data['page_name'] = 'current_match';
+		$page_data['page_title'] = get_phrase('current_match');
+//		$page_data['packages'] = $this->crud_model->get_packages()->result_array();
 		$this->load->view('backend/index.php', $page_data);
-	}
-
-	// Payment Stuffs
-	public function paypal_checkout($package_id = "") {
-		if ($this->session->userdata('user_login') != true) {
-			redirect(site_url('login'), 'refresh');
-		}
-
-		$page_data['package_details'] = $this->crud_model->get_packages($package_id)->row_array();
-		$page_data['user_details']    = $this->user_model->get_all_users($this->session->userdata('user_id'))->row_array();
-		$this->load->view('backend/user/paypal_checkout', $page_data);
-	}
-
-	public function stripe_checkout($package_id = "") {
-		if ($this->session->userdata('user_login') != true) {
-			redirect(site_url('login'), 'refresh');
-		}
-
-		$page_data['package_details'] = $this->crud_model->get_packages($package_id)->row_array();
-		$page_data['user_details']    = $this->user_model->get_all_users($this->session->userdata('user_id'))->row_array();
-		$this->load->view('backend/user/stripe_checkout', $page_data);
 	}
 
 	// Function after payment gets done
@@ -263,13 +242,13 @@ class User extends CI_Controller {
 		$this->load->view('backend/user/filter_listing_table', $page_data);
 	}
 
-	function purchase_history() {
+	function history() {
 		if ($this->session->userdata('user_login') != true) {
 			redirect(site_url('login'), 'refresh');
 		}
-		$page_data['page_name'] = 'purchase_history';
-		$page_data['page_title'] = get_phrase('purchase_history');
-		$page_data['purchase_histories'] = $this->crud_model->get_user_specific_purchase_history($this->session->userdata('user_id'))->result_array();
+		$page_data['page_name'] = 'history';
+		$page_data['page_title'] = get_phrase('history');
+//		$page_data['history'] = $this->crud_model->get_user_specific_purchase_history($this->session->userdata('user_id'))->result_array();
 		$this->load->view('backend/index.php', $page_data);
 	}
 

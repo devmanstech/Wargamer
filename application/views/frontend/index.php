@@ -55,14 +55,6 @@
 				include 'eu-cookie.php';
 			endif;
 		?>
-		<?php
-			if(get_addon_details('fb_messenger') != 0){
-				if(isset($listing_details['id'])):
-					if(check_facebook_page_data($listing_details['id']) && $page_name == 'directory_listing'){
-						include 'fb_messenger.php';
-					}
-				endif;
-			}
-		?>
+
 	</body>
 </html>
