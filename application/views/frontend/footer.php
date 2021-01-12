@@ -20,7 +20,7 @@
 				</div>
 			</div>
 
-	
+
 		<div class="col-lg-4 col-md-6 col-sm-6">
 			<a data-toggle="collapse" data-target="#collapse_ft_3" aria-expanded="false" aria-controls="collapse_ft_3" class="collapse_bt_mobile">
 				<h3><?php echo get_phrase('contacts'); ?></h3>
