@@ -14,7 +14,7 @@ $logged_in_user_role = strtolower($this->session->userdata('role'));
   <?php include 'metas.php'; ?>
   <!-- all the css files -->
   <?php include 'includes_top.php';?>
-
+  <?php include 'modal.php'; ?>
 </head>
 <body class="page-body" >
   <div class="page-container <?php if ($text_align == 'right-to-left') echo 'right-sidebar';?>" >
@@ -25,20 +25,55 @@ $logged_in_user_role = strtolower($this->session->userdata('role'));
       <!-- Topbar Start -->
       <?php include 'header.php'; ?>
 
-      <h3 style="margin:20px 0px;" class="hidden-print">
-        <i class="entypo-right-circled"></i>
-        <?php echo $page_title;?>
-      </h3>
+      <?php
+      if($logged_in_user_role == 'user'){
+        ?>
+        <div class="row">
+          <div class="col-lg-8 col-md-8">
+            <h3 style="margin:20px 0px;" class="hidden-print">
 
-      <!-- Start Content-->
-      <?php include $logged_in_user_role.'/'.$page_name.'.php';?>
+              <!-- Start Content-->
+              <?php include $logged_in_user_role.'/'.$page_name.'.php';?>
+
+            </h3>
+
+          </div>
+
+          <div class="col-lg-4 col-md-4">
+            <h3 style="margin:20px 0px;" class="hidden-print">
+
+              <!-- Search and Played games-->
+              <?php include 'user/sidebar.php';?>
+
+            </h3>
+          </div>
+
+        </div>
+
+      <?php
+      }else{
+        ?>
+        <h3 style="margin:20px 0px;" class="hidden-print">
+
+          <!-- Start Content-->
+          <?php include $logged_in_user_role.'/'.$page_name.'.php';?>
+
+        </h3>
+
+
+        <?php
+      }
+      ?>
+
+
+
       <!-- Footer starts here -->
       <?php include 'footer.php'; ?>
     </div>
   </div>
   <!-- all the js files -->
   <?php include 'includes_bottom.php'; ?>
-  <?php include 'modal.php'; ?>
+
   <?php include 'common_scripts.php'; ?>
 </body>
 </html>

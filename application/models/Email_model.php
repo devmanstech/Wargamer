@@ -34,10 +34,8 @@ class Email_model extends CI_Model {
 		$redirect_url = site_url('login/verify_email_address/'.$verification_code);
 		$subject 		= "Verify Email Address";
 		$email_msg	=	"<h3>".get_settings('website_title')."</h3>";
-		$email_msg	.=	"<b>Hello</b>";
-		$email_msg	.=	"<p>Пожалуйста, дайте мне свой скайп по электронной почте.
-Мой адрес электронной почты: hhtiger0104@gmail.com.
-Я жду вашего ответа.</p>";
+		$email_msg	.=	"<b>Hello,</b>";
+		$email_msg	.=	"<p>Please click the link below to verify your email address.</p>";
 		$email_msg	.=	"<a href = ".$redirect_url." target = '_blank'>Verify Your Email Address</a>";
 		$this->send_smtp_mail($email_msg, $subject, $to);
 		//$this->sent_smtp_mail_with_php_mailer_library($email_msg, $subject, $to);

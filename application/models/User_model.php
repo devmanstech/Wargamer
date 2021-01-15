@@ -97,6 +97,43 @@ class User_model extends CI_Model {
         }
     }
 
+
+    public function get_rosters() {
+
+        return $this->db->get('roster');
+    }
+
+
+    function add_roster() {
+
+//        die();
+
+        $data['name'] = sanitizer($this->input->post('name'));
+
+        $validity = $this->check_roster_duplication('on_create', $data['name']);
+        if($validity){
+            $this->db->insert('roster', $data);
+            $roster_file = $data['name'];
+            $this->upload_roster_file($roster_file);
+            $this->session->set_flashdata('flash_message', get_phrase('roster_file_saved_successfully_done'));
+        }else {
+            $this->session->set_flashdata('error_message', get_phrase('this_roster_name_has_been_taken'));
+        }
+        return;
+    }
+
+    public function upload_roster_file($roster_name) {
+        if (isset($_FILES['roster_file']) && $_FILES['roster_file']['name'] != "") {
+            move_uploaded_file($_FILES['roster_file']['tmp_name'], 'uploads/rosters/'.$roster_name.'.zip');
+        }
+    }
+
+
+    function view_roster($roster_id) {
+        return $this->db->get_where('roster', array('id' => $roster_id));
+    }
+
+
     function get_user_thumbnail($user_id = "") {
         if (file_exists('uploads/user_image/'.$user_id.'.jpg')) {
             return base_url('uploads/user_image/'.$user_id.'.jpg');
@@ -117,6 +154,28 @@ class User_model extends CI_Model {
         }elseif ($action == 'on_update') {
             if ($duplicate_email_check->num_rows() > 0) {
                 if ($duplicate_email_check->row()->id == $user_id) {
+                    return true;
+                }else {
+                    return false;
+                }
+            }else {
+                return true;
+            }
+        }
+    }
+
+    public function check_roster_duplication($action = "", $name = "", $user_id = "") {
+        $duplicate_roster_check = $this->db->get_where('roster', array('name' => $name));
+
+        if ($action == 'on_create') {
+            if ($duplicate_roster_check->num_rows() > 0) {
+                return false;
+            }else {
+                return true;
+            }
+        }elseif ($action == 'on_update') {
+            if ($duplicate_roster_check->num_rows() > 0) {
+                if ($duplicate_roster_check->row()->id == $user_id) {
                     return true;
                 }else {
                     return false;

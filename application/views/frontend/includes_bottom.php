@@ -4,13 +4,13 @@
 <script src="<?php echo base_url();?>assets/frontend/js/validate.js"></script>
 <script src="<?php echo base_url(); ?>assets/frontend/js/bootstrap-tagsinput.min.js" charset="utf-8"></script>
 <!-- INPUT QUANTITY  -->
-<script src="<?php echo base_url();?>assets/frontend/js/input_qty.js"></script>
+
 <script src="<?php echo base_url();?>assets/frontend/js/custom.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
 
 <script src="http://maps.googleapis.com/maps/api/js"></script>
 <script src="<?php echo base_url();?>assets/frontend/js/markerclusterer.js"></script>
-<script src="<?php echo base_url();?>assets/frontend/js/listing_map.js"></script>
+
 <script src="<?php echo base_url();?>assets/frontend/js/infobox.js"></script>
 <script src="https://unpkg.com/gijgo@1.9.13/js/gijgo.min.js" type="text/javascript"></script>
 

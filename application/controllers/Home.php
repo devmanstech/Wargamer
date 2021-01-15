@@ -57,161 +57,20 @@ class Home extends CI_Controller {
         $this->load->view('frontend/index', $page_data);
     }
 
-    public function listings_view($param1 = ''){
-        $this->session->set_userdata('listings_view', $param1);
+    public function matches_view($param1 = ''){
+        $this->session->set_userdata('matches_view', $param1);
     }
 
-    function listings()
+    function matches()
     {
-        // $this->frontend_model->check_if_this_listing_lies_in_price_range(10, 560);
-        $all_listings = $this->frontend_model->get_listings()->result_array();
-
-        $total_rows = count($all_listings);
-        $config = array();
-        $config = pagintaion($total_rows, 8);
-        $config['base_url']  = site_url('home/listings/');
-        $this->pagination->initialize($config);
-
-        $this->db->order_by('is_featured', 'desc');
-        $this->db->where('status', 'active');
-        $listings = $courses = $this->db->get('listing', $config['per_page'], $this->uri->segment(3))->result_array();
-        $geo_json = $this->make_geo_json_for_map($listings);
-        
-        $page_data['page_name']     = 'listings';
-        $page_data['title']         = get_phrase('listings');
-        $page_data['listings']      = $listings;
-        $page_data['geo_json']      = $geo_json;
+        $page_data['page_name']     =   'matches';
+        $page_data['title']         =   get_phrase('matches');
         $this->load->view('frontend/index', $page_data);
     }
 
-    function make_geo_json_for_map($listings = array(), $param2 = ""){
-        if($param2 == 'listing_single_page'):
-            chmod("assets/frontend/js/map/listing-single-page-geojson.json", 0777);
-        else:
-            chmod("assets/frontend/js/map/listing-geojson.json", 0777);
-        endif;
-        $listing_details_array = array();
-        foreach ($listings as $key => $listing) {
-            if(!has_package($listing['user_id']) > 0)
-            continue;
-            $listing_details = array();
-            $listing_tags = explode(',', $listing['tags']);
-            $listing_details['type'] = 'Feature';
-            $listing_details['geometry'] = array (
-                'type' => 'Point',
-                'coordinates' =>
-                array (
-                    0 => $listing['longitude'],
-                    1 => $listing['latitude'],
-                ),
-            );
-            $listing_details['properties'] = array (
-                'id' => $listing['code'],
-                'index' => $key,
-                'isActive' => true,
-                'logo' => $listing['listing_thumbnail'],
-                'image' => $listing['listing_thumbnail'],
-                'link' => get_listing_url($listing['id']),
-                'url' => $listing['website'],
-                'name' => $listing['name'],
-                'category' => $listing['listing_type'],
-                'email' => $listing['email'],
-                'stars' => $this->frontend_model->get_listing_wise_rating($listing['id']),
-                'phone' => $listing['phone'],
-                'address' => $listing['address'],
-                'about' => substr($listing['description'], 0, 15).'\r\n',
-                'tags' => $listing_tags,
-            );
 
-            array_push($listing_details_array, $listing_details);
-        }
-        $listing_geo_array = array (
-            'type' => 'FeatureCollection',
-            'features' => $listing_details_array,
-        );
 
-        $jsonData = json_encode($listing_geo_array, JSON_PRETTY_PRINT|JSON_UNESCAPED_UNICODE);
-        if($param2 == 'listing_single_page'):
-            file_put_contents('assets/frontend/js/map/listing-single-page-geojson.json', stripslashes($jsonData));
-        else:
-            file_put_contents('assets/frontend/js/map/listing-geojson.json', stripslashes($jsonData));
-        endif;
-        return json_encode($listing_geo_array);
-    }
-
-    function filter_listings() {
-
-        $category_ids = array();
-        $amenity_ids    = array();
-        $city_id        = "";
-        $price_range  = 0;
-        $with_video   = 0;
-        $with_open   = 0;
-
-        // Get the category ids
-        if (isset($_GET['category']) && !empty($_GET['category'])) {
-            $selected_categories = explode('--', $_GET['category']);
-            foreach ($selected_categories as $category) {
-                $category_id = $this->db->get_where('category', array('slug' => $category))->row()->id;
-                array_push($category_ids, $category_id);
-            }
-        }
-
-        // Get the amenity ids
-        if (isset($_GET['amenity']) && !empty($_GET['amenity'])) {
-            $selected_amenities = explode('--', $_GET['amenity']);
-            foreach ($selected_amenities as $amenity) {
-                $amenity_id = $this->db->get_where('amenities', array('slug' => $amenity))->row()->id;
-                array_push($amenity_ids, $amenity_id);
-            }
-        }
-
-        // Get the city ids
-        if (isset($_GET['city']) && !empty($_GET['city'])) {
-            if ($_GET['city'] != 'all') {
-                $city_id = $this->db->get_where('city', array('slug' => $_GET['city']))->row()->id;
-            }else {
-                $city_id = 'all';
-            }
-        }
-
-        // Get video existance filter
-        if (isset($_GET['video']) && !empty($_GET['video'])) {
-            $with_video = $_GET['video'];
-        }
-
-        // Get status existance filter
-        if (isset($_GET['status']) && !empty($_GET['status'])) {
-            $with_open = $_GET['status'];
-        }
-
-        // Get Price range filter
-        if (isset($_GET['price-range']) && !empty($_GET['price-range'])) {
-            $price_range = $_GET['price-range'];
-        }
-
-        // If all the filter options remain default, redirect to listings method
-        if ($_GET['category'] == "" && $_GET['amenity'] == "" && $_GET['city'] == "all" && $price_range == 0 && $_GET['video'] == 0 && $_GET['status'] == 'all') {
-            redirect(site_url('home/listings'), 'refresh');
-        }
-
-        $listings = $this->frontend_model->filter_listing($category_ids, $amenity_ids, $city_id, $price_range, $with_video, $with_open);
-        $page_data['geo_json']       =  $this->make_geo_json_for_map($listings);
-
-        $page_data['page_name']    =  'listings';
-        $page_data['title']        = get_phrase('listings');
-        $page_data['listings']     = $listings;
-        $page_data['category_ids'] = $category_ids;
-        $page_data['amenity_ids']  = $amenity_ids;
-        $page_data['city_id']      = $city_id;
-        $page_data['with_video']   = $with_video;
-        $page_data['with_open']   = $with_open;
-        $page_data['price_range']  = $price_range;
-        $this->load->view('frontend/index', $page_data);
-
-    }
-
-    function listing($slug = "", $listing_id) {
+    function match($slug = "", $listing_id) {
         $listing_details = $this->crud_model->get_listing_details($listing_id)->row_array();
 
         $page_data['geo_json']  = $this->make_geo_json_for_map($this->db->get_where('listing', array('id' => $listing_id))->result_array(), 'listing_single_page'); // Result array is needed for geo json

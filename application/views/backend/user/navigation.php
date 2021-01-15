@@ -37,38 +37,67 @@
 
 
 
-		<!-- Listings -->
-		<li class="<?php if ($page_name == 'listings' || $page_name == 'listing_add_wiz' || $page_name == 'listing_edit_wiz') echo 'opened active has-sub'; ?>">
+		<!-- Current Match -->
+		<li class="<?php if ($page_name == 'current_match') echo 'active'; ?> ">
+			<a href="<?php echo site_url('user/current_match'); ?>">
+				<i class="fa fa-gamepad"></i>
+				<span> <?php echo get_phrase('current_match'); ?></span>
+			</a>
+		</li>
+
+		<!-- Match -->
+		<li class="<?php if ($page_name == 'matches' || $page_name == 'match_add_wiz') echo 'opened active has-sub'; ?>">
 			<a href="#">
 				<i class="fa fa-sitemap"></i>
-				<span><?php echo get_phrase('matches'); ?></span>
+				<span><?php echo get_phrase('match'); ?></span>
 			</a>
 			<ul>
-				<li class="<?php if ($page_name == 'current_match') echo 'active'; ?> ">
-					<a href="<?php echo site_url('user/current_match'); ?>">
-						<span><i class="entypo-dot"></i> <?php echo get_phrase('current_match'); ?></span>
+
+				<li class="<?php if ($page_name == 'matches') echo 'active'; ?> ">
+					<a href="<?php echo site_url('user/matches'); ?>">
+						<span><i class="entypo-dot"></i> <?php echo get_phrase('all_matches'); ?></span>
 					</a>
 				</li>
 
-				<li class="<?php if ($page_name == 'history') echo 'active'; ?> ">
-					<a href="<?php echo site_url('user/history'); ?>">
-						<span><i class="entypo-dot"></i> <?php echo get_phrase('history'); ?></span>
+				<li class="<?php if ($page_name == 'match_add_wiz') echo 'active'; ?> ">
+					<a href="<?php echo site_url('user/match_form/add'); ?>">
+						<span><i class="entypo-dot"></i> <?php echo get_phrase('add_new_match'); ?></span>
+					</a>
+				</li>
+
+			</ul>
+		</li>
+
+
+		<!-- Roster -->
+
+		<li class="<?php if ( $page_name == 'rosters' || $page_name == 'roster_add' || $page_name == 'roster_edit') echo 'opened active has-sub'; ?>">
+			<a href="#">
+				<i class="fa fa-book-open"></i>
+				<span><?php echo get_phrase('rosters'); ?></span>
+			</a>
+			<ul>
+				<li class="<?php if ($page_name == 'users') echo 'active'; ?> ">
+					<a href="<?php echo site_url('user/rosters'); ?>">
+						<span><i class="entypo-dot"></i> <?php echo get_phrase('all_rosters'); ?></span>
+					</a>
+				</li>
+
+				<li class="<?php if ($page_name == 'user_add') echo 'active'; ?> ">
+					<a href="<?php echo site_url('user/roster_form/add'); ?>">
+						<span><i class="entypo-dot"></i> <?php echo get_phrase('roster_add'); ?></span>
 					</a>
 				</li>
 			</ul>
 		</li>
 
-
-
-
-			<!-- Report -->
-			<li class="<?php if ($page_name == 'battle report') echo 'active'; ?>">
-				<a href="<?php echo site_url('user/report'); ?>">
-					<i class="fa fa-book"></i>
-					<span><?php echo get_phrase('report'); ?></span>
-				</a>
-			</li>
-
+		<!-- History -->
+		<li class="<?php if ($page_name == 'history') echo 'active'; ?> ">
+			<a href="<?php echo site_url('user/history'); ?>">
+				<i class="fa fa-book"></i>
+				<span> <?php echo get_phrase('history'); ?></span>
+			</a>
+		</li>
 			<!-- Manage Profile -->
 			<li class="<?php if ($page_name == 'manage_profile') echo 'active'; ?>">
 				<a href="<?php echo site_url('user/manage_profile'); ?>">

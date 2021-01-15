@@ -18,9 +18,9 @@
 			<?php
 			if ($page_name == 'home' || $page_name == '404')
 				include 'header_home.php';
-			else if ($page_name == 'listings' || $page_name == 'listing/create')
-				include 'header_listing.php';
-			else if ($page_name == 'directory_listing')
+			else if ($page_name == 'matches' || $page_name == 'listing/create')
+				include 'header_matches.php';
+			else if ($page_name == 'match_listing')
 				include 'header_home.php';
 			else
 				include 'header.php';
@@ -33,7 +33,7 @@
 
 			<!-- Site footer -->
 			<?php
-				if(!($page_name == 'listings' && $this->session->userdata('listings_view') == 'list_view')):
+				if(!($page_name == 'matches' && $this->session->userdata('matches_view') == 'match_view')):
 					include 'footer.php';
 				endif;
 			?>

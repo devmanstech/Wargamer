@@ -13,7 +13,7 @@
 				continue; ?>
 			<div class="col-md-4 mb-3">
 				<div class="category-title">
-					<a href="<?php echo site_url('home/filter_listings?category='.slugify($category['name']).'&&amenity=&&video=0&&status=all'); ?>" style="color: unset;"><?php echo $category['name']; ?> <small style='font-size: 12px;'>(<?php echo count($this->frontend_model->get_category_wise_listings($category['id'])); ?>)</small></a>
+					<a href="<?php echo site_url('home/filter_matches?category='.slugify($category['name']).'&&amenity=&&video=0&&status=all'); ?>" style="color: unset;"><?php echo $category['name']; ?> <small style='font-size: 12px;'>(<?php echo count($this->frontend_model->get_category_wise_listings($category['id'])); ?>)</small></a>
 				</div>
 				<?php
 				$this->db->order_by('name', 'asc');

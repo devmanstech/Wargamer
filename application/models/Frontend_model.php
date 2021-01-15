@@ -11,94 +11,94 @@ class Frontend_model extends CI_Model {
         $this->output->set_header('Pragma: no-cache');
     }
 
-    function get_listings() {
+    function get_matches() {
         $this->db->where('status', 'active');
-        return $this->db->get('listing');
+        return $this->db->get('match');
     }
 
 
-    function filter_listing($category_ids = array(), $amenity_ids = array(), $city_id = "", $price_range = 0, $with_video = 0, $with_open = 'all') {
-        $listing_ids = array();
-        $listing_ids_with_open = array();
-        $listing_ids_with_video = array();
-        $listing_ids_with_this_city = array();
-        $listing_ids_with_this_price_range = array();
+    function filter_matches($category_ids = array(), $amenity_ids = array(), $city_id = "", $price_range = 0, $with_video = 0, $with_open = 'all') {
+        $match_ids = array();
+        $match_ids_with_open = array();
+        $match_ids_with_video = array();
+        $match_ids_with_this_city = array();
+        $match_ids_with_this_price_range = array();
 
         $this->db->where('status', 'active');
-        $listings = $this->db->get('listing')->result_array();
-        foreach ($listings as $listing) {
-            $categories = json_decode($listing['categories']);
-            $amenities  = json_decode($listing['amenities']);
+        $matches = $this->db->get('match')->result_array();
+        foreach ($matches as $match) {
+            $categories = json_decode($match['categories']);
+            $amenities  = json_decode($match['amenities']);
 
             if(!array_diff($category_ids, $categories) && !array_diff($amenity_ids, $amenities)) {
 
-                // push the listing id if the video url is not empty
+                // push the match id if the video url is not empty
                 if ($with_video == 1) {
-                    if ($listing['video_url'] != "") {
-                        if (!in_array($listing['id'], $listing_ids_with_video)) {
-                          array_push($listing_ids_with_video, $listing['id']);
+                    if ($match['video_url'] != "") {
+                        if (!in_array($match['id'], $match_ids_with_video)) {
+                          array_push($match_ids_with_video, $match['id']);
                         }
                     }
                 }else {
-                  array_push($listing_ids_with_video, $listing['id']);
+                  array_push($match_ids_with_video, $match['id']);
                 }
 
-                // push the listing id if the opening time matching current time
+                // push the match id if the opening time matching current time
                 if ($with_open == 'open') {
 
-                    $current_day_opening_time = $this->db->get_where('time_configuration', array('listing_id' => $listing['id']))->row(strtolower(date("l")));
+                    $current_day_opening_time = $this->db->get_where('time_configuration', array('match_id' => $match['id']))->row(strtolower(date("l")));
                     $open_and_colseing_time = explode('-', $current_day_opening_time);
                     if($open_and_colseing_time[0] <= date('H') &&  $open_and_colseing_time[1] >= date('H')){
-                        if (!in_array($listing['id'], $listing_ids_with_open)) {
-                          array_push($listing_ids_with_open, $listing['id']);
+                        if (!in_array($match['id'], $match_ids_with_open)) {
+                          array_push($match_ids_with_open, $match['id']);
                         }
                     }
                 }else {
-                  array_push($listing_ids_with_open, $listing['id']);
+                  array_push($match_ids_with_open, $match['id']);
                 }
 
-                //Push the listing id if the listing has this city id
+                //Push the match id if the match has this city id
                 if ($city_id != "" && $city_id != "all") {
-                  if ($listing['city_id'] == $city_id) {
-                    if (!in_array($listing['id'], $listing_ids_with_this_city)) {
-                      array_push($listing_ids_with_this_city, $listing['id']);
+                  if ($match['city_id'] == $city_id) {
+                    if (!in_array($match['id'], $match_ids_with_this_city)) {
+                      array_push($match_ids_with_this_city, $match['id']);
                     }
                   }
                 }else {
-                  array_push($listing_ids_with_this_city, $listing['id']);
+                  array_push($match_ids_with_this_city, $match['id']);
                 }
 
-                // Push the listing id if it lies in this price range
+                // Push the match id if it lies in this price range
                 if ($price_range > 0) {
-                  $returned_listing_id = $this->check_if_this_listing_lies_in_price_range($listing['id'], $price_range);
-                  if ($returned_listing_id > 0) {
-                    if (!in_array($returned_listing_id, $listing_ids_with_this_price_range)) {
-                      array_push($listing_ids_with_this_price_range, $returned_listing_id);
+                  $returned_match_id = $this->check_if_this_match_lies_in_price_range($match['id'], $price_range);
+                  if ($returned_match_id > 0) {
+                    if (!in_array($returned_match_id, $match_ids_with_this_price_range)) {
+                      array_push($match_ids_with_this_price_range, $returned_match_id);
                     }
                   }
                 }else {
-                  array_push($listing_ids_with_this_price_range, $listing['id']);
+                  array_push($match_ids_with_this_price_range, $match['id']);
                 }
 
                 // If with video checkbox and city checkbox remain unchecked
                 if ($with_open != 'open' && $with_video != 1 && $city_id == "" && $price_range == 0) {
-                  if (!in_array($listing['id'], $listing_ids)) {
-                    array_push($listing_ids, $listing['id']);
+                  if (!in_array($match['id'], $match_ids)) {
+                    array_push($match_ids, $match['id']);
                   }
                 }else {
-                    $listing_ids = array_intersect($listing_ids_with_open, $listing_ids_with_video, $listing_ids_with_this_city, $listing_ids_with_this_price_range);
-                    //print_r($listing_ids_with_video);
-                    // print_r($listing_ids_with_this_city);
-                    // print_r($listing_ids_with_this_price_range);
-                    // print_r($listing_ids);
+                    $match_ids = array_intersect($match_ids_with_open, $match_ids_with_video, $match_ids_with_this_city, $match_ids_with_this_price_range);
+                    //print_r($match_ids_with_video);
+                    // print_r($match_ids_with_this_city);
+                    // print_r($match_ids_with_this_price_range);
+                    // print_r($match_ids);
                 }
             }
         }
 
-        if (count($listing_ids) > 0) {
+        if (count($match_ids) > 0) {
             $this->db->order_by('is_featured', 'desc');
-            $this->db->where_in('id', $listing_ids);
-            return $this->db->get('listing')->result_array();
+            $this->db->where_in('id', $match_ids);
+            return $this->db->get('match')->result_array();
         }else {
             return array();
         }
@@ -119,33 +119,33 @@ class Frontend_model extends CI_Model {
     // Functions related to review
     function post_review() {
         $data['reviewer_id'] = $this->input->post('reviewer_id');
-        $data['listing_id'] = sanitizer($this->input->post('listing_id'));
+        $data['match_id'] = sanitizer($this->input->post('match_id'));
         $data['review_rating'] = sanitizer($this->input->post('review_rating'));
         $data['review_comment'] = sanitizer($this->input->post('review_comment'));
         $data['timestamp'] = strtotime(date('D, d-M-Y'));
         $this->db->insert('review', $data);
     }
 
-    function get_listing_wise_review($listing_id = "") {
-        return $this->db->get_where('review', array('listing_id' => $listing_id))->result_array();
+    function get_match_wise_review($match_id = "") {
+        return $this->db->get_where('review', array('match_id' => $match_id))->result_array();
     }
 
-    function get_listing_wise_rating($listing_id = "") {
+    function get_match_wise_rating($match_id = "") {
         $this->db->select_avg('review_rating');
-        $rating = $this->db->get_where('review', array('listing_id' => $listing_id))->row()->review_rating;
+        $rating = $this->db->get_where('review', array('match_id' => $match_id))->row()->review_rating;
         return number_format((float)$rating, 1, '.', '');
     }
 
-    function get_rating_wise_quality($listing_id = "") {
-        $rating = $this->get_listing_wise_rating($listing_id);
+    function get_rating_wise_quality($match_id = "") {
+        $rating = $this->get_match_wise_rating($match_id);
         $this->db->where('rating_to >=', $rating);
         $this->db->where('rating_from <=', $rating);
         return $this->db->get('review_wise_quality')->row_array();
     }
 
-    public function get_percentage_of_specific_rating($listing_id = "", $rating = "") {
-        $total_number_of_reviewers = count($this->get_listing_wise_review($listing_id));
-        $total_number_of_reviewers_of_specific_rating = $this->db->get_where('review', array('listing_id' => $listing_id, 'review_rating' => $rating))->num_rows();
+    public function get_percentage_of_specific_rating($match_id = "", $rating = "") {
+        $total_number_of_reviewers = count($this->get_match_wise_review($match_id));
+        $total_number_of_reviewers_of_specific_rating = $this->db->get_where('review', array('match_id' => $match_id, 'review_rating' => $rating))->num_rows();
 
         if ($total_number_of_reviewers_of_specific_rating > 0) {
             $percentage = ($total_number_of_reviewers_of_specific_rating / $total_number_of_reviewers) * 100;
@@ -165,30 +165,30 @@ class Frontend_model extends CI_Model {
     }
 
 
-    function claim_this_listing() {
-      $data['listing_id'] = sanitizer($this->input->post('listing_id'));
+    function claim_this_match() {
+      $data['match_id'] = sanitizer($this->input->post('match_id'));
       $data['user_id'] = sanitizer($this->input->post('user_id'));
       $data['full_name'] = sanitizer($this->input->post('full_name'));
       $data['phone'] = sanitizer($this->input->post('phone'));
       $data['additional_information'] = sanitizer($this->input->post('additional_information'));
       $data['status'] = 0;
-      $this->db->insert('claimed_listing', $data);
+      $this->db->insert('claimed_match', $data);
     }
 
-    function report_this_listing() {
-      $data['listing_id'] = sanitizer($this->input->post('listing_id'));
+    function report_this_match() {
+      $data['match_id'] = sanitizer($this->input->post('match_id'));
       $data['reporter_id'] = sanitizer($this->input->post('reporter_id'));
       $data['report'] = sanitizer($this->input->post('report'));
       $data['status'] = 0;
       $data['date_added'] = strtotime(date('D, d M Y'));
-      $this->db->insert('reported_listing', $data);
+      $this->db->insert('reported_match', $data);
     }
 
     function restaurant_booking(){
         $data['user_id']             = $this->input->post('user_id');
         $data['requester_id']             = $this->input->post('requester_id');
-        $data['listing_id']               = $this->input->post('listing_id');
-        $data['listing_type']               = $this->input->post('listing_type');
+        $data['match_id']               = $this->input->post('match_id');
+        $data['match_type']               = $this->input->post('match_type');
         $data['booking_date']             = strtotime($this->input->post('dates'));
 
         $additional_data['adult_guests']  = $this->input->post('adult_guests_for_booking');
@@ -204,8 +204,8 @@ class Frontend_model extends CI_Model {
     function beauty_service(){
         $data['user_id']             = $this->input->post('user_id');
         $data['requester_id']             = $this->input->post('requester_id');
-        $data['listing_id']               = $this->input->post('listing_id');
-        $data['listing_type']               = $this->input->post('listing_type');
+        $data['match_id']               = $this->input->post('match_id');
+        $data['match_type']               = $this->input->post('match_type');
         $data['booking_date']             = strtotime($this->input->post('dates'));
 
         $additional_data['time']          = strtotime($this->input->post('time'));
@@ -221,8 +221,8 @@ class Frontend_model extends CI_Model {
     function hotel_booking(){
         $data['user_id']                  = $this->input->post('user_id');
         $data['requester_id']                  = $this->input->post('requester_id');
-        $data['listing_id']               = $this->input->post('listing_id');
-        $data['listing_type']               = $this->input->post('listing_type');
+        $data['match_id']               = $this->input->post('match_id');
+        $data['match_type']               = $this->input->post('match_type');
 
         $dates= explode('>', $this->input->post('dates'));
 
@@ -247,54 +247,54 @@ class Frontend_model extends CI_Model {
         $this->db->insert('booking', $data);
     }
 
-    function get_category_wise_listings($category_id = "") {
-        $listing_ids = array();
-        $listings = $this->get_listings()->result_array();
-        foreach ($listings as $listing) {
-            if(!has_package($listing['user_id']) > 0){
+    function get_category_wise_matches($category_id = "") {
+        $match_ids = array();
+        $matches = $this->get_matches()->result_array();
+        foreach ($matches as $match) {
+            if(!has_package($match['user_id']) > 0){
                 continue;
             }
-            $categories = json_decode($listing['categories']);
+            $categories = json_decode($match['categories']);
             if(in_array($category_id, $categories)) {
-                array_push($listing_ids, $listing['id']);
+                array_push($match_ids, $match['id']);
             }
         }
-        if (count($listing_ids) > 0) {
-            $this->db->where_in('id', $listing_ids);
+        if (count($match_ids) > 0) {
+            $this->db->where_in('id', $match_ids);
             $this->db->where('status', 'active');
-            return  $this->db->get('listing')->result_array();
+            return  $this->db->get('match')->result_array();
         }else {
             return array();
         }
     }
 
-    function get_top_ten_listings() {
-        $listing_ids = array();
-        $listing_id_with_rating = array();
-        $listings = $this->get_listings()->result_array();
-        foreach ($listings as $listing) {
-          if(!has_package($listing['user_id']) > 0){
+    function get_top_ten_matches() {
+        $match_ids = array();
+        $match_id_with_rating = array();
+        $matches = $this->get_matches()->result_array();
+        foreach ($matches as $match) {
+          if(!has_package($match['user_id']) > 0){
             continue;
           }
-          $listing_id_with_rating[$listing['id']] = $this->get_listing_wise_rating($listing['id']);
+          $match_id_with_rating[$match['id']] = $this->get_match_wise_rating($match['id']);
         }
-        arsort($listing_id_with_rating);
-        foreach ($listing_id_with_rating as $key => $value) {
-            if (count($listing_ids) <= 10) {
-                array_push($listing_ids, $key);
+        arsort($match_id_with_rating);
+        foreach ($match_id_with_rating as $key => $value) {
+            if (count($match_ids) <= 10) {
+                array_push($match_ids, $key);
             }
         }
-        if (count($listing_ids) > 0) {
-            $this->db->where_in('id', $listing_ids);
+        if (count($match_ids) > 0) {
+            $this->db->where_in('id', $match_ids);
             $this->db->where('status', 'active');
-            return  $this->db->get('listing')->result_array();
+            return  $this->db->get('match')->result_array();
         }else {
             return array();
         }
     }
 
     // //For ustom pagination
-    // function search_listing($search_string = '', $selected_category_id = '', $page_number = 1) {
+    // function search_match($search_string = '', $selected_category_id = '', $page_number = 1) {
     //     if($page_number == 1):
     //         $starting_value = 0;
     //         $end_value = $page_number * 8;
@@ -314,10 +314,10 @@ class Frontend_model extends CI_Model {
 
     //     $this->db->where('status', 'active');
 
-    //     return  $this->db->get('listing', $end_value, $starting_value)->result_array();
+    //     return  $this->db->get('match', $end_value, $starting_value)->result_array();
     // }
 
-    function search_listing($search_string = '', $selected_category_id = '') {
+    function search_match($search_string = '', $selected_category_id = '') {
         if ($search_string != "") {
             $this->db->like('name', $search_string);
             $this->db->or_like('description', $search_string);
@@ -330,10 +330,10 @@ class Frontend_model extends CI_Model {
         $this->db->order_by('is_featured', 'desc');
 
         $this->db->where('status', 'active');
-        return  $this->db->get('listing')->result_array();
+        return  $this->db->get('match')->result_array();
     }
 
-    function search_listing_all_rows($search_string = '', $selected_category_id = '') {
+    function search_match_all_rows($search_string = '', $selected_category_id = '') {
         if ($search_string != "") {
             $this->db->like('name', $search_string);
             $this->db->or_like('description', $search_string);
@@ -346,10 +346,10 @@ class Frontend_model extends CI_Model {
 
         $this->db->where('status', 'active');
 
-        return  $this->db->get('listing')->result_array();
+        return  $this->db->get('match')->result_array();
     }
 
-    function get_the_maximum_price_limit_of_all_listings() {
+    function get_the_maximum_price_limit_of_all_matches() {
       $related_tables = array('hotel_room_specification', 'food_menu', 'product_details');
       $maximum_prices = array();
       for ($i=0; $i < count($related_tables); $i++) { // select_max active record didn't work, thats why i had to do in this shitty style
@@ -368,36 +368,36 @@ class Frontend_model extends CI_Model {
       return max($maximum_prices);
     }
 
-    function check_if_this_listing_lies_in_price_range($listing_id = "", $price_range = "") {
+    function check_if_this_match_lies_in_price_range($match_id = "", $price_range = "") {
 
       $maximum_price = 0;
 
       if ($price_range > 0) {
-        $listing_details = $this->db->get_where('listing', array('id' => $listing_id))->row_array();
+        $match_details = $this->db->get_where('match', array('id' => $match_id))->row_array();
 
-        if($listing_details['listing_type'] == 'hotel') {
+        if($match_details['match_type'] == 'hotel') {
           $this->db->select_max('price');
-          $maximum_price = $this->db->get_where('hotel_room_specification', array('listing_id' => $listing_id))->row()->price;
+          $maximum_price = $this->db->get_where('hotel_room_specification', array('match_id' => $match_id))->row()->price;
 
-        }elseif ($listing_details['listing_type'] == 'shop') {
+        }elseif ($match_details['match_type'] == 'shop') {
           $this->db->select_max('price');
-          $maximum_price = $this->db->get_where('product_details', array('listing_id' => $listing_id))->row()->price;
+          $maximum_price = $this->db->get_where('product_details', array('match_id' => $match_id))->row()->price;
 
-        }elseif ($listing_details['listing_type'] == 'restaurant') {
+        }elseif ($match_details['match_type'] == 'restaurant') {
           $this->db->select_max('price');
-          $maximum_price = $this->db->get_where('food_menu', array('listing_id' => $listing_id))->row()->price;
+          $maximum_price = $this->db->get_where('food_menu', array('match_id' => $match_id))->row()->price;
         }
 
-         // echo $listing_id.'-'.$maximum_price.'--'.$price_range.'<br/>';
+         // echo $match_id.'-'.$maximum_price.'--'.$price_range.'<br/>';
 
         // returning part
         if ($price_range >= $maximum_price) {
-            return $listing_id;
+            return $match_id;
         }else {
             return 0;
         }
       }else {
-        return $listing_id;
+        return $match_id;
       }
     }
 

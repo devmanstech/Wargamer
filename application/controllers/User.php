@@ -33,136 +33,85 @@ class User extends CI_Controller {
 		$this->load->view('backend/index.php', $page_data);
 	}
 
-	public function listings($param1 = '', $param2 = '') {
+	public function matches($param1 = '', $param2 = '') {
 		if ($this->session->userdata('user_login') != true) {
 			redirect(site_url('login'), 'refresh');
 		}
 		if ($param1 == 'add') {
-			$this->crud_model->add_listing();
-			redirect(site_url('user/listings'), 'refresh');
+			$this->crud_model->add_match();
+			redirect(site_url('user/matches'), 'refresh');
 		}elseif ($param1 == 'edit') {
-			$this->crud_model->update_listing($param2);
-			redirect(site_url('user/listings'), 'refresh');
+			$this->crud_model->update_match($param2);
+			redirect(site_url('user/matches'), 'refresh');
 		}elseif ($param1 == 'delete') {
-			$this->crud_model->delete_from_table('listing', $param2);
-			$this->session->set_flashdata('flash_message', get_phrase('listing_deleted'));
-			redirect(site_url('user/listings'), 'refresh');
+			$this->crud_model->delete_from_table('matches', $param2);
+			$this->session->set_flashdata('flash_message', get_phrase('match_deleted'));
+			redirect(site_url('user/matches'), 'refresh');
 		}
 
 		// $page_data['timestamp_start'] = strtotime('-29 days', time());
 		// $page_data['timestamp_end']   = strtotime(date("m/d/Y"));
-		$page_data['page_name']  = 'listings';
-		$page_data['page_title'] = get_phrase('directories');
-		$page_data['listings'] = $this->db->get_where('listing', array('user_id' => $this->session->userdata('user_id')))->result_array();
+		$page_data['page_name']  = 'matches';
+		$page_data['page_title'] = get_phrase('matches');
+		$page_data['listings'] = $this->db->get_where('match	', array('user_id' => $this->session->userdata('user_id')))->result_array();
 		$this->load->view('backend/index', $page_data);
 	}
 
-	public function listing_form($param1 = '', $param2 = '') {
+	public function match_form($param1 = '', $param2 = '') {
 		if ($this->session->userdata('user_login') != true) {
 			redirect(site_url('login'), 'refresh');
 		}
-		if (has_package() > 0) {
-			if ($param1 == 'add') {
-				$page_data['page_name']  = 'listing_add_wiz';
-				$page_data['page_title'] = get_phrase('add_new_listing');
-			}elseif ($param1 == 'edit') {
-				$page_data['page_name']  = 'listing_edit_wiz';
-				$page_data['page_title'] = get_phrase('listing_edit');
-				$page_data['listing_id'] = $param2;
-			}
-			$this->load->view('backend/index.php', $page_data);
-		}else {
-			redirect(site_url('user'), 'refresh');
+		if ($param1 == 'add') {
+			$page_data['page_name']  = 'match_add_wiz';
+			$page_data['page_title'] = get_phrase('add_new_match');
+		}elseif ($param1 == 'edit') {
+			$page_data['page_name']  = 'match_edit_wiz';
+			$page_data['page_title'] = get_phrase('match_edit');
+			$page_data['listing_id'] = $param2;
 		}
-	}
-
-	function booking_request_hotel($param1 ='', $param2 = ''){
-		if ($this->session->userdata('user_login') != 1)
-			redirect(site_url('login'), 'refresh');
-
-		if($param1 == 'approved'){
-			$data['status'] = 1;
-			$this->db->where('id', $param2);
-			$this->db->update('booking', $data);
-			$this->email_model->request_approved_mail($param2);
-			$this->session->set_flashdata('flash_message', get_phrase('request_approved_successfully'));
-			redirect(site_url('user/booking_request_hotel'), 'refresh');
-		}
-		if($param1 == 'pending'){
-			$data['status'] = 0;
-			$this->db->where('id', $param2);
-			$this->db->update('booking', $data);
-			$this->session->set_flashdata('flash_message', get_phrase('request_pending_successfully'));
-			redirect(site_url('user/booking_request_hotel'), 'refresh');
-		}
-		if($param1 == 'delete'){
-			$this->db->where('id', $param2);
-			$this->db->delete('booking');
-			$this->session->set_flashdata('flash_message', get_phrase('booking_request_deleted_successfully'));
-			redirect(site_url('user/booking_request_hotel'), 'refresh');
-		}
-		$page_data['page_name'] = 'booking_request_hotel';
-		$page_data['page_title'] = get_phrase('booking_request');
 		$this->load->view('backend/index.php', $page_data);
 	}
 
-	function booking_request_restaurant($param1 ='', $param2 = ''){
-		if ($this->session->userdata('user_login') != 1)
-			redirect(site_url('login'), 'refresh');
 
-		if($param1 == 'approved'){
-			$data['status'] = 1;
-			$this->db->where('id', $param2);
-			$this->db->update('booking', $data);
-			$this->email_model->request_approved_mail($param2);
-			$this->session->set_flashdata('flash_message', get_phrase('request_approved_successfully'));
-			redirect(site_url('user/booking_request_restaurant'), 'refresh');
+	public function rosters($param1 = "", $param2 = "") {
+		if ($this->session->userdata('user_login') != true) {
+			redirect(site_url('login'), 'refresh');
 		}
-		if($param1 == 'pending'){
-			$data['status'] = 0;
-			$this->db->where('id', $param2);
-			$this->db->update('booking', $data);
-			$this->session->set_flashdata('flash_message', get_phrase('request_pending_successfully'));
-			redirect(site_url('user/booking_request_restaurant'), 'refresh');
+
+		if ($param1 == 'add') {
+			$this->user_model->add_roster();
+			redirect(site_url('user/rosters'), 'refresh');
 		}
-		if($param1 == 'delete'){
-			$this->db->where('id', $param2);
-			$this->db->delete('booking');
-			$this->session->set_flashdata('flash_message', get_phrase('booking_request_deleted_successfully'));
-			redirect(site_url('user/booking_request_restaurant'), 'refresh');
+		elseif ($param1 == 'view') {
+			$this->user_model->view_roster($param2);
+			redirect(site_url('user/rosters'), 'refresh');
+		}elseif ($param1 == 'delete') {
+			$this->crud_model->delete_from_table('roster', $param2);
+			$this->session->set_flashdata('flash_message', get_phrase('roster_has_been_deleted'));
+			redirect(site_url('user/rosters'), 'refresh');
 		}
-		$page_data['page_name'] = 'booking_request_restaurant';
-		$page_data['page_title'] = get_phrase('booking_request');
-		$this->load->view('backend/index.php', $page_data);
+
+		$page_data['page_name'] = 'rosters';
+		$page_data['page_title'] = get_phrase('rosters');
+		$page_data['rosters'] = $this->user_model->get_rosters();
+		$this->load->view('backend/index', $page_data);
+
 	}
 
-	function booking_request_beauty($param1 ='', $param2 = ''){
-		if ($this->session->userdata('user_login') != 1)
-			redirect(site_url('login'), 'refresh');
 
-		if($param1 == 'approved'){
-			$data['status'] = 1;
-			$this->db->where('id', $param2);
-			$this->db->update('booking', $data);
-			$this->email_model->request_approved_mail($param2);
-			$this->session->set_flashdata('flash_message', get_phrase('request_approved_successfully'));
-			redirect(site_url('user/booking_request_beauty'), 'refresh');
+	public function roster_form($param1 = "", $param2 = "") {
+		if ($this->session->userdata('user_login') != true) {
+			redirect(site_url('login'), 'refresh');
 		}
-		if($param1 == 'pending'){
-			$data['status'] = 0;
-			$this->db->where('id', $param2);
-			$this->db->update('booking', $data);
-			$this->session->set_flashdata('flash_message', get_phrase('request_pending_successfully'));
-			redirect(site_url('user/booking_request_beauty'), 'refresh');
+		if ($param1 == 'add') {
+			$page_data['page_name']  = 'roster_add';
+			$page_data['page_title'] = get_phrase('roster_add');
+		}elseif ($param1 == 'view') {
+			$page_data['page_name']  = 'roster_view';
+			$page_data['page_title'] = get_phrase('parse_roster');
+//			$page_data['user_id'] = $param2;
+			$page_data['roster'] = $this->user_model->view_roster($param2);
 		}
-		if($param1 == 'delete'){
-			$this->db->where('id', $param2);
-			$this->db->delete('booking');
-			$this->session->set_flashdata('flash_message', get_phrase('booking_request_deleted_successfully'));
-			redirect(site_url('user/booking_request_beauty'), 'refresh');
-		}
-		$page_data['page_name'] = 'booking_request_beauty';
-		$page_data['page_title'] = get_phrase('booking_request');
 		$this->load->view('backend/index.php', $page_data);
 	}
 
@@ -206,31 +155,8 @@ class User extends CI_Controller {
 		$this->load->view('backend/index.php', $page_data);
 	}
 
-	// Function after payment gets done
-	function payment_success($payment_method = "", $user_id = "", $package_id = "", $paid_amount = "") {
-		if ($this->session->userdata('user_login') != true) {
-			redirect(site_url('login'), 'refresh');
-		}
-		$this->crud_model->create_package_purchase_history($payment_method, $user_id, $package_id, $paid_amount);
-		$this->session->set_flashdata('flash_message', get_phrase('payment_success'));
-		redirect(site_url('user/purchase_history'), 'refresh');
-	}
 
-	//free package
-	function free_package($payment_method = "", $user_id = "", $package_id = "", $paid_amount = "") {
-		if ($this->session->userdata('user_login') != true) {
-			redirect(site_url('login'), 'refresh');
-		}
-		$this->crud_model->create_package_purchase_history($payment_method, $user_id, $package_id, $paid_amount);
-		$this->session->set_flashdata('flash_message', get_phrase('successfully_added_a_free_package'));
-		redirect(site_url('user/purchase_history'), 'refresh');
-	}
 
-	// Ajax calls
-	function get_city_list_by_country_id() {
-		$page_data['country_id'] = sanitizer($this->input->post('country_id'));
-		return $this->load->view('backend/user/city_list_dropdown', $page_data);
-	}
 
 	function filter_listing_table() {
 		$data['status'] 	= sanitizer($this->input->post('status'));
