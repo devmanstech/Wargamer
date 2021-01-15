@@ -115,6 +115,24 @@ class User extends CI_Controller {
 		$this->load->view('backend/index.php', $page_data);
 	}
 
+	function search($param1 = "", $param2 = ""){
+		if ($this->session->userdata('user_login') != true) {
+			redirect(site_url('login'), 'refresh');
+		}
+
+		if($param1 == 'start'){
+			$page_data['search_button_name'] = 'stop';
+			$page_data['page_name'] = 'search_form';
+		}elseif($param1 == 'stop'){
+			$page_data['search_button_name'] = 'start';
+			$page_data['page_name'] = 'search_result';
+		}
+
+
+		$this->load->view('backend/index.php', $page_data);
+
+	}
+
 	function review_modify($param1 = '', $param2 = '', $param3 = '', $param4 = ''){
 		if ($this->session->userdata('user_login') != 1)
 			redirect(site_url('login'), 'refresh');

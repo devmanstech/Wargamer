@@ -1,5 +1,5 @@
 <?php
-//$countries  = $this->db->get('country')->result_array();
+
 $rosters = $this->db->get('roster')->result_array();
 ?>
 <div class="row">

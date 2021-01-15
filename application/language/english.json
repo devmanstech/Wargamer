@@ -394,6 +394,8 @@
     "user_updated_successfully": "User updated successfully",
     "user_has_been_deleted": "User has been deleted",
     "roster_has_been_deleted": "Roster has been deleted",
+    "search_form": "Search Form",
+    "search_result": "Search Result",
     "setup_payment_informations": "Setup payment informations",
     "setup_paypal_settings": "Setup paypal settings",
     "update_paypal_keys": "Update paypal keys",
@@ -960,5 +962,6 @@
     "listing_category": "Listing category",
     "_opening": " opening",
     "add_new_listing": "Add new listing",
-    "rosters": "Rosters"
+    "rosters": "Rosters",
+    "search_form": "Search form"
 }

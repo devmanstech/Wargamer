@@ -1,7 +1,19 @@
 <div class="panel-primary" style="text-align-last: center;vertical-align: middle">
     <div class="row">
         <div class="col-lg-12" style="padding-top: 20px">
-            <a href="<?php base_url('user/search_form') ?>" class="btn btn-info" style="width: 80%">Search</a>
+
+            <?php
+            $button_name = isset($search_button_name) ?  $search_button_name : 'start' ;
+
+            ?>
+
+            <a href="<?php echo site_url('user/search/'.$button_name) ?>" class="btn btn-info" style="width: 80%">
+                <?php
+
+                echo "Search ", $button_name;
+
+                ?>
+            </a>
         </div>
     </div>
 
