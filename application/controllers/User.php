@@ -53,7 +53,6 @@ class User extends CI_Controller {
 		// $page_data['timestamp_end']   = strtotime(date("m/d/Y"));
 		$page_data['page_name']  = 'matches';
 		$page_data['page_title'] = get_phrase('matches');
-		$page_data['listings'] = $this->db->get_where('match	', array('user_id' => $this->session->userdata('user_id')))->result_array();
 		$this->load->view('backend/index', $page_data);
 	}
 
@@ -123,11 +122,17 @@ class User extends CI_Controller {
 		if($param1 == 'start'){
 			$page_data['search_button_name'] = 'stop';
 			$page_data['page_name'] = 'search_form';
-		}elseif($param1 == 'stop'){
+		}elseif($param1 == 'add'){
+			$this->user_model->add_queue();
 			$page_data['search_button_name'] = 'start';
-			$page_data['page_name'] = 'search_result';
-		}
+			$page_data['page_name'] = 'current_match';
+			redirect(site_url('user/current_match'), 'refresh');
+		}elseif($param1 == 'stop'){
+			$user_id = $param2;
+			$this->user_model->delete_queue($user_id);
 
+			redirect(site_url('user/current_match'), 'refresh');
+		}
 
 		$this->load->view('backend/index.php', $page_data);
 
@@ -172,8 +177,6 @@ class User extends CI_Controller {
 //		$page_data['packages'] = $this->crud_model->get_packages()->result_array();
 		$this->load->view('backend/index.php', $page_data);
 	}
-
-
 
 
 	function filter_listing_table() {

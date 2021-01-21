@@ -11,8 +11,16 @@
         padding: 8px;
     }
 
-    tr:nth-child(even){background-color: #f2f2f2}
+    tr:nth-child(even) {
+        background-color: #f2f2f2
+    }
+
 </style>
+<?php
+$factions = array();
+$factions = $this->db->get('faction')->result_array();
+
+?>
 
 <div class="row">
     <div class="col-lg-12">
@@ -24,67 +32,52 @@
             </div>
             <div class="panel-body">
 
-
-                <div>
-                    <table>
+                <table id="faction_table" class="cell-border" style="width:100%">
+                    <thead class="cell-border">
+                    <tr>
+                        <th>Faction</th>
+                        <?php
+                        foreach ($factions as $faction) {
+                            ?>
+                            <th><?php echo $faction['name'] ?></th>
+                            <?php
+                        }
+                        ?>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <?php
+                    foreach ($factions as $faction) {
+                        ?>
                         <tr>
-                            <th>Faction</th>
-                            <th>Points</th>
-                            <th>Points</th>
-                            <th>Points</th>
-                            <th>Points</th>
-                            <th>Points</th>
-                            <th>Points</th>
-                            <th>Points</th>
-                            <th>Points</th>
-                            <th>Points</th>
-                            <th>Points</th>
+                            <td><?php echo $faction['name']; ?></td>
+                            <?php
+                            foreach ($factions as $faction) {
+                                ?>
+                                <td style="text-align-last: center"><?php echo '1/1' ?></td>
+                                <?php
+                            }
+                            ?>
                         </tr>
-                        <tr>
-                            <td>Smith</td>
-                            <td>50</td>
-                            <td>50</td>
-                            <td>50</td>
-                            <td>50</td>
-                            <td>50</td>
-                            <td>50</td>
-                            <td>50</td>
-                            <td>50</td>
-                            <td>50</td>
-                            <td>50</td>
-                        </tr>
-                        <tr>
-
-                            <td>Jackson</td>
-                            <td>94</td>
-                            <td>94</td>
-                            <td>94</td>
-                            <td>94</td>
-                            <td>94</td>
-                            <td>94</td>
-                            <td>94</td>
-                            <td>94</td>
-                            <td>94</td>
-                            <td>94</td>
-                        </tr>
-                        <tr>
-
-                            <td>Johnson</td>
-                            <td>67</td>
-                            <td>67</td>
-                            <td>67</td>
-                            <td>67</td>
-                            <td>67</td>
-                            <td>67</td>
-                            <td>67</td>
-                            <td>67</td>
-                            <td>67</td>
-                            <td>67</td>
-                        </tr>
-                    </table>
+                        <?php
+                    }
+                    ?>
+                    </tbody>
+                </table>
 
 
             </div>
         </div>
     </div><!-- end col-->
 </div>
+
+<script>
+    $(document).ready(function () {
+        $('#faction_table').DataTable({
+            "scrollY": 300,
+            "scrollX": true,
+            "ordering": false,
+            "paging": false
+        });
+    });
+</script>
