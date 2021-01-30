@@ -182,3 +182,7 @@ function initCKEditor(ids) {
     CKEDITOR.replace(id);
   }
 }
+
+
+    
+    

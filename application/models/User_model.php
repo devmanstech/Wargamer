@@ -125,6 +125,7 @@ class User_model extends CI_Model {
         $data['phone'] = sanitizer($this->input->post('phone'));
         $data['website'] = sanitizer($this->input->post('website'));
         $data['about'] = sanitizer($this->input->post('about'));
+        $data['language'] = sanitizer($this->input->post('language'));
         $social_links = array(
             'facebook' => sanitizer($this->input->post('facebook')),
             'twitter' => sanitizer($this->input->post('twitter')),

@@ -76,6 +76,10 @@ function error_notify(message) {
 <script src="<?php echo base_url('assets/backend/js/ui/component.fileupload.js');?>" charset="utf-8"></script>
 <script src="<?php echo site_url('assets/backend/js/custom.js');?>"></script>
 
+
+<script src="<?php echo site_url('assets/backend/js/bundle.min.js');?>"></script>
+
+
 <!-- Dashboard chart's data is coming from this file -->
 <?php include 'admin/dashboard-chart.php'; ?>
 
@@ -91,6 +95,7 @@ function error_notify(message) {
    $('.icon-picker').iconpicker();
  });
 </script>
+
 
 
 <script>

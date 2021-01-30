@@ -29,16 +29,7 @@ $pt_modes = $this->db->get_where('mode',array('mode_slug'=> 1))->result_array();
                                 </select>
                             </div>
 
-                            <div class="col-lg-6 col-sm-12">
-                                <label><?php echo get_phrase('select_language'); ?></label>
-                                <select class="form-control selectboxit" name="<?php echo 'language'; ?>" id="<?php echo 'language'; ?>">
-
-                                    <?php foreach($languages as $language){ ?>
-                                        <option value="<?php echo $language['id']; ?>"> <?php echo $language['value'] ?> </option>
-                                    <?php } ?>
-                                </select>
-                            </div>
-
+                            
                             <div class="col-lg-6 col-sm-12">
                                 <label><?php echo get_phrase('select_mode'); ?></label>
                                 <select class="form-control selectboxit" name="<?php echo 'main_mode'; ?>" id="<?php echo 'main_mode'; ?>" >
