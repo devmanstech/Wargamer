@@ -1,5 +1,7 @@
 <script type="text/javascript">
       jQuery(document).ready(function($) {
-            $('.datatable').DataTable();
+            $('.datatable').DataTable( {
+    ordering: true
+});
       });
 </script>

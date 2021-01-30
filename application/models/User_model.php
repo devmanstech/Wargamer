@@ -153,15 +153,11 @@ class User_model extends CI_Model {
     }
 
 
-    public function get_rosters() {
-
-        return $this->db->get('roster');
-    }
-
 
     public function add_roster() {
 
         $data['name'] = sanitizer($this->input->post('name'));
+        $data['user_id'] = sanitizer($this->input->post('user_id'));
 
         $validity = $this->check_roster_duplication('on_create', $data['name']);
         if($validity){

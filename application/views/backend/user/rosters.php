@@ -1,3 +1,7 @@
+<?php 
+$rosters = $this->db->get_where('roster', array('user_id'=>$logged_in_user_id));
+?>
+
 <div class="row ">
     <div class="col-lg-12">
         <a href="<?php echo site_url('user/roster_form/add'); ?>" class="btn btn-primary alignToTitle"><i class="entypo-plus"></i><?php echo get_phrase('roster_add'); ?></a>
@@ -12,7 +16,7 @@
 				</div>
 			</div>
 			<div class="panel-body">
-                <table class="table table-bordered datatable">
+                <table class="table table-bordered" id="roster_table">
                 	<thead>
                 		<tr>
                 			<th width="80"><div>#</div></th>
@@ -62,3 +66,13 @@
 		</div>
 	</div><!-- end col-->
 </div>
+
+<script>
+    $(document).ready(function () {
+        $('#roster_table').DataTable({            
+            "scrollX": true,
+            "ordering": false,
+            "paging": false
+        });
+    });
+</script>

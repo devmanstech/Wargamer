@@ -33,22 +33,13 @@ $pt_modes = $this->db->get_where('mode',array('mode_slug'=> 1))->result_array();
                             <div class="col-lg-6 col-sm-12">
                                 <label><?php echo get_phrase('select_mode'); ?></label>
                                 <select class="form-control selectboxit" name="<?php echo 'main_mode'; ?>" id="<?php echo 'main_mode'; ?>" >
-                                    <option value="0"> <?php echo 'Main mode (Default All)' ?> </option>
+                                    
                                     <?php foreach($main_modes as $main_mode){ ?>
                                         <option value="<?php echo $main_mode['id']; ?>"> <?php echo $main_mode['name'] ?> </option>
                                     <?php } ?>
                                 </select>
                             </div>
 
-                            <div class="col-lg-6 col-sm-12">
-                                <label> </label>
-                                <select class="form-control selectboxit" name="<?php echo 'pt_mode'; ?>" id="<?php echo 'pt_mode'; ?>">
-                                    <option value="0"> <?php echo 'Point mode (Default All)' ?> </option>
-                                    <?php foreach($pt_modes as $pt_mode){ ?>
-                                        <option value="<?php echo $pt_mode['id']; ?>"> <?php echo $pt_mode['name'] ?> </option>
-                                    <?php } ?>
-                                </select>
-                            </div>
                         </div>
 
                         <hr>

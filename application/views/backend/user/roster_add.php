@@ -35,6 +35,8 @@
               </div>
             </div>
           </div>
+          <input type="hidden" name="user_id" value="<?php echo $logged_in_user_id ?>" />
+            
           <div class="col-sm-offset-3 col-sm-5" style="padding-top: 10px;">
             <button type="submit" class="btn btn-info"><?php echo get_phrase('add_roster'); ?></button>
           </div>

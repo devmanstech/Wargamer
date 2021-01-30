@@ -17,6 +17,7 @@ class User extends CI_Controller {
 	}
 
 	public function index() {
+		
 		if ($this->session->userdata('user_login') == true) {
 			$this->dashboard();
 		}else {
@@ -30,6 +31,7 @@ class User extends CI_Controller {
 		}
 		$page_data['page_name'] = 'dashboard';
 		$page_data['page_title'] = get_phrase('dashboard');
+	
 		$this->load->view('backend/index.php', $page_data);
 	}
 
@@ -92,7 +94,7 @@ class User extends CI_Controller {
 
 		$page_data['page_name'] = 'rosters';
 		$page_data['page_title'] = get_phrase('rosters');
-		$page_data['rosters'] = $this->user_model->get_rosters();
+		
 		$this->load->view('backend/index', $page_data);
 
 	}
