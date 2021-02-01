@@ -4,6 +4,7 @@ $user_details = $this->user_model->get_all_users($this->session->userdata('user_
 $text_align     = $this->db->get_where('settings', array('type' => 'text_align'))->row()->description;
 $logged_in_user_role = strtolower($this->session->userdata('role'));
 $logged_in_user_id =$user_details['id'];
+$logged_in_user_language = $user_details['language'];
 ?>
 
 <!DOCTYPE html>

@@ -1,6 +1,7 @@
 <?php
 
-$rosters = $this->db->get('roster')->result_array();
+$rosters = $this->db->get_where('roster', array('user_id'=>$logged_in_user_id))->result_array();
+
 $languages = $this->db->get('language')->result_array();
 $main_modes = $this->db->get_where('mode',array('mode_slug'=> 0))->result_array();
 $pt_modes = $this->db->get_where('mode',array('mode_slug'=> 1))->result_array();
@@ -20,9 +21,9 @@ $pt_modes = $this->db->get_where('mode',array('mode_slug'=> 1))->result_array();
 
                         <div class="row" style="margin-bottom: 15px;">
                             <div class="col-lg-6 col-sm-12">
-                                <label><?php echo get_phrase('select_roster'); ?></label>
-                                <select class="form-control selectboxit" name="<?php echo 'roster'; ?>" id="<?php echo 'roster'; ?>">
-
+                                <label><?php echo get_phrase('select_roster'), "*"; ?></label>
+                                <select class="form-control selectboxit" name="<?php echo 'roster'; ?>" id="<?php echo 'roster'; ?>" required>
+                               
                                     <?php foreach($rosters as $roster){ ?>
                                         <option value="<?php echo $roster['id']; ?>"> <?php echo $roster['name'] ?> </option>
                                     <?php } ?>
@@ -40,7 +41,27 @@ $pt_modes = $this->db->get_where('mode',array('mode_slug'=> 1))->result_array();
                                 </select>
                             </div>
 
+
                         </div>
+                        <hr>
+
+                        <div class="row" style="margin-bottom: 15px;">
+                                                        
+                            <div class="col-lg-6 col-sm-12">
+                                <label><?php echo get_phrase('faction'), " :"; ?></label>
+                                <span id="faction"></span>
+                            </div>
+
+                            <div class="col-lg-6 col-sm-12">
+                                <label><?php echo get_phrase('point'), " :"; ?></label>
+                                <span id="point"></span>
+                            </div>
+                        </div>
+
+                        <input type="hidden" name="language" value="<?php echo $logged_in_user_language ?>" />
+                        <input type="hidden" name="faction" class="faction" />
+                        <input type="hidden" name="point" class="point" />
+                        <input type="hidden" name="user_id" value="<?php echo $logged_in_user_id ?>" />
 
                         <hr>
 
@@ -53,4 +74,51 @@ $pt_modes = $this->db->get_where('mode',array('mode_slug'=> 1))->result_array();
     </div><!-- end col-->
 </div>
 
+
+<?php
+if(count($rosters)>0){
+    ?>
+    <script>
+var rosters = JSON.parse('<?php echo json_encode($rosters) ?>');
+
+function get_roster_by_id(id){
+    
+    for(var i=0;i<rosters.length; i++){
+        if(rosters[i]['id'] == id){
+            return rosters[i];
+        }
+    }
+}
+
+
+$(document).ready(function(){
+  
+
+    var roster_id = $('#roster').val();
+    var roster = get_roster_by_id(roster_id);
+    
+    $('#faction').html(roster['catalogue_name']);
+    $('input.faction').val(roster['catalogue_name']);
+    $('#point').html(roster['cost']);
+    $('input.point').val(roster['cost']);
+})
+
+$('#roster').change(function(){
+   
+    var roster_id = this.value;
+    var roster = get_roster_by_id(roster_id);
+    
+    $('#faction').html(roster['catalogue_name']);
+    $('input.faction').val(roster['catalogue_name']);
+    $('#point').html(roster['cost']);
+    $('input.point').val(roster['cost']);
+
+})
+</script>
+
+
+
+    <?php
+}
+?>
 

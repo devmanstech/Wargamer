@@ -1,3 +1,8 @@
+<?php
+$current_match_id = 0;
+$current_match  = $this->db->get_where('current_match', array('user_id'=>$logged_in_user_id))->result_array();
+if(count($current_match)) $current_match_id = $current_match[0]['match_id']
+?>
 <div class="sidebar-menu">
 	<header class="logo-env" >
 
@@ -38,8 +43,16 @@
 
 
 		<!-- Current Match -->
+
+
 		<li class="<?php if ($page_name == 'current_match') echo 'active'; ?> ">
-			<a href="<?php echo site_url('user/current_match'); ?>">
+			<a href="<?php
+			if($current_match_id){
+				echo site_url('user/current_match/'.$current_match_id);
+			}else{
+				echo site_url('user/current_match');
+			}
+			 ?>">
 				<i class="fa fa-gamepad"></i>
 				<span> <?php echo get_phrase('current_match'); ?></span>
 			</a>

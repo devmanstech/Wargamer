@@ -197,27 +197,117 @@ class User_model extends CI_Model {
 
 
     public function add_queue(){
-        $data['user_id'] = 1;
+        $data['user_id'] = sanitizer($this->input->post('user_id'));
         $roster_id = sanitizer($this->input->post('roster'));
+
         $faction_by_roster  = $this->db->get_where('roster', array('id'=>$roster_id))->result_array();
 //        var_dump($faction_by_roster);
 //        die();
         $faction = $faction_by_roster[0]['catalogue_name'];
+        $point = $faction_by_roster[0]['cost'];
         $data['faction'] = $faction;
+        $data['points'] = $point;
         $data['status'] = 1;
         $data['mode'] = sanitizer($this->input->post('main_mode'));
-        $data['language_id'] = sanitizer($this->input->post('language'));
+        $data['language'] = sanitizer($this->input->post('language'));
 
         $date = new DateTime('now');
 
         $data['create_at'] = $date->format('Y-m-d H:i:s');
         $data['update_at'] = $date->format('Y-m-d H:i:s');
 
-//        var_dump($data);
-//        die();
         $this->db->insert('queue', $data);
 
         $this->session->set_flashdata('flash_message', get_phrase('search_queued_successfully_done'));
+
+        //check if there is opponent
+        $this->check_queue($data['user_id']);
+
+    }
+
+    public function check_queue($user_id){
+       
+        $current_search = $this->db->get_where('queue',array('user_id'=>$user_id))->result_array();
+              
+        $current_search_lang = explode(',', $current_search[0]['language']);
+        $current_search_point = $current_search[0]['points'];
+        $current_search_mode = $current_search[0]['mode'];
+        $current_search_faction = $current_search[0]['faction'];
+        $current_search_status = $current_search[0]['status'];
+        // if you are selected , then finish search automatically and goto match page
+        if($current_search_status == 2){
+            $current_search_match_id = $current_search[0]['match_id'];
+            //delete queue
+            $this->delete_queue($user_id);
+            //add to current match 
+            $this->add_current_match($user_id, $current_search_match_id);
+
+            $this->session->set_flashdata('flash_message', "Match created successfully");
+            return $current_search_match_id;
+        }else{
+            $queues = $this->db->order_by('create_at', 'ASC')->get('queue')->result_array();
+            foreach($queues as $queue){
+    
+                
+                $queue_lang = explode(',',$queue['language']);
+                $queue_point = $queue['points'];
+                $queue_mode = $queue['mode'];
+                $queue_user_id = $queue['user_id'];
+                $queue_faction = $queue['faction'];
+                
+    
+                if($queue_user_id == $user_id) continue;
+    
+                //check language
+    
+                if (count(array_intersect($current_search_lang, $queue_lang)) == 0){
+                    
+                    continue;
+                } 
+    
+                //check points
+                if($current_search_point <= 1000 && $queue_point > 1000) continue;
+                if($current_search_point > 1000 && $queue_point <= 1000) continue;
+    
+                // make match                
+    
+                $match_id = $this->add_match($user_id, $queue_user_id, $current_search_faction, $queue_faction);
+                
+                $this->session->set_flashdata('flash_message', "Match created successfully");
+                //add match id to opponents queue
+                $this->update_queue($queue_user_id,$match_id);
+                $this->add_current_match($user_id, $match_id);
+                $this->delete_queue($user_id);
+                return $match_id;                
+            }        
+    
+            return false;
+        }
+
+
+    }
+
+
+    public function add_current_match($user_id, $match_id){
+        $data['user_id'] = $user_id;
+        $data['match_id'] = $match_id;
+
+        $res = $this->db->get_where('current_match', array('user_id'=>$user_id))->result_array();
+        if(count($res)){
+            $this->db->where('user_id', $user_id);
+            $this->db->update('current_match', $data);
+        }else{
+            $this->db->insert('current_match', $data);
+        }
+
+    }
+
+    public function update_queue($user_id, $match_id){
+        $data['match_id'] = $match_id;
+        $data['status'] = 2;
+        
+        $this->db->where('user_id', $user_id);
+        $this->db->update('queue', $data);
 
     }
 
@@ -225,9 +315,30 @@ class User_model extends CI_Model {
         $this->db->where('user_id', $user_id);
         $this->db->delete('queue');
 
-        $this->session->set_flashdata('flash_message', get_phrase('search_reject_queue'));
-
     }
+
+    public function add_match($player1_id, $player2_id, $player1_faction, $player2_faction){
+
+        $data['player1_id'] = $player1_id;
+        $data['player2_id'] = $player2_id;        
+
+        $data['player1_faction'] = $player1_faction;
+        $data['player2_faction'] = $player2_faction;
+       
+   
+        $date = new DateTime('now');
+        $data['created_at'] = $date->format('Y-m-d H:i:s');
+        $data['status'] = 0;
+        
+        $this->db->insert('match', $data);
+        $last_id = $this->db->insert_id();
+
+        $this->session->set_flashdata('flash_message', get_phrase('match_created_successfully'));
+
+        return $last_id;
+    }
+
+
 
     public function upload_roster_file($roster_name) {
         if (isset($_FILES['roster_file']) && $_FILES['roster_file']['name'] != "") {

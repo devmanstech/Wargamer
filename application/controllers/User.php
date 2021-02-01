@@ -124,15 +124,22 @@ class User extends CI_Controller {
 		if($param1 == 'start'){
 			$page_data['search_button_name'] = 'stop';
 			$page_data['page_name'] = 'search_form';
+		}elseif($param1 == 'check'){
+			$user_id = $param2;
+			echo $this->user_model->check_queue($user_id);
+				
+			return;
+			
 		}elseif($param1 == 'add'){
 			$this->user_model->add_queue();
+				
 			$page_data['search_button_name'] = 'start';
 			$page_data['page_name'] = 'current_match';
 			redirect(site_url('user/current_match'), 'refresh');
 		}elseif($param1 == 'stop'){
 			$user_id = $param2;
 			$this->user_model->delete_queue($user_id);
-
+			$this->session->set_flashdata('flash_message', "Search deleted successfully");
 			redirect(site_url('user/current_match'), 'refresh');
 		}
 
@@ -170,10 +177,17 @@ class User extends CI_Controller {
 		$this->load->view('backend/index.php', $page_data);
 	}
 
-	function current_match() {
+	function current_match($param1='') {
 		if ($this->session->userdata('user_login') != true) {
 			redirect(site_url('login'), 'refresh');
 		}
+
+		if($param1==''){
+			$page_data['match_id'] = 0;
+		}else{
+			$page_data['match_id'] = $param1;
+		}
+
 		$page_data['page_name'] = 'current_match';
 		$page_data['page_title'] = get_phrase('current_match');
 //		$page_data['packages'] = $this->crud_model->get_packages()->result_array();

@@ -43,12 +43,12 @@
                     <?php
                     $counter = 0;
                     foreach ($matches as $match):
-                        $faction1 = $this->db->get_where('faction', array('id'=>$match['player1_faction']))->result_array();
-                        $faction1 = $faction1[0]['name'];
+                        // $faction1 = $this->db->get_where('faction', array('id'=>$match['player1_faction']))->result_array();
+                        $faction1 =$match['player1_faction'];
                         $opponent = $this->db->get_where('user', array('id'=>$match['player2_id']))->result_array();
                         $opponent_name = $opponent[0]['name'];
-                        $faction2 = $this->db->get_where('faction', array('id'=>$match['player2_faction']))->result_array();
-                        $faction2 = $faction2[0]['name'];
+                        // $faction2 = $this->db->get_where('faction', array('id'=>$match['player2_faction']))->result_array();
+                        $faction2 =$match['player2_faction'];
                         $winner = $this->db->get_where('user', array('id'=>$match['winner']))->result_array();
                         $winner_name = $winner[0]['name'];
                         ?>
