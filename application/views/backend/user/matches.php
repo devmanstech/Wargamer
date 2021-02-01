@@ -1,6 +1,6 @@
 <?php
-    $matches = $this->db->get('match')->result_array();
-
+    $matches1 = $this->db->get_where('match', array('player1_id'=>$logged_in_user_id))->result_array();
+    $matches2 = $this->db->get_where('match', array('player2_id'=>$logged_in_user_id))->result_array();
 ?>
 
 <style>
@@ -41,8 +41,8 @@
                     </thead>
                     <tbody>
                     <?php
-                    $counter = 0;
-                    foreach ($matches as $match):
+                    // $counter = 0;
+                    foreach ($matches1 as $match):
                         // $faction1 = $this->db->get_where('faction', array('id'=>$match['player1_faction']))->result_array();
                         $faction1 =$match['player1_faction'];
                         $opponent = $this->db->get_where('user', array('id'=>$match['player2_id']))->result_array();
@@ -73,8 +73,40 @@
                                 </div>
                             </td>
                         </tr>
-                    <?php endforeach; ?>
-                    </tbody>
+                    <?php endforeach; 
+                    foreach ($matches2 as $match):
+                        // $faction1 = $this->db->get_where('faction', array('id'=>$match['player1_faction']))->result_array();
+                        $faction1 =$match['player2_faction'];
+                        $opponent = $this->db->get_where('user', array('id'=>$match['player1_id']))->result_array();
+                        $opponent_name = $opponent[0]['name'];
+                        // $faction2 = $this->db->get_where('faction', array('id'=>$match['player2_faction']))->result_array();
+                        $faction2 =$match['player1_faction'];
+                        $winner = $this->db->get_where('user', array('id'=>$match['winner']))->result_array();
+                        $winner_name = $winner[0]['name'];
+                        ?>
+                        <tr>
+
+                            <td><?php echo $match['id']; ?></td>
+                            <td><?php echo $faction1; ?></td>
+                            <td><?php echo $opponent_name; ?></td>
+                            <td><?php echo $faction2; ?></td>
+                            <td><?php echo $winner_name ?></td>
+                            <td><?php echo $match['status']? 'Completed': 'In Progress'; ?></td>
+
+                            <td>
+                                <div class="bs-example">
+                                    <div class="btn-group">
+                                        <a href="<?php echo site_url('user/match_form/view/'.$match['id']); ?>" class="btn btn-info">
+                                            <i class="entypo-pencil"></i>
+                                            <?php echo get_phrase('view'); ?>
+                                        </a>
+
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                    <?php endforeach; ?>    
+                </tbody>
                 </table>
             </div>
         </div>
