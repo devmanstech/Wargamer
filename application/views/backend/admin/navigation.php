@@ -27,86 +27,8 @@
             <img src="<?php echo base_url('assets/global/light_logo.png'); ?>"  style="max-height:30px;"/>
         </div>
         <br>
-        <!-- Home -->
-        <li class="<?php if ($page_name == 'dashboard') echo 'active'; ?> " style="border-top:1px solid #232540;">
-            <a href="<?php echo site_url('admin/dashboard'); ?>">
-                <i class="fa fa-home"></i>
-                <span><?php echo get_phrase('dashboard'); ?></span>
-            </a>
-        </li>
-        <!-- Category -->
-        <li class="<?php if ($page_name == 'categories' || $page_name == 'sub_categories' || $page_name == 'category_add' || $page_name == 'category_edit') echo 'opened active has-sub'; ?>">
-            <a href="#">
-                <i class="fa fa-globe"></i>
-                <span><?php echo get_phrase('categories'); ?></span>
-            </a>
-            <ul>
-                <li class="<?php if ($page_name == 'categories') echo 'active'; ?> ">
-                    <a href="<?php echo site_url('admin/categories'); ?>">
-                        <span><i class="entypo-dot"></i> <?php echo get_phrase('categories'); ?></span>
-                    </a>
-                </li>
-
-                <li class="<?php if ($page_name == 'category_add') echo 'active'; ?> ">
-                    <a href="<?php echo site_url('admin/category_form/add'); ?>">
-                        <span><i class="entypo-dot"></i> <?php echo get_phrase('add_new_category'); ?></span>
-                    </a>
-                </li>
-            </ul>
-        </li>
-
-        <!-- Amenity -->
-        <li class="<?php if ($page_name == 'amenities' || $page_name == 'amenity_add' || $page_name == 'amenity_edit') echo 'opened active has-sub'; ?>">
-            <a href="#">
-                <i class="fa fa-puzzle-piece"></i>
-                <span><?php echo get_phrase('amenities'); ?></span>
-            </a>
-            <ul>
-                <li class="<?php if ($page_name == 'amenity') echo 'active'; ?> ">
-                    <a href="<?php echo site_url('admin/amenities'); ?>">
-                        <span><i class="entypo-dot"></i> <?php echo get_phrase('amenities'); ?></span>
-                    </a>
-                </li>
-
-                <li class="<?php if ($page_name == 'amenity_add') echo 'active'; ?> ">
-                    <a href="<?php echo site_url('admin/amenity_form/add'); ?>">
-                        <span><i class="entypo-dot"></i> <?php echo get_phrase('add_new_amenity'); ?></span>
-                    </a>
-                </li>
-            </ul>
-        </li>
-
-        <!-- Listings -->
-        <li class="<?php if ($page_name == 'listings' || $page_name == 'listing_add_wiz' || $page_name == 'listing_edit_wiz' || $page_name == 'reported_listings' || $page_name == 'claimed_listings') echo 'opened active has-sub'; ?>">
-            <a href="#">
-                <i class="fa fa-sitemap"></i>
-                <span><?php echo get_phrase('directory'); ?></span>
-            </a>
-            <ul>
-                <li class="<?php if ($page_name == 'listings') echo 'active'; ?> ">
-                    <a href="<?php echo site_url('admin/listings'); ?>">
-                        <span><i class="entypo-dot"></i> <?php echo get_phrase('all_directories'); ?></span>
-                    </a>
-                </li>
-
-                <li class="<?php if ($page_name == 'listing_add_wiz') echo 'active'; ?> ">
-                    <a href="<?php echo site_url('admin/listing_form/add'); ?>">
-                        <span><i class="entypo-dot"></i> <?php echo get_phrase('add_new_directory'); ?></span>
-                    </a>
-                </li>
-                <li class="<?php if ($page_name == 'claimed_listings') echo 'active'; ?> ">
-                    <a href="<?php echo site_url('admin/claimed_listings'); ?>">
-                        <span><i class="entypo-dot"></i> <?php echo get_phrase('claimed_directory'); ?></span>
-                    </a>
-                </li>
-                <li class="<?php if ($page_name == 'reported_listings') echo 'active'; ?> ">
-                    <a href="<?php echo site_url('admin/reported_listings'); ?>">
-                        <span><i class="entypo-dot"></i> <?php echo get_phrase('reported_directory'); ?></span>
-                    </a>
-                </li>
-            </ul>
-        </li>
-
+        
+    
         <!-- Blogs -->
         <li class="<?php if ($page_name == 'blogs' || $page_name == 'add_blog_form' || $page_name == 'edit_blog_form') echo 'opened has-sub'; ?>">
             <a href="#">

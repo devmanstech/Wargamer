@@ -155,8 +155,8 @@ $languages = $this->db->get('language')->result_array();
 			<?php
 				foreach($languages as $language){?>
 		 {
-            label: "<?php echo $language['value'] ?>",
-            value: "<?php echo $language['id'] ?>",
+            label: "<?php echo $language['name'] ?>",
+            value: "<?php echo $language['short'] ?>",
           },
 				<?php
 

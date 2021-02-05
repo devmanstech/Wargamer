@@ -18,7 +18,7 @@
               <th width="80"><div>#</div></th>
               <th><div><?php echo get_phrase('title');?></div></th>
               <!-- <th><div><?php echo get_phrase('blog_text');?></div></th> -->
-              <th><div><?php echo get_phrase('categories');?></div></th>
+             
               <th><div><?php echo get_phrase('status');?></div></th>
               <th><div><?php echo get_phrase('options');?></div></th>
             </tr>
@@ -46,7 +46,7 @@
                       echo $string;
                     ?>
                 </td> -->
-                <td><?php echo $this->crud_model->get_categories($blog['category_id'])->row('name'); ?></td>
+                
                 <td class="text-center">
                   <?php if($blog['status'] == 1): ?>
                     <span class="label label-success"><?php echo get_phrase('active'); ?></span>

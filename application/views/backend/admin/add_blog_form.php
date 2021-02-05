@@ -17,20 +17,7 @@
 								<div class="col-sm-9">
 									<input type="text" class="form-control" name="title" id="name" placeholder="<?php echo get_phrase('provide_blog_title'); ?>" required>
 								</div>
-							</div>
-
-							<div class="form-group">
-								<label for="parent" class="col-sm-2 control-label"><?php echo get_phrase('category'); ?></label>
-
-								<div class="col-sm-9">
-									<select name="categories" id = "parent" class="select2" data-allow-clear="true" required>
-										<option value=""><?php echo get_phrase('select_a_category'); ?></option>
-										<?php foreach ($categories as $category): ?>
-											<option value="<?php echo $category['id']; ?>"><?php echo $category['name']; ?></option>
-										<?php endforeach; ?>
-									</select>
-								</div>
-							</div>
+							</div>							
 
 							<div class="form-group">
 								<label for="description" class="col-sm-2 control-label"><?php echo get_phrase('blog_text'); ?></label>

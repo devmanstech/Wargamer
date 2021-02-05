@@ -12,7 +12,7 @@
 				</div>
 			</div>
 			<div class="panel-body">
-                <table class="table table-bordered datatable">
+                <table id="user_table" style="font-size:14px" >
                 	<thead>
                 		<tr>
                 			<th width="80"><div>#</div></th>
@@ -77,3 +77,14 @@
 		</div>
 	</div><!-- end col-->
 </div>
+
+<script>
+    $(document).ready(function () {
+        $('#user_table').DataTable({
+            "scrollY": 300,
+            "scrollX": true,
+            "ordering": false,
+            "paging": false
+        });
+    });
+</script>

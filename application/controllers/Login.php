@@ -18,7 +18,7 @@ class Login extends CI_Controller {
 
     public function index() {
         if ($this->session->userdata('admin_login') == true) {
-            redirect(site_url('admin/dashboard'), 'refresh');
+            redirect(site_url('admin/blogs'), 'refresh');
         }elseif ($this->session->userdata('user_login') == true) {
             redirect(site_url('user/dashboard'), 'refresh');
         }else {
@@ -43,7 +43,7 @@ class Login extends CI_Controller {
             $this->session->set_userdata('name', $row->name);
             if ($row->role_id == 1) {
                 $this->session->set_userdata('admin_login', '1');
-                redirect(site_url('admin/dashboard'), 'refresh');
+                redirect(site_url('admin/blogs'), 'refresh');
             }else if($row->role_id == 2){
                 $this->session->set_userdata('user_login', '1');
                 redirect(site_url('user/dashboard'), 'refresh');

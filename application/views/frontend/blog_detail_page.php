@@ -9,12 +9,7 @@
 		<h1><?php echo $blog['title'] ?></h1>
 		<div class="postmeta">
 			<ul>
-				<li>
-					<a href="javascript: void(0)">
-						<i class="ti-folder"></i>
-						<?php echo $this->frontend_model->get_categories($blog['category_id'])->row('name'); ?>
-					</a>
-				</li>
+				
 				<li>
 					<a href="javascript: void(0)">
 						<i class="ti-calendar"></i>

@@ -36,26 +36,19 @@ $rosters = $this->db->get_where('roster', array('user_id'=>$logged_in_user_id));
 
                                 <td>
                                     <div class="bs-example">
-                                      <div class="btn-group">
-                                        <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown">
-                                          <?php echo get_phrase('action'); ?> <span class="caret"></span>
-                                        </button>
-                                        <ul class="dropdown-menu dropdown-blue" role="menu">
-                                            <li>
-                                                <a href="<?php echo site_url('user/roster_form/view/'.$roster['id']); ?>" class="">
+                                     
+                                     
+                                         
+                                                <a href="<?php echo site_url('user/roster_form/view/'.$roster['id']); ?>" class="btn btn-info">
                                                     <i class="entypo-pencil"></i>
                                                     <?php echo get_phrase('view'); ?>
                                                 </a>
-                                            </li>
-                                          <li class="divider"></li>
-                                          <li>
-                                            <a href="#" class="" onclick="confirm_modal('<?php echo site_url('user/rosters/delete/'.$roster['id']); ?>');">
+                                     
+                                            <a href="#" class="btn btn-danger" onclick="confirm_modal('<?php echo site_url('user/rosters/delete/'.$roster['id']); ?>');">
                                                 <i class="entypo-trash"></i>
                                                 <?php echo get_phrase('delete'); ?>
                                             </a>
-                                          </li>
-                                        </ul>
-                                      </div>
+                                     
                                     </div>
                                 </td>
                             </tr>

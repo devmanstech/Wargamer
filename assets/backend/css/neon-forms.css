@@ -1889,7 +1889,7 @@ h5 .small,
 h6 .small {
   font-size: 75%;
 }
-h1,
+/* h1,
 .h1 {
   font-size: 31px;
 }
@@ -1912,7 +1912,7 @@ h5,
 h6,
 .h6 {
   font-size: 11px;
-}
+} */
 .bg-primary {
   color: #fff;
   background-color: #949494;

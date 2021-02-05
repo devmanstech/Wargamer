@@ -8,7 +8,7 @@
 
 		<aside class="col-lg-3">
 			<div class="widget search_blog">
-				<label><?php echo get_phrase('title'); ?>, <?php echo get_phrase('description'); ?>, <?php echo get_phrase('category'); ?></label>
+				<label><?php echo get_phrase('title'); ?>, <?php echo get_phrase('description'); ?></label>
 				<div class="form-group">
 					<input type="text" name="search" value="<?php if($searching_value != ''){ echo $searching_value; } ?>" id="searching_key" class="form-control" placeholder="<?php echo get_phrase('search'); ?>..">
 					<span><input type="submit" id="blog_searching_btn" onclick="blog_search()" value="<?php echo get_phrase('search'); ?>" style="cursor: pointer;"></span>
@@ -31,7 +31,7 @@
 									<?php endif; ?>
 								</a>
 							</div>
-							<small><?php echo $this->frontend_model->get_categories($latest_post['category_id'])->row('name') ?> - <?php echo date('d M Y', $latest_post['added_date']); ?></small>
+							<?php echo date('d M Y', $latest_post['added_date']); ?></small>
 							<h3>
 								<a href="<?php echo site_url('home/post/'.$latest_post['id'].'/'.slugify($latest_post['title'])); ?>">
 									<?php
@@ -55,44 +55,7 @@
 					<?php endforeach; ?>
 				</ul>
 			</div>
-			<!-- /widget -->
-			<div class="widget">
-				<div class="widget-title">
-					<h4><?php echo get_phrase('categories'); ?></h4>
-				</div>
-				<ul class="cats">
-					<?php
-					$this->db->distinct('category_id');
-					$this->db->select('category_id');
-					$this->db->where('status', 1);
-					$blogs_categories = $this->db->get('blogs')->result_array();
-					foreach ($blogs_categories as $blogs_category): ?>
-						<li>
-							<?php $category_name = $this->frontend_model->get_categories($blogs_category['category_id'])->row('name') ?>
-						 	<a href="<?php echo site_url('home/blog/'.$blogs_category['category_id'].'?category='.slugify($category_name)); ?>" class="<?php if($category_name == $title) echo 'text-primary'; ?>">
-						 		<?php echo $category_name; ?>
-						 		<span>(<?php echo count($this->db->get_where('blogs', array('category_id' => $blogs_category['category_id'], 'status' => 1))->result_array()); ?>)</span>
-						 	</a>
-						</li>
-					<?php endforeach; ?>
-				</ul>
-			</div>
-			<!-- /widget -->
-			<!-- <div class="widget">
-				<div class="widget-title">
-					<h4>Popular Tags</h4>
-				</div>
-				<div class="tags">
-					<a href="#">Food</a>
-					<a href="#">Bars</a>
-					<a href="#">Cooktails</a>
-					<a href="#">Shops</a>
-					<a href="#">Best Offers</a>
-					<a href="#">Transports</a>
-					<a href="#">Restaurants</a>
-				</div>
-			</div> -->
-			<!-- /widget -->
+			
 		</aside>
 		<!-- /aside -->
 	</div>

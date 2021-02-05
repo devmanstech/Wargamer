@@ -33,9 +33,9 @@
 
 			<!-- Site footer -->
 			<?php
-				if(!($page_name == 'matches' && $this->session->userdata('matches_view') == 'match_view')):
+				
 					include 'footer.php';
-				endif;
+				
 			?>
 		</div>
 

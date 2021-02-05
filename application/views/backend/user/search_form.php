@@ -16,7 +16,7 @@ $pt_modes = $this->db->get_where('mode',array('mode_slug'=> 1))->result_array();
                 </div>
             </div>
             <div class="panel-body">
-                <form action="<?php echo site_url('user/search/add'); ?>" method="post" enctype="multipart/form-data" role="form" class="form-horizontal form-groups-bordered match_add_form">
+                <form action="<?php echo site_url('user/search/add'); ?>" method="post" enctype="multipart/form-data" role="form" class="form-horizontal  match_add_form">
                     <div class="col-md-12">
 
                         <div class="row" style="margin-bottom: 15px;">

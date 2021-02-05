@@ -15,7 +15,7 @@
 									</a>
 								</figure>
 								<div class="post_info">
-									<small><?php echo $this->frontend_model->get_categories($blog['category_id'])->row('name'); ?> - <?php echo date('d M Y', $blog['added_date']); ?></small>
+									<?php echo date('d M Y', $blog['added_date']); ?></small>
 									<h2><a href="<?php echo site_url('home/post/'.$blog['id'].'/'.slugify($blog['title'])); ?>"><?php echo $blog['title']; ?></a></h2>
 									<p>
 										<?php 

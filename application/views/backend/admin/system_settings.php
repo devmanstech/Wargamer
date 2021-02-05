@@ -56,18 +56,7 @@
           </div>
         </div>
 
-        <div class="form-group">
-          <label for="language" class="col-sm-3 control-label"><?php echo get_phrase('system_language'); ?></label>
-
-          <div class="col-sm-7">
-            <select name="language" id = "language" class="select2" data-allow-clear="true" data-placeholder="<?php echo get_phrase('select_language'); ?>">
-              <?php foreach ($languages as $language): ?>
-                <option value="<?php echo $language; ?>" <?php if(get_settings('language') == $language) echo 'selected'; ?>><?php echo ucfirst($language); ?></option>
-              <?php endforeach; ?>
-            </select>
-          </div>
-        </div>
-
+       
         <div class="form-group">
           <label for="footer_text" class="col-sm-3 control-label"><?php echo get_phrase('footer_text'); ?></label>
           <div class="col-sm-7">

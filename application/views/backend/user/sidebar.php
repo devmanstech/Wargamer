@@ -171,7 +171,7 @@ $.post("/user/search/check/<?php echo $logged_in_user_id ?>", {
 
 };
 
-var interval = 1000*60*3 ; // check search status per 3min
+var interval = 1000*30 ; // check search status per 3min
 
 setInterval(ajax_call, interval);
 
