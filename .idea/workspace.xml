@@ -1,7 +1,262 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BookmarkManager">
+    <bookmark url="file://$PROJECT_DIR$/application/models/User_model.php" line="322" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="6f53d05b-3710-42d7-924f-ffdb0ae0aeda" name="Default" comment="" />
+    <list default="true" id="6f53d05b-3710-42d7-924f-ffdb0ae0aeda" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/views/backend/user/match_add.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/views/backend/user/match_add_wiz.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/views/backend/user/match_edit_wiz.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/frontend/captcha/assets/css/icon-captcha.min.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/frontend/captcha/assets/demo.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/frontend/captcha/assets/favicon.ico" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/frontend/captcha/assets/icons/Icons made by Webalys.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/frontend/captcha/assets/icons/dark/icon-1.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/frontend/captcha/assets/icons/dark/icon-10.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/frontend/captcha/assets/icons/dark/icon-11.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/frontend/captcha/assets/icons/dark/icon-12.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/frontend/captcha/assets/icons/dark/icon-13.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/frontend/captcha/assets/icons/dark/icon-14.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/frontend/captcha/assets/icons/dark/icon-15.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/frontend/captcha/assets/icons/dark/icon-16.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/frontend/captcha/assets/icons/dark/icon-17.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/frontend/captcha/assets/icons/dark/icon-18.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/frontend/captcha/assets/icons/dark/icon-19.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/frontend/captcha/assets/icons/dark/icon-2.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/frontend/captcha/assets/icons/dark/icon-20.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/frontend/captcha/assets/icons/dark/icon-21.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/frontend/captcha/assets/icons/dark/icon-22.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/frontend/captcha/assets/icons/dark/icon-23.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/frontend/captcha/assets/icons/dark/icon-24.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/frontend/captcha/assets/icons/dark/icon-25.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/frontend/captcha/assets/icons/dark/icon-26.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/frontend/captcha/assets/icons/dark/icon-27.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/frontend/captcha/assets/icons/dark/icon-28.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/frontend/captcha/assets/icons/dark/icon-29.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/frontend/captcha/assets/icons/dark/icon-3.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/frontend/captcha/assets/icons/dark/icon-30.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/frontend/captcha/assets/icons/dark/icon-31.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/frontend/captcha/assets/icons/dark/icon-32.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/frontend/captcha/assets/icons/dark/icon-33.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/frontend/captcha/assets/icons/dark/icon-34.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/frontend/captcha/assets/icons/dark/icon-35.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/frontend/captcha/assets/icons/dark/icon-36.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/frontend/captcha/assets/icons/dark/icon-37.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/frontend/captcha/assets/icons/dark/icon-38.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/frontend/captcha/assets/icons/dark/icon-39.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/frontend/captcha/assets/icons/dark/icon-4.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/frontend/captcha/assets/icons/dark/icon-40.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/frontend/captcha/assets/icons/dark/icon-41.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/frontend/captcha/assets/icons/dark/icon-42.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/frontend/captcha/assets/icons/dark/icon-43.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/frontend/captcha/assets/icons/dark/icon-44.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/frontend/captcha/assets/icons/dark/icon-45.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/frontend/captcha/assets/icons/dark/icon-46.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/frontend/captcha/assets/icons/dark/icon-47.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/frontend/captcha/assets/icons/dark/icon-48.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/frontend/captcha/assets/icons/dark/icon-49.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/frontend/captcha/assets/icons/dark/icon-5.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/frontend/captcha/assets/icons/dark/icon-50.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/frontend/captcha/assets/icons/dark/icon-51.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/frontend/captcha/assets/icons/dark/icon-52.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/frontend/captcha/assets/icons/dark/icon-53.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/frontend/captcha/assets/icons/dark/icon-54.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/frontend/captcha/assets/icons/dark/icon-55.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/frontend/captcha/assets/icons/dark/icon-56.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/frontend/captcha/assets/icons/dark/icon-57.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/frontend/captcha/assets/icons/dark/icon-58.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/frontend/captcha/assets/icons/dark/icon-59.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/frontend/captcha/assets/icons/dark/icon-6.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/frontend/captcha/assets/icons/dark/icon-60.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/frontend/captcha/assets/icons/dark/icon-61.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/frontend/captcha/assets/icons/dark/icon-62.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/frontend/captcha/assets/icons/dark/icon-63.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/frontend/captcha/assets/icons/dark/icon-64.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/frontend/captcha/assets/icons/dark/icon-65.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/frontend/captcha/assets/icons/dark/icon-66.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/frontend/captcha/assets/icons/dark/icon-67.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/frontend/captcha/assets/icons/dark/icon-68.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/frontend/captcha/assets/icons/dark/icon-69.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/frontend/captcha/assets/icons/dark/icon-7.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/frontend/captcha/assets/icons/dark/icon-70.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/frontend/captcha/assets/icons/dark/icon-71.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/frontend/captcha/assets/icons/dark/icon-72.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/frontend/captcha/assets/icons/dark/icon-73.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/frontend/captcha/assets/icons/dark/icon-74.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/frontend/captcha/assets/icons/dark/icon-75.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/frontend/captcha/assets/icons/dark/icon-76.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/frontend/captcha/assets/icons/dark/icon-77.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/frontend/captcha/assets/icons/dark/icon-78.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/frontend/captcha/assets/icons/dark/icon-79.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/frontend/captcha/assets/icons/dark/icon-8.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/frontend/captcha/assets/icons/dark/icon-80.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/frontend/captcha/assets/icons/dark/icon-81.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/frontend/captcha/assets/icons/dark/icon-82.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/frontend/captcha/assets/icons/dark/icon-83.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/frontend/captcha/assets/icons/dark/icon-84.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/frontend/captcha/assets/icons/dark/icon-85.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/frontend/captcha/assets/icons/dark/icon-86.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/frontend/captcha/assets/icons/dark/icon-87.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/frontend/captcha/assets/icons/dark/icon-88.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/frontend/captcha/assets/icons/dark/icon-89.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/frontend/captcha/assets/icons/dark/icon-9.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/frontend/captcha/assets/icons/dark/icon-90.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/frontend/captcha/assets/icons/dark/icon-91.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/frontend/captcha/assets/icons/light/icon-1.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/frontend/captcha/assets/icons/light/icon-10.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/frontend/captcha/assets/icons/light/icon-11.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/frontend/captcha/assets/icons/light/icon-12.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/frontend/captcha/assets/icons/light/icon-13.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/frontend/captcha/assets/icons/light/icon-14.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/frontend/captcha/assets/icons/light/icon-15.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/frontend/captcha/assets/icons/light/icon-16.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/frontend/captcha/assets/icons/light/icon-17.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/frontend/captcha/assets/icons/light/icon-18.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/frontend/captcha/assets/icons/light/icon-19.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/frontend/captcha/assets/icons/light/icon-2.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/frontend/captcha/assets/icons/light/icon-20.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/frontend/captcha/assets/icons/light/icon-21.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/frontend/captcha/assets/icons/light/icon-22.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/frontend/captcha/assets/icons/light/icon-23.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/frontend/captcha/assets/icons/light/icon-24.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/frontend/captcha/assets/icons/light/icon-25.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/frontend/captcha/assets/icons/light/icon-26.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/frontend/captcha/assets/icons/light/icon-27.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/frontend/captcha/assets/icons/light/icon-28.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/frontend/captcha/assets/icons/light/icon-29.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/frontend/captcha/assets/icons/light/icon-3.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/frontend/captcha/assets/icons/light/icon-30.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/frontend/captcha/assets/icons/light/icon-31.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/frontend/captcha/assets/icons/light/icon-32.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/frontend/captcha/assets/icons/light/icon-33.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/frontend/captcha/assets/icons/light/icon-34.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/frontend/captcha/assets/icons/light/icon-35.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/frontend/captcha/assets/icons/light/icon-36.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/frontend/captcha/assets/icons/light/icon-37.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/frontend/captcha/assets/icons/light/icon-38.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/frontend/captcha/assets/icons/light/icon-39.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/frontend/captcha/assets/icons/light/icon-4.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/frontend/captcha/assets/icons/light/icon-40.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/frontend/captcha/assets/icons/light/icon-41.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/frontend/captcha/assets/icons/light/icon-42.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/frontend/captcha/assets/icons/light/icon-43.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/frontend/captcha/assets/icons/light/icon-44.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/frontend/captcha/assets/icons/light/icon-45.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/frontend/captcha/assets/icons/light/icon-46.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/frontend/captcha/assets/icons/light/icon-47.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/frontend/captcha/assets/icons/light/icon-48.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/frontend/captcha/assets/icons/light/icon-49.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/frontend/captcha/assets/icons/light/icon-5.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/frontend/captcha/assets/icons/light/icon-50.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/frontend/captcha/assets/icons/light/icon-51.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/frontend/captcha/assets/icons/light/icon-52.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/frontend/captcha/assets/icons/light/icon-53.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/frontend/captcha/assets/icons/light/icon-54.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/frontend/captcha/assets/icons/light/icon-55.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/frontend/captcha/assets/icons/light/icon-56.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/frontend/captcha/assets/icons/light/icon-57.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/frontend/captcha/assets/icons/light/icon-58.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/frontend/captcha/assets/icons/light/icon-59.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/frontend/captcha/assets/icons/light/icon-6.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/frontend/captcha/assets/icons/light/icon-60.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/frontend/captcha/assets/icons/light/icon-61.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/frontend/captcha/assets/icons/light/icon-62.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/frontend/captcha/assets/icons/light/icon-63.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/frontend/captcha/assets/icons/light/icon-64.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/frontend/captcha/assets/icons/light/icon-65.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/frontend/captcha/assets/icons/light/icon-66.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/frontend/captcha/assets/icons/light/icon-67.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/frontend/captcha/assets/icons/light/icon-68.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/frontend/captcha/assets/icons/light/icon-69.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/frontend/captcha/assets/icons/light/icon-7.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/frontend/captcha/assets/icons/light/icon-70.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/frontend/captcha/assets/icons/light/icon-71.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/frontend/captcha/assets/icons/light/icon-72.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/frontend/captcha/assets/icons/light/icon-73.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/frontend/captcha/assets/icons/light/icon-74.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/frontend/captcha/assets/icons/light/icon-75.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/frontend/captcha/assets/icons/light/icon-76.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/frontend/captcha/assets/icons/light/icon-77.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/frontend/captcha/assets/icons/light/icon-78.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/frontend/captcha/assets/icons/light/icon-79.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/frontend/captcha/assets/icons/light/icon-8.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/frontend/captcha/assets/icons/light/icon-80.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/frontend/captcha/assets/icons/light/icon-81.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/frontend/captcha/assets/icons/light/icon-82.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/frontend/captcha/assets/icons/light/icon-83.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/frontend/captcha/assets/icons/light/icon-84.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/frontend/captcha/assets/icons/light/icon-85.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/frontend/captcha/assets/icons/light/icon-86.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/frontend/captcha/assets/icons/light/icon-87.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/frontend/captcha/assets/icons/light/icon-88.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/frontend/captcha/assets/icons/light/icon-89.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/frontend/captcha/assets/icons/light/icon-9.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/frontend/captcha/assets/icons/light/icon-90.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/frontend/captcha/assets/icons/light/icon-91.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/frontend/captcha/assets/js/icon-captcha.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/frontend/captcha/assets/js/icon-captcha.min.js.map" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/frontend/captcha/assets/polygon-background.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/frontend/captcha/src/captcha-request.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/frontend/captcha/src/captcha-session.class.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/frontend/captcha/src/captcha.class.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/frontend/images/menu_list_1.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/frontend/images/menu_list_10.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/frontend/images/menu_list_11.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/frontend/images/menu_list_12.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/frontend/images/menu_list_2.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/frontend/images/menu_list_3.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/frontend/images/menu_list_4.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/frontend/images/menu_list_5.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/frontend/images/menu_list_6.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/frontend/images/menu_list_7.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/frontend/images/menu_list_8.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/frontend/images/menu_list_9.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/frontend/images/news_home_1.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/frontend/images/news_home_2.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/frontend/images/news_home_3.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/frontend/images/news_home_4.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/frontend/images/pattern.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/frontend/images/pattern_1.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/frontend/images/pattern_2.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/frontend/images/pattern_3.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/frontend/images/paypal.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/frontend/images/paypal_bt.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/frontend/images/thumb_map_single_hotel.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/frontend/images/thumb_map_single_restaurant.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/frontend/images/thumb_map_single_shop.jpg" afterPath="" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/application/views/backend/user/match_edit.php" afterPath="$PROJECT_DIR$/application/views/backend/user/match_view.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/htdocs.zip" afterPath="$PROJECT_DIR$/htdocs.zip" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/uploads/system/home_banner.jpg" afterPath="$PROJECT_DIR$/uploads/system/home_banner.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/controllers/Admin.php" afterPath="$PROJECT_DIR$/application/controllers/Admin.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/controllers/Home.php" afterPath="$PROJECT_DIR$/application/controllers/Home.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/controllers/User.php" afterPath="$PROJECT_DIR$/application/controllers/User.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/language/.json" afterPath="$PROJECT_DIR$/application/language/.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/language/english.json" afterPath="$PROJECT_DIR$/application/language/english.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/models/Crud_model.php" afterPath="$PROJECT_DIR$/application/models/Crud_model.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/models/Frontend_model.php" afterPath="$PROJECT_DIR$/application/models/Frontend_model.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/models/User_model.php" afterPath="$PROJECT_DIR$/application/models/User_model.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/backend/admin/blogs.php" afterPath="$PROJECT_DIR$/application/views/backend/admin/blogs.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/backend/admin/manage_profile.php" afterPath="$PROJECT_DIR$/application/views/backend/admin/manage_profile.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/backend/admin/user_add.php" afterPath="$PROJECT_DIR$/application/views/backend/admin/user_add.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/backend/admin/user_edit.php" afterPath="$PROJECT_DIR$/application/views/backend/admin/user_edit.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/backend/admin/users.php" afterPath="$PROJECT_DIR$/application/views/backend/admin/users.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/backend/includes_top.php" afterPath="$PROJECT_DIR$/application/views/backend/includes_top.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/backend/user/current_match.php" afterPath="$PROJECT_DIR$/application/views/backend/user/current_match.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/backend/user/dashboard.php" afterPath="$PROJECT_DIR$/application/views/backend/user/dashboard.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/backend/user/manage_profile.php" afterPath="$PROJECT_DIR$/application/views/backend/user/manage_profile.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/backend/user/matches.php" afterPath="$PROJECT_DIR$/application/views/backend/user/matches.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/backend/user/navigation.php" afterPath="$PROJECT_DIR$/application/views/backend/user/navigation.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/backend/user/rosters.php" afterPath="$PROJECT_DIR$/application/views/backend/user/rosters.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/backend/user/sidebar.php" afterPath="$PROJECT_DIR$/application/views/backend/user/sidebar.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/frontend/footer.php" afterPath="$PROJECT_DIR$/application/views/frontend/footer.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/frontend/home.php" afterPath="$PROJECT_DIR$/application/views/frontend/home.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/frontend/index.php" afterPath="$PROJECT_DIR$/application/views/frontend/index.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/frontend/menu.php" afterPath="$PROJECT_DIR$/application/views/frontend/menu.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/backend/css/custom.css" afterPath="$PROJECT_DIR$/assets/backend/css/custom.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/frontend/css/style.css" afterPath="$PROJECT_DIR$/assets/frontend/css/style.css" />
+    </list>
     <ignored path="htdocs.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path=".idea/dataSources.local.xml" />
@@ -22,76 +277,118 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="User.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/controllers/User.php">
+      <file leaf-file-name="User_model.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/models/User_model.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-12.05">
-              <caret line="55" column="8" selection-start-line="55" selection-start-column="8" selection-end-line="55" selection-end-column="8" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="search_form.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/views/backend/user/search_form.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-17.67742">
-              <caret line="65" column="65" selection-start-line="65" selection-start-column="53" selection-end-line="65" selection-end-column="65" />
+            <state vertical-scroll-proportion="-6.9666667">
+              <caret line="292" column="59" selection-start-line="292" selection-start-column="45" selection-end-line="292" selection-end-column="59" />
               <folding>
-                <element signature="n#style#0;n#button#0;n#div#0;n#form#0;n#div#1;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-                <marker date="1611235588374" expanded="true" signature="2952:3092" placeholder="..." />
+                <marker date="1613318631836" expanded="true" signature="11169:11180" placeholder="..." />
+                <marker date="1613318631836" expanded="true" signature="11290:11513" placeholder="..." />
+                <marker date="1613318631836" expanded="true" signature="11327:11492" placeholder="{...}" />
+                <marker date="1613318631836" expanded="true" signature="11399:11409" placeholder="{...}" />
+                <marker date="1613318631836" expanded="true" signature="11430:11472" placeholder="{...}" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="sidebar.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="sidebar.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/application/views/backend/user/sidebar.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="2.903226">
-              <caret line="68" column="14" selection-start-line="68" selection-start-column="14" selection-end-line="68" selection-end-column="14" />
+            <state vertical-scroll-proportion="0.23111612">
+              <caret line="100" column="10" selection-start-line="100" selection-start-column="10" selection-end-line="100" selection-end-column="10" />
               <folding>
-                <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#a#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#a#1;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-                <marker date="1611239608357" expanded="false" signature="2050:2070" placeholder="..." />
-                <marker date="1611239608357" expanded="true" signature="2071:3968" placeholder="..." />
-                <marker date="1611239608357" expanded="true" signature="2100:2159" placeholder="..." />
-                <marker date="1611239608357" expanded="true" signature="2190:2610" placeholder="..." />
-                <marker date="1611239608357" expanded="true" signature="2639:3059" placeholder="..." />
-                <marker date="1611239608357" expanded="true" signature="3088:3508" placeholder="..." />
-                <marker date="1611239608357" expanded="true" signature="3537:3957" placeholder="..." />
+                <element signature="n#style#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#2;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#2;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#0;n#div#2;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#1;n#div#2;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#1;n#div#2;n#div#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="dashboard.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/views/backend/user/dashboard.php">
+      <file leaf-file-name="current_match.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/views/backend/user/current_match.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-17.741936">
-              <caret line="34" column="80" selection-start-line="34" selection-start-column="62" selection-end-line="34" selection-end-column="80" />
+            <state vertical-scroll-proportion="-15.129032">
+              <caret line="286" column="89" selection-start-line="286" selection-start-column="85" selection-end-line="286" selection-end-column="89" />
               <folding>
-                <element signature="n#style#0;n#table#0;n#div#1;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#td#1;n#tr#0;n#tbody#0;n#table#0;n#div#1;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-                <marker date="1611246780509" expanded="true" signature="2053:2065" placeholder="{...}" />
+                <element signature="n#style#0;n#div#0;n#form#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#0;n#form#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+                <marker date="1613316591062" expanded="true" signature="3834:4048" placeholder="..." />
+                <marker date="1613316591062" expanded="true" signature="3862:4048" placeholder="..." />
+                <marker date="1613316591062" expanded="true" signature="3923:4048" placeholder="..." />
+                <marker date="1613316591062" expanded="true" signature="3963:4048" placeholder="..." />
+                <marker date="1613316591062" expanded="true" signature="4005:4048" placeholder="..." />
+                <marker date="1613316591062" expanded="true" signature="4121:4132" placeholder="..." />
+                <marker date="1613316591062" expanded="true" signature="4286:4846" placeholder="..." />
+                <marker date="1613316591062" expanded="true" signature="4327:4846" placeholder="..." />
+                <marker date="1613316591062" expanded="true" signature="4373:4393" placeholder="..." />
+                <marker date="1613316591062" expanded="true" signature="4394:4846" placeholder="..." />
+                <marker date="1613316591062" expanded="true" signature="4451:4661" placeholder="..." />
+                <marker date="1613316591062" expanded="true" signature="4494:4520" placeholder="..." />
+                <marker date="1613316591062" expanded="true" signature="4718:4846" placeholder="..." />
+                <marker date="1613316591062" expanded="true" signature="4774:4846" placeholder="..." />
+                <marker date="1613316591062" expanded="true" signature="4813:4824" placeholder="..." />
+                <marker date="1613316591062" expanded="true" signature="4986:5215" placeholder="..." />
+                <marker date="1613316591062" expanded="true" signature="5037:5057" placeholder="..." />
+                <marker date="1613316591062" expanded="true" signature="5058:5215" placeholder="..." />
+                <marker date="1613316591062" expanded="true" signature="5119:5215" placeholder="..." />
+                <marker date="1613316591062" expanded="true" signature="5166:5192" placeholder="..." />
+                <marker date="1613316591062" expanded="true" signature="5304:5425" placeholder="..." />
+                <marker date="1613316591062" expanded="true" signature="5462:5589" placeholder="..." />
+                <marker date="1613316591062" expanded="true" signature="5626:5697" placeholder="..." />
+                <marker date="1613316591062" expanded="true" signature="5626:5920" placeholder="..." />
+                <marker date="1613316591062" expanded="true" signature="5699:5740" placeholder="..." />
+                <marker date="1613316591062" expanded="true" signature="5741:5883" placeholder="..." />
+                <marker date="1613316591062" expanded="true" signature="6394:6544" placeholder="..." />
+                <marker date="1613316591062" expanded="true" signature="9394:9665" placeholder="..." />
+                <marker date="1613316591062" expanded="true" signature="9514:9622" placeholder="..." />
+                <marker date="1613316591062" expanded="true" signature="9812:9904" placeholder="..." />
+                <marker date="1613316591062" expanded="true" signature="9982:10044" placeholder="..." />
+                <marker date="1613316591062" expanded="true" signature="10395:10480" placeholder="..." />
+                <marker date="1613316591062" expanded="true" signature="10533:10559" placeholder="..." />
+                <marker date="1613316591062" expanded="true" signature="10595:10645" placeholder="..." />
+                <marker date="1613316591062" expanded="true" signature="10820:10916" placeholder="..." />
+                <marker date="1613316591062" expanded="true" signature="10867:10893" placeholder="..." />
+                <marker date="1613316591062" expanded="true" signature="11201:11503" placeholder="..." />
+                <marker date="1613316591062" expanded="true" signature="11274:11315" placeholder="..." />
+                <marker date="1613316591062" expanded="true" signature="11316:11466" placeholder="..." />
+                <marker date="1613316591062" expanded="true" signature="11690:11784" placeholder="..." />
+                <marker date="1613316591062" expanded="true" signature="12880:12975" placeholder="..." />
+                <marker date="1613316591062" expanded="true" signature="13058:13138" placeholder="..." />
+                <marker date="1613316591062" expanded="true" signature="13382:13409" placeholder="..." />
+                <marker date="1613316591062" expanded="true" signature="13510:13552" placeholder="..." />
+                <marker date="1613316591062" expanded="true" signature="13917:14468" placeholder="{...}" />
+                <marker date="1613316591062" expanded="true" signature="14063:14468" placeholder="{...}" />
+                <marker date="1613316591062" expanded="true" signature="14100:14468" placeholder="{...}" />
+                <marker date="1613316591062" expanded="true" signature="16469:16505" placeholder="..." />
+                <marker date="1613316591062" expanded="true" signature="16591:16609" placeholder="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="matches.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/application/views/backend/user/matches.php">
+      <file leaf-file-name="match_view.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/views/backend/user/match_view.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.476082">
-              <caret line="49" column="8" selection-start-line="49" selection-start-column="8" selection-end-line="49" selection-end-column="8" />
+            <state vertical-scroll-proportion="-9.225806">
+              <caret line="130" column="118" selection-start-line="130" selection-start-column="118" selection-end-line="130" selection-end-column="118" />
               <folding>
-                <element signature="n#style#0;n#table#0;n#div#1;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-                <marker date="1611250870158" expanded="true" signature="2248:2300" placeholder="..." />
-                <marker date="1611250870158" expanded="true" signature="2700:2887" placeholder="..." />
-                <marker date="1611250870158" expanded="true" signature="2757:2887" placeholder="..." />
-                <marker date="1611250870158" expanded="true" signature="2817:2887" placeholder="..." />
+                <element signature="n#style#0;n#span#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#a#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#a#0;n#p#2;n#div#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#a#0;n#p#2;n#div#1;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -100,8 +397,8 @@
       <file leaf-file-name="navigation.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/views/backend/user/navigation.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-11.724138">
-              <caret line="76" column="17" selection-start-line="56" selection-start-column="12" selection-end-line="76" selection-end-column="17" />
+            <state vertical-scroll-proportion="-11.413794">
+              <caret line="122" column="0" selection-start-line="122" selection-start-column="0" selection-end-line="122" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -110,38 +407,50 @@
       <file leaf-file-name="rosters.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/views/backend/user/rosters.php">
           <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-10.870968">
+              <caret line="50" column="96" selection-start-line="50" selection-start-column="88" selection-end-line="50" selection-end-column="101" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="modal.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/views/backend/modal.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-12.290322">
+              <caret line="84" column="0" selection-start-line="84" selection-start-column="0" selection-end-line="101" selection-end-column="0" />
+              <folding>
+                <marker date="1585037471000" expanded="true" signature="154:189" placeholder="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="modal.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/views/frontend/modal.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-7.7419353">
+              <caret line="43" column="65" selection-start-line="43" selection-start-column="5" selection-end-line="43" selection-end-column="65" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="menu.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/views/frontend/menu.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-22.0">
+              <caret line="31" column="0" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="matches.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/views/backend/user/matches.php">
+          <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="-19.387096">
-              <caret line="56" column="33" selection-start-line="0" selection-start-column="0" selection-end-line="64" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="sub_categories.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/views/backend/admin/sub_categories.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="2.1935484">
-              <caret line="18" column="31" selection-start-line="18" selection-start-column="31" selection-end-line="18" selection-end-column="31" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="english.json" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/language/english.json">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-3.1494253">
-              <caret line="729" column="23" selection-start-line="729" selection-start-column="23" selection-end-line="729" selection-end-column="23" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="includes_top.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/views/backend/includes_top.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-12.064516">
-              <caret line="23" column="76" selection-start-line="23" selection-start-column="76" selection-end-line="23" selection-end-column="76" />
+              <caret line="130" column="24" selection-start-line="130" selection-start-column="24" selection-end-line="130" selection-end-column="24" />
               <folding />
             </state>
           </provider>
@@ -155,7 +464,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/application/views/backend/admin/system_settings.php" />
         <option value="$PROJECT_DIR$/application/views/backend/footer.php" />
         <option value="$PROJECT_DIR$/application/views/backend/admin/navigation.php" />
         <option value="$PROJECT_DIR$/application/views/frontend/listings_grid_view.php" />
@@ -172,8 +480,6 @@
         <option value="$PROJECT_DIR$/application/views/frontend/index.php" />
         <option value="$PROJECT_DIR$/application/views/frontend/home.php" />
         <option value="$PROJECT_DIR$/application/views/frontend/includes_bottom.php" />
-        <option value="$PROJECT_DIR$/application/views/frontend/menu.php" />
-        <option value="$PROJECT_DIR$/application/models/Frontend_model.php" />
         <option value="$PROJECT_DIR$/application/views/frontend/header_matches.php" />
         <option value="$PROJECT_DIR$/application/views/frontend/matches.php" />
         <option value="$PROJECT_DIR$/application/views/frontend/category.php" />
@@ -184,7 +490,6 @@
         <option value="$PROJECT_DIR$/application/views/backend/user/add_match_type.php" />
         <option value="$PROJECT_DIR$/application/views/backend/index.php" />
         <option value="$PROJECT_DIR$/application/views/backend/user/roster_add.php" />
-        <option value="$PROJECT_DIR$/application/views/backend/user/rosters.php" />
         <option value="$PROJECT_DIR$/index1.php" />
         <option value="$PROJECT_DIR$/index.php" />
         <option value="$PROJECT_DIR$/application/views/backend/user/match_add_wiz.php" />
@@ -193,19 +498,23 @@
         <option value="$PROJECT_DIR$/tem" />
         <option value="$PROJECT_DIR$/application/views/backend/user/roster_view.php" />
         <option value="$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/com/jetbrains/php/lang/psi/stubs/data/zip.php" />
-        <option value="$PROJECT_DIR$/application/views/backend/user/current_match.php" />
-        <option value="$PROJECT_DIR$/application/models/User_model.php" />
         <option value="$PROJECT_DIR$/application/views/backend/user/search_form.php" />
         <option value="G:/timer.html" />
         <option value="$PROJECT_DIR$/application/views/backend/includes_bottom.php" />
         <option value="$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/lib/JavaScriptLanguage.jar!/com/intellij/lang/javascript/index/predefined/DHTML.js" />
-        <option value="$PROJECT_DIR$/application/views/backend/user/sidebar.php" />
-        <option value="$PROJECT_DIR$/application/views/backend/includes_top.php" />
         <option value="$PROJECT_DIR$/application/views/backend/user/dashboard.php" />
-        <option value="$PROJECT_DIR$/application/views/backend/user/navigation.php" />
-        <option value="$PROJECT_DIR$/application/language/english.json" />
+        <option value="$PROJECT_DIR$/application/models/Frontend_model.php" />
+        <option value="$PROJECT_DIR$/application/views/backend/includes_top.php" />
+        <option value="$PROJECT_DIR$/application/views/backend/user/current_match.php" />
         <option value="$PROJECT_DIR$/application/controllers/User.php" />
+        <option value="$PROJECT_DIR$/application/language/english.json" />
+        <option value="$PROJECT_DIR$/application/models/User_model.php" />
+        <option value="$PROJECT_DIR$/application/views/backend/user/match_view.php" />
         <option value="$PROJECT_DIR$/application/views/backend/user/matches.php" />
+        <option value="$PROJECT_DIR$/application/views/backend/user/rosters.php" />
+        <option value="$PROJECT_DIR$/application/views/frontend/menu.php" />
+        <option value="$PROJECT_DIR$/application/views/backend/user/navigation.php" />
+        <option value="$PROJECT_DIR$/application/views/backend/user/sidebar.php" />
       </list>
     </option>
   </component>
@@ -219,9 +528,10 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="17" />
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
     <option name="width" value="1936" />
-    <option name="height" value="1047" />
+    <option name="height" value="1056" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <OptionsSetting value="true" id="Add" />
@@ -347,6 +657,28 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="htdocs" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="htdocs" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="application" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="frontend" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -504,19 +836,19 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="17" y="0" width="1936" height="1047" extended-state="0" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21614583" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.215625" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32980973" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32980973" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -536,52 +868,74 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/application/views/backend/includes_top.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="23" column="76" selection-start-line="23" selection-start-column="76" selection-end-line="23" selection-end-column="76" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/backend/user/sidebar.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="68" column="14" selection-start-line="68" selection-start-column="14" selection-end-line="68" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/backend/user/dashboard.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="34" column="22" selection-start-line="34" selection-start-column="22" selection-end-line="34" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/backend/user/matches.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/backend/user/navigation.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="76" column="17" selection-start-line="56" selection-start-column="12" selection-end-line="76" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/backend/user/rosters.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="56" column="24" selection-start-line="0" selection-start-column="0" selection-end-line="64" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/language/english.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="201" column="1" selection-start-line="201" selection-start-column="1" selection-end-line="201" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/backend/includes_top.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="23" column="76" selection-start-line="23" selection-start-column="76" selection-end-line="23" selection-end-column="76" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/application/views/frontend/index.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-10.645162">
           <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/frontend/menu.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-12.774194">
-          <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/models/Frontend_model.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.6818181">
-          <caret line="273" column="56" selection-start-line="273" selection-start-column="56" selection-end-line="273" selection-end-column="56" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/frontend/header_category.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-15.83871">
-          <caret line="24" column="22" selection-start-line="0" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/frontend/header_matches.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.806452">
-          <caret line="11" column="16" selection-start-line="11" selection-start-column="16" selection-end-line="11" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/frontend/matches.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.15903614">
-          <caret line="6" column="48" selection-start-line="6" selection-start-column="48" selection-end-line="6" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/frontend/category.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3720406">
-          <caret line="15" column="68" selection-start-line="15" selection-start-column="68" selection-end-line="15" selection-end-column="68" />
         </state>
       </provider>
     </entry>
@@ -606,24 +960,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/backend/user/match_add.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-12.774194">
-          <caret line="31" column="17" selection-start-line="31" selection-start-column="17" selection-end-line="31" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/controllers/Admin.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-9.166667">
           <caret line="177" column="5" selection-start-line="164" selection-start-column="4" selection-end-line="177" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/backend/admin/dashboard.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -648,13 +988,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/frontend/modal.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-54.64516">
-          <caret line="77" column="53" selection-start-line="77" selection-start-column="42" selection-end-line="77" selection-end-column="53" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/views/backend/admin/users.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-20.580645">
@@ -676,20 +1009,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tests/mocks/libraries/encrypt.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/backend/user/match_add_wiz.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="62" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/views/backend/user/manage_profile.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -701,15 +1020,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tem">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="17" column="63" selection-start-line="17" selection-start-column="63" selection-end-line="17" selection-end-column="63" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -724,15 +1034,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/backend/user/match_edit.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -740,7 +1041,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.34510252">
           <caret line="830" column="9" selection-start-line="830" selection-start-column="9" selection-end-line="830" selection-end-column="9" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -748,7 +1048,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.5833333">
           <caret line="13" column="5" selection-start-line="13" selection-start-column="4" selection-end-line="13" selection-end-column="5" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -756,7 +1055,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-28.612904">
           <caret line="45" column="41" selection-start-line="45" selection-start-column="34" selection-end-line="45" selection-end-column="41" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -764,25 +1062,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-4.2580647">
           <caret line="9" column="55" selection-start-line="9" selection-start-column="48" selection-end-line="9" selection-end-column="55" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/backend/modal.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.516129">
-          <caret line="49" column="9" selection-start-line="49" selection-start-column="9" selection-end-line="49" selection-end-column="9" />
-          <folding>
-            <marker date="1585037471000" expanded="true" signature="154:189" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/backend/user/current_match.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.096774">
-          <caret line="10" column="45" selection-start-line="10" selection-start-column="45" selection-end-line="10" selection-end-column="45" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -790,15 +1069,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-7.2833333">
           <caret line="833" column="4" selection-start-line="833" selection-start-column="4" selection-end-line="834" selection-end-column="41" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://G:/timer.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-12.396552">
-          <caret line="33" column="0" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -806,7 +1076,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.33333334">
           <caret line="1183" column="0" selection-start-line="1183" selection-start-column="0" selection-end-line="1183" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -814,15 +1083,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.33333334">
           <caret line="1183" column="0" selection-start-line="1183" selection-start-column="0" selection-end-line="1183" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/models/User_model.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.2833333">
-          <caret line="215" column="57" selection-start-line="215" selection-start-column="29" selection-end-line="215" selection-end-column="57" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -830,15 +1090,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-2.5344827">
           <caret line="92" column="9" selection-start-line="92" selection-start-column="9" selection-end-line="92" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/backend/admin/sub_categories.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="2.1935484">
-          <caret line="18" column="31" selection-start-line="18" selection-start-column="31" selection-end-line="18" selection-end-column="31" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -846,103 +1097,227 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="12" column="17" selection-start-line="3" selection-start-column="16" selection-end-line="12" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/backend/user/sidebar.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="2.903226">
-          <caret line="68" column="14" selection-start-line="68" selection-start-column="14" selection-end-line="68" selection-end-column="14" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#a#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#a#1;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <marker date="1611239608357" expanded="false" signature="2050:2070" placeholder="..." />
-            <marker date="1611239608357" expanded="true" signature="2071:3968" placeholder="..." />
-            <marker date="1611239608357" expanded="true" signature="2100:2159" placeholder="..." />
-            <marker date="1611239608357" expanded="true" signature="2190:2610" placeholder="..." />
-            <marker date="1611239608357" expanded="true" signature="2639:3059" placeholder="..." />
-            <marker date="1611239608357" expanded="true" signature="3088:3508" placeholder="..." />
-            <marker date="1611239608357" expanded="true" signature="3537:3957" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/backend/includes_top.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-12.064516">
-          <caret line="23" column="76" selection-start-line="23" selection-start-column="76" selection-end-line="23" selection-end-column="76" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/backend/user/rosters.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-19.387096">
-          <caret line="56" column="33" selection-start-line="0" selection-start-column="0" selection-end-line="64" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/language/english.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.1494253">
-          <caret line="729" column="23" selection-start-line="729" selection-start-column="23" selection-end-line="729" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/User.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-12.05">
-          <caret line="55" column="8" selection-start-line="55" selection-start-column="8" selection-end-line="55" selection-end-column="8" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/views/backend/user/search_form.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-17.67742">
-          <caret line="65" column="65" selection-start-line="65" selection-start-column="53" selection-end-line="65" selection-end-column="65" />
-          <folding>
-            <element signature="n#style#0;n#button#0;n#div#0;n#form#0;n#div#1;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <marker date="1611235588374" expanded="true" signature="2952:3092" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/backend/user/navigation.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-11.724138">
-          <caret line="76" column="17" selection-start-line="56" selection-start-column="12" selection-end-line="76" selection-end-column="17" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="65" column="28" selection-start-line="65" selection-start-column="28" selection-end-line="65" selection-end-column="28" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/views/backend/user/dashboard.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-17.741936">
-          <caret line="34" column="80" selection-start-line="34" selection-start-column="62" selection-end-line="34" selection-end-column="80" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="83" column="53" selection-start-line="83" selection-start-column="53" selection-end-line="83" selection-end-column="53" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/models/Frontend_model.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-5.5">
+          <caret line="15" column="44" selection-start-line="15" selection-start-column="44" selection-end-line="15" selection-end-column="44" />
           <folding>
-            <element signature="n#style#0;n#table#0;n#div#1;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#1;n#tr#0;n#tbody#0;n#table#0;n#div#1;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <marker date="1611246780509" expanded="true" signature="2053:2065" placeholder="{...}" />
+            <marker date="1613303677311" expanded="true" signature="10414:10428" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/frontend/matches.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.074408114">
+          <caret line="3" column="33" selection-start-line="3" selection-start-column="33" selection-end-line="3" selection-end-column="33" />
+          <folding>
+            <marker date="1613225921872" expanded="true" signature="769:787" placeholder="..." />
+            <marker date="1613225921872" expanded="true" signature="981:999" placeholder="..." />
+            <marker date="1613225921872" expanded="true" signature="1196:1214" placeholder="..." />
+            <marker date="1613225921872" expanded="true" signature="1285:1303" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/backend/includes_top.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-15.903226">
+          <caret line="53" column="5" selection-start-line="41" selection-start-column="4" selection-end-line="53" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/language/english.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-40.333332">
+          <caret line="110" column="32" selection-start-line="110" selection-start-column="32" selection-end-line="110" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/User.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.50574714">
+          <caret line="37" column="56" selection-start-line="37" selection-start-column="56" selection-end-line="37" selection-end-column="56" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/models/User_model.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-6.9666667">
+          <caret line="292" column="59" selection-start-line="292" selection-start-column="45" selection-end-line="292" selection-end-column="59" />
+          <folding>
+            <marker date="1613318631836" expanded="true" signature="11169:11180" placeholder="..." />
+            <marker date="1613318631836" expanded="true" signature="11290:11513" placeholder="..." />
+            <marker date="1613318631836" expanded="true" signature="11327:11492" placeholder="{...}" />
+            <marker date="1613318631836" expanded="true" signature="11399:11409" placeholder="{...}" />
+            <marker date="1613318631836" expanded="true" signature="11430:11472" placeholder="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/backend/user/current_match.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-15.129032">
+          <caret line="286" column="89" selection-start-line="286" selection-start-column="85" selection-end-line="286" selection-end-column="89" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#form#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#form#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <marker date="1613316591062" expanded="true" signature="3834:4048" placeholder="..." />
+            <marker date="1613316591062" expanded="true" signature="3862:4048" placeholder="..." />
+            <marker date="1613316591062" expanded="true" signature="3923:4048" placeholder="..." />
+            <marker date="1613316591062" expanded="true" signature="3963:4048" placeholder="..." />
+            <marker date="1613316591062" expanded="true" signature="4005:4048" placeholder="..." />
+            <marker date="1613316591062" expanded="true" signature="4121:4132" placeholder="..." />
+            <marker date="1613316591062" expanded="true" signature="4286:4846" placeholder="..." />
+            <marker date="1613316591062" expanded="true" signature="4327:4846" placeholder="..." />
+            <marker date="1613316591062" expanded="true" signature="4373:4393" placeholder="..." />
+            <marker date="1613316591062" expanded="true" signature="4394:4846" placeholder="..." />
+            <marker date="1613316591062" expanded="true" signature="4451:4661" placeholder="..." />
+            <marker date="1613316591062" expanded="true" signature="4494:4520" placeholder="..." />
+            <marker date="1613316591062" expanded="true" signature="4718:4846" placeholder="..." />
+            <marker date="1613316591062" expanded="true" signature="4774:4846" placeholder="..." />
+            <marker date="1613316591062" expanded="true" signature="4813:4824" placeholder="..." />
+            <marker date="1613316591062" expanded="true" signature="4986:5215" placeholder="..." />
+            <marker date="1613316591062" expanded="true" signature="5037:5057" placeholder="..." />
+            <marker date="1613316591062" expanded="true" signature="5058:5215" placeholder="..." />
+            <marker date="1613316591062" expanded="true" signature="5119:5215" placeholder="..." />
+            <marker date="1613316591062" expanded="true" signature="5166:5192" placeholder="..." />
+            <marker date="1613316591062" expanded="true" signature="5304:5425" placeholder="..." />
+            <marker date="1613316591062" expanded="true" signature="5462:5589" placeholder="..." />
+            <marker date="1613316591062" expanded="true" signature="5626:5697" placeholder="..." />
+            <marker date="1613316591062" expanded="true" signature="5626:5920" placeholder="..." />
+            <marker date="1613316591062" expanded="true" signature="5699:5740" placeholder="..." />
+            <marker date="1613316591062" expanded="true" signature="5741:5883" placeholder="..." />
+            <marker date="1613316591062" expanded="true" signature="6394:6544" placeholder="..." />
+            <marker date="1613316591062" expanded="true" signature="9394:9665" placeholder="..." />
+            <marker date="1613316591062" expanded="true" signature="9514:9622" placeholder="..." />
+            <marker date="1613316591062" expanded="true" signature="9812:9904" placeholder="..." />
+            <marker date="1613316591062" expanded="true" signature="9982:10044" placeholder="..." />
+            <marker date="1613316591062" expanded="true" signature="10395:10480" placeholder="..." />
+            <marker date="1613316591062" expanded="true" signature="10533:10559" placeholder="..." />
+            <marker date="1613316591062" expanded="true" signature="10595:10645" placeholder="..." />
+            <marker date="1613316591062" expanded="true" signature="10820:10916" placeholder="..." />
+            <marker date="1613316591062" expanded="true" signature="10867:10893" placeholder="..." />
+            <marker date="1613316591062" expanded="true" signature="11201:11503" placeholder="..." />
+            <marker date="1613316591062" expanded="true" signature="11274:11315" placeholder="..." />
+            <marker date="1613316591062" expanded="true" signature="11316:11466" placeholder="..." />
+            <marker date="1613316591062" expanded="true" signature="11690:11784" placeholder="..." />
+            <marker date="1613316591062" expanded="true" signature="12880:12975" placeholder="..." />
+            <marker date="1613316591062" expanded="true" signature="13058:13138" placeholder="..." />
+            <marker date="1613316591062" expanded="true" signature="13382:13409" placeholder="..." />
+            <marker date="1613316591062" expanded="true" signature="13510:13552" placeholder="..." />
+            <marker date="1613316591062" expanded="true" signature="13917:14468" placeholder="{...}" />
+            <marker date="1613316591062" expanded="true" signature="14063:14468" placeholder="{...}" />
+            <marker date="1613316591062" expanded="true" signature="14100:14468" placeholder="{...}" />
+            <marker date="1613316591062" expanded="true" signature="16469:16505" placeholder="..." />
+            <marker date="1613316591062" expanded="true" signature="16591:16609" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/backend/user/match_view.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-9.225806">
+          <caret line="130" column="118" selection-start-line="130" selection-start-column="118" selection-end-line="130" selection-end-column="118" />
+          <folding>
+            <element signature="n#style#0;n#span#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#a#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#a#0;n#p#2;n#div#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#a#0;n#p#2;n#div#1;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/views/backend/user/matches.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.476082">
-          <caret line="49" column="8" selection-start-line="49" selection-start-column="8" selection-end-line="49" selection-end-column="8" />
+        <state vertical-scroll-proportion="-19.387096">
+          <caret line="130" column="24" selection-start-line="130" selection-start-column="24" selection-end-line="130" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/frontend/menu.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-22.0">
+          <caret line="31" column="0" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/frontend/modal.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-7.7419353">
+          <caret line="43" column="65" selection-start-line="43" selection-start-column="5" selection-end-line="43" selection-end-column="65" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/backend/user/rosters.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-10.870968">
+          <caret line="50" column="96" selection-start-line="50" selection-start-column="88" selection-end-line="50" selection-end-column="101" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/backend/modal.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-12.290322">
+          <caret line="84" column="0" selection-start-line="84" selection-start-column="0" selection-end-line="101" selection-end-column="0" />
           <folding>
-            <element signature="n#style#0;n#table#0;n#div#1;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <marker date="1611250870158" expanded="true" signature="2248:2300" placeholder="..." />
-            <marker date="1611250870158" expanded="true" signature="2700:2887" placeholder="..." />
-            <marker date="1611250870158" expanded="true" signature="2757:2887" placeholder="..." />
-            <marker date="1611250870158" expanded="true" signature="2817:2887" placeholder="..." />
+            <marker date="1585037471000" expanded="true" signature="154:189" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/backend/user/navigation.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-11.413794">
+          <caret line="122" column="0" selection-start-line="122" selection-start-column="0" selection-end-line="122" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/backend/user/sidebar.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.23111612">
+          <caret line="100" column="10" selection-start-line="100" selection-start-column="10" selection-end-line="100" selection-end-column="10" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#2;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#2;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#2;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#2;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#1;n#div#2;n#div#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>

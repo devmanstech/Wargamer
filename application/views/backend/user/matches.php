@@ -26,7 +26,7 @@
                 </div>
             </div>
             <div class="panel-body">
-                <table id="match_table" class="stripe" style="width:100%">
+                <table id="match_table" class="stripe" style="width:100%;font-size:14px">
                     <thead>
                     <tr>
                         <th width="20"><div>ID</div></th>
@@ -49,8 +49,13 @@
                         $opponent_name = $opponent[0]['name'];
                         // $faction2 = $this->db->get_where('faction', array('id'=>$match['player2_faction']))->result_array();
                         $faction2 =$match['player2_faction'];
-                        $winner = $this->db->get_where('user', array('id'=>$match['winner']))->result_array();
-                        $winner_name = $winner[0]['name'];
+                        if($match['status'] && $match['winner'] != '0') {
+                            $winner = $this->db->get_where('user', array('id'=>$match['winner']))->result_array();
+                            $winner_name = $winner[0]['name'];
+                        }else{
+                            $winner_name = 'None';
+                        }
+                        
                         ?>
                         <tr>
 
@@ -81,8 +86,15 @@
                         $opponent_name = $opponent[0]['name'];
                         // $faction2 = $this->db->get_where('faction', array('id'=>$match['player2_faction']))->result_array();
                         $faction2 =$match['player1_faction'];
-                        $winner = $this->db->get_where('user', array('id'=>$match['winner']))->result_array();
-                        $winner_name = $winner[0]['name'];
+                        
+                        if($match['status'] && $match['winner'] != '0') {
+                            $winner = $this->db->get_where('user', array('id'=>$match['winner']))->result_array();
+                            $winner_name = $winner[0]['name'];
+                        }else{
+                            $winner_name = 'None';
+                        }
+                        
+                        
                         ?>
                         <tr>
 
@@ -116,10 +128,11 @@
 <script>
     $(document).ready(function () {
         $('#match_table').DataTable({
-            "scrollY": 300,
+            "scrollY": 600,
             "scrollX": true,
             "ordering": false,
-            "paging": false
+            "paging": false,
+            "info": false
         });
     });
 </script>

@@ -16,12 +16,14 @@ $rosters = $this->db->get_where('roster', array('user_id'=>$logged_in_user_id));
 				</div>
 			</div>
 			<div class="panel-body">
-                <table class="table table-bordered" id="roster_table">
+                <table id="roster_table" style="font-size:14px">
                 	<thead>
                 		<tr>
-                			<th width="80"><div>#</div></th>
+                			<th width="20"><div>#</div></th>
 
-                			<th width="60%"><div><?php echo get_phrase('name');?></div></th>
+                			<th width="30%"><div><?php echo get_phrase('name');?></div></th>
+                            <th width="10%"><div><?php echo get_phrase('points');?></div></th>
+                            <th width="30%"><div><?php echo get_phrase('faction');?></div></th>
                 			<th><div><?php echo get_phrase('option');?></div></th>
                 		</tr>
                 	</thead>
@@ -33,6 +35,8 @@ $rosters = $this->db->get_where('roster', array('user_id'=>$logged_in_user_id));
                                 <td><?php echo ++$counter; ?></td>
 
                                 <td><?php echo $roster['name']; ?></td>
+                                <td><?php echo $roster['cost']; ?></td>
+                                <td><?php echo $roster['catalogue_name']; ?></td>
 
                                 <td>
                                     <div class="bs-example">
@@ -65,7 +69,8 @@ $rosters = $this->db->get_where('roster', array('user_id'=>$logged_in_user_id));
         $('#roster_table').DataTable({            
             "scrollX": true,
             "ordering": false,
-            "paging": false
+            "paging": false,
+            "info": false
         });
     });
 </script>

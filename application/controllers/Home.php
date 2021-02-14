@@ -41,6 +41,7 @@ class Home extends CI_Controller {
         $page_data['title']         = get_phrase('forgot_password');
         $this->load->view('frontend/index', $page_data);
     }
+   
     function profile($inner_page = "") {
         if($this->session->userdata('user_login') != true){
             redirect(site_url('home'), 'refresh');
@@ -57,53 +58,17 @@ class Home extends CI_Controller {
         $this->load->view('frontend/index', $page_data);
     }
 
-    public function matches_view($param1 = ''){
-        $this->session->set_userdata('matches_view', $param1);
-    }
-
-    function matches()
-    {
-        $page_data['page_name']     =   'matches';
-        $page_data['title']         =   get_phrase('matches');
-        $this->load->view('frontend/index', $page_data);
-    }
-
-
-
-    function match($slug = "", $listing_id) {
-        $listing_details = $this->crud_model->get_listing_details($listing_id)->row_array();
-
-        $page_data['geo_json']  = $this->make_geo_json_for_map($this->db->get_where('listing', array('id' => $listing_id))->result_array(), 'listing_single_page'); // Result array is needed for geo json
-        $page_data['page_name']  = 'directory_listing';
-        $page_data['title']      = $listing_details['name'];
-        $page_data['listing_id'] = $listing_id;
-        $page_data['slug'] = $slug;
-        $page_data['listing_details'] = $listing_details;
-        $this->load->view('frontend/index', $page_data);
-    }
-
-    function category()
-    {
-        $page_data['page_name']     =   'category';
-        $page_data['title']         =   get_phrase('categories');
-        $this->load->view('frontend/index', $page_data);
-    }
-
 
     function blog($param1 = "", $param2 = "")
     {
         if(isset($_GET['search'])):
             $page_data['blogs']         = $this->frontend_model->blog_search($_GET['search']);
+        
             $page_data['searching_value'] = $_GET['search'];
             $page_data['blog_detail_page'] = false;
             $page_data['page_name']     = 'blogs';
             $page_data['title']         = get_phrase('posts');            
-        elseif($param1 != "" && isset($_GET['category'])):
-            $page_data['blogs']         = $this->frontend_model->blog_category_search($param1);
-            $page_data['searching_value'] = '';
-            $page_data['blog_detail_page'] = false;
-            $page_data['page_name']     = 'blogs';
-            $page_data['title']         = $this->db->get_where('category', array('id' => $param1))->row('name');
+        
         else:
             $all_blogs = $this->frontend_model->get_blogs()->result_array();
             $total_rows = count($all_blogs);
@@ -133,6 +98,14 @@ class Home extends CI_Controller {
         $page_data['title']         = $this->frontend_model->get_blogs($param1)->row('title');
         $this->load->view('frontend/index', $page_data);
     }
+
+    function matches($param1 = ""){
+        $page_data['matches']         = $this->frontend_model->get_matches();
+        $page_data['page_name']     = 'matches';
+        $page_data['title']         = 'Matches';
+        $this->load->view('frontend/index', $page_data);
+    }
+
 
     function comment_add($comment_type = ""){
         if ($this->session->userdata('is_logged_in') != true) {
@@ -185,197 +158,6 @@ class Home extends CI_Controller {
     }
 
 
-    function listing_form($action = "") { // This function only shows the form for adding and editing the listing.
-        if ($action == "")
-        redirect(site_url('home/listings'), 'refresh');
-
-        if ($action == 'add') {
-            if ($this->session->userdata('admin_login') == true) {
-                $page_data['page_name'] =   'listing/create';
-                $page_data['title']         =   get_phrase('add_listing');
-                $this->load->view('frontend/index', $page_data);
-            }
-            elseif($this->session->userdata('user_login') == true) {
-                $page_data['page_name'] =   'listing/create';
-                $page_data['title']         =   get_phrase('add_listing');
-                $this->load->view('frontend/index', $page_data);
-            }else {
-                redirect(site_url('home/listings'), 'refresh');
-            }
-        }elseif($action == 'edit') {
-
-        }
-    }
-
-    function listing_review($param1 = '', $param2 = '') {
-        if ($this->session->userdata('user_login') != true) {
-            redirect(site_url('login'), 'refresh');
-        }
-
-        $slug = sanitizer($this->input->post('slug'));
-        $listing_id = sanitizer($this->input->post('listing_id'));
-        $listing_type = $this->db->get_where('listing', array('id' => $listing_id))->row('listing_type');
-        $this->frontend_model->post_review();
-        redirect(get_listing_url($listing_id), 'refresh');
-    }
-
-    function claim_this_listing() {
-        if ($this->session->userdata('is_logged_in') != true) {
-            redirect(site_url('login'), 'refresh');
-        }
-
-        $listing_id = sanitizer($this->input->post('listing_id'));
-        $this->frontend_model->claim_this_listing();
-        $this->session->set_flashdata('flash_message', get_phrase('your_claimed_sent_successfully'));
-        //redirect to routs file
-        redirect(get_listing_url($listing_id), 'refresh');
-    }
-
-    function report_this_listing() {
-        if ($this->session->userdata('user_login') != true) {
-            redirect(site_url('login'), 'refresh');
-        }
-        $slug = sanitizer($this->input->post('slug'));
-        $listing_id = sanitizer($this->input->post('listing_id'));
-        $listing_type = $this->db->get_where('listing', array('id' => $listing_id))->row('listing_type');
-        $this->frontend_model->report_this_listing();
-
-        //redirect to routs file
-        redirect(get_listing_url($listing_id), 'refresh');
-    }
-
-    function contact_us($listing_type = "") {
-        $listing_id = sanitizer($this->input->post('listing_id'));
-        $slug = sanitizer($this->input->post('slug'));
-        $listing_details = $this->crud_model->get_listing_details($listing_id)->row_array();
-        if ($listing_type == 'restaurant') {
-            $data['date'] = sanitizer($this->input->post('dates'));
-            $data['adult_guests_for_booking'] = sanitizer($this->input->post('adult_guests_for_booking'));
-            $data['child_guests_for_booking'] = sanitizer($this->input->post('child_guests_for_booking'));
-            $data['time']    = sanitizer($this->input->post('time'));
-            $data['to'] = $listing_details['email'];
-            if ($data['date'] != "" && $data['time'] != "") {
-                $this->frontend_model->restaurant_booking();
-                $this->email_model->restaurant_booking_mail($data);
-            }else {
-                $this->session->set_flashdata('error_message', get_phrase('fill_all_fields_first'));
-
-                //redirect to routs file
-                redirect(get_listing_url($listing_id), 'refresh');
-            }
-
-        }elseif ($listing_type == 'hotel') {
-            $dates= explode('>', $this->input->post('dates'));
-            $data['book_from'] = $dates[0];
-            $data['book_to'] = $dates[1];
-            $data['adult_guests_for_booking'] = sanitizer($this->input->post('adult_guests_for_booking'));
-            $data['child_guests_for_booking'] = sanitizer($this->input->post('child_guests_for_booking'));
-            $data['room_type']    = sanitizer($this->input->post('room_type'));
-            $data['to'] = $listing_details['email'];
-            if ($data['book_from'] != "" && $data['book_to'] != "" && $data['room_type'] != "") {
-                $this->frontend_model->hotel_booking();
-                $this->email_model->hotel_booking_mail($data);
-            }else {
-                $this->session->set_flashdata('error_message', get_phrase('fill_all_fields_first'));
-
-                //redirect to routs file
-                redirect(get_listing_url($listing_id), 'refresh');
-            }
-
-        }elseif ($listing_type == 'beauty') {
-            $data['date'] = sanitizer($this->input->post('dates'));
-            $data['time']    = sanitizer($this->input->post('time'));
-            $data['service'] = sanitizer($this->input->post('service'));
-            $data['note'] = sanitizer($this->input->post('note'));
-            $data['to'] = $listing_details['email'];
-            if ($data['date'] != "" && $data['time'] != "") {
-                $this->frontend_model->beauty_service();
-                $this->email_model->beauty_service_mail($data);
-            }else {
-                $this->session->set_flashdata('error_message', get_phrase('fill_all_fields_first'));
-
-                //redirect to routs file
-                redirect(get_listing_url($listing_id), 'refresh');
-            }
-
-        }else {
-            $data['name'] = sanitizer($this->input->post('name'));
-            $data['message'] = sanitizer($this->input->post('message'));
-            $data['to'] = $listing_details['email'];
-
-            if ($data['name'] != "" && $data['message'] != "") {
-                $this->email_model->contact_us_mail($data);
-            }else {
-                $this->session->set_flashdata('error_message', get_phrase('fill_all_fields_first'));
-
-                //redirect to routs file
-                redirect(get_listing_url($listing_id), 'refresh');
-            }
-
-        }
-        $this->session->set_flashdata('flash_message', get_phrase('your_mail_has_been_sent_to_recipient'));
-
-        //redirect to routs file
-        redirect(get_listing_url($listing_id), 'refresh');
-    }
-
-    // //For custom pagination
-    // function search($page_number = 1) {
-    //     $search_string = $_GET['search_string'];
-    //     $selected_category_id = $_GET['selected_category_id'];
-
-    //     $all_listings = $this->frontend_model->search_listing_all_rows($search_string, $selected_category_id);
-    //     $listings = $this->frontend_model->search_listing($search_string, $selected_category_id, $page_number);
-    //     $geo_json = $this->make_geo_json_for_map($listings);
-
-    //     $page_data['search_string'] = $search_string;
-    //     $page_data['selected_category_id'] = $selected_category_id;
-    //     $total_listings = count($all_listings);
-    //     if($total_listings > 8):
-    //         $page_data['pagination'] = true;
-    //         $total_page_number = $total_listings/8;
-    //         if($total_page_number%2 != 0):
-    //             $total_page_number = intval($total_page_number) + 1;
-    //         endif;
-
-    //         $page_data['total_page_number'] = $total_page_number;
-    //         $page_data['active_page_number']= $page_number;
-    //     else:
-    //         $page_data['pagination'] = false;
-    //     endif;
-    //     $page_data['page_name']     = 'listings';
-    //     $page_data['title']         = get_phrase('listings');
-    //     $page_data['listings']      = $listings;
-    //     $page_data['geo_json']      = $geo_json;
-    //     if ($selected_category_id != "") {
-    //         $page_data['category_ids'] = array($selected_category_id);
-    //     }
-    //     if ($search_string != "") {
-    //         $page_data['search_string'] = $search_string;
-    //     }
-    //     $this->load->view('frontend/index', $page_data);
-    // }
-
-
-    // Search function
-    function search() {
-        $search_string = $_GET['search_string'];
-        $selected_category_id = $_GET['selected_category_id'];
-
-        $listings = $this->frontend_model->search_listing($search_string, $selected_category_id);
-        $geo_json = $this->make_geo_json_for_map($listings);
-        $page_data['page_name']     = 'listings';
-        $page_data['title']         = get_phrase('listings');
-        $page_data['listings']      = $listings;
-        $page_data['geo_json']      = $geo_json;
-        if ($selected_category_id != "") {
-            $page_data['category_ids'] = array($selected_category_id);
-        }
-        if ($search_string != "") {
-            $page_data['search_string'] = $search_string;
-        }
-        $this->load->view('frontend/index', $page_data);
-    }
 
 
     // About
@@ -409,28 +191,5 @@ class Home extends CI_Controller {
         $page_data['page_name']     =   'cookie_policy';
         $page_data['title']         =   get_phrase('cookie_policy');
         $this->load->view('frontend/index', $page_data);
-    }
-    // Ajax calls
-    function get_city_list_by_country_id() {
-        $page_data['country_id'] = sanitizer($this->input->post('country_id'));
-        return $this->load->view('frontend/city_list_dropdown', $page_data);
-    }
-
-    function page_missing() {
-        $page_data['page_name']     =   '404';
-        $page_data['title']         =   get_phrase('page_not_found');
-        $this->load->view('frontend/index', $page_data);
-    }
-    function beauty_service_time($param1 = '', $param2 = ''){
-        $this->crud_model->beauty_service_checking_time($param1, $param2);
-    }
-
-    function footer_more_category($view_limitation = ""){
-        $page_data['limitation'] = $view_limitation;
-        $this->load->view('frontend/footer_more_category', $page_data);
-    }
-
-    function home_categories(){
-        $this->load->view('frontend/home_categories');
     }
 }

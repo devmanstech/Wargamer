@@ -1449,7 +1449,7 @@ ul#additional_links li:after {
   height: 600px;
 }
 .hero_single.version_2 {
-  height: 620px;
+  height: 100vh;
   background: #222 url(../images/home_section_1.jpg) center center no-repeat;
   -webkit-background-size: cover;
   -moz-background-size: cover;

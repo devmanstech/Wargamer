@@ -18,10 +18,7 @@
 			<?php
 			if ($page_name == 'home' || $page_name == '404')
 				include 'header_home.php';
-			else if ($page_name == 'matches' || $page_name == 'listing/create')
-				include 'header_matches.php';
-			else if ($page_name == 'match_listing')
-				include 'header_home.php';
+			
 			else
 				include 'header.php';
 			?>
@@ -33,9 +30,7 @@
 
 			<!-- Site footer -->
 			<?php
-				
-					include 'footer.php';
-				
+				include 'footer.php';
 			?>
 		</div>
 

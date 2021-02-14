@@ -308,7 +308,7 @@ body .page-container .sidebar-menu {
 .dataTables_wrapper{
   margin-top: 20px;
   margin-bottom: 20px;
-  box-shadow: 0 0 20px rgba(0,0,0,0.11);
+  /* box-shadow: 0 0 20px rgba(0,0,0,0.11); */
   background-color: #ffffff;
   padding: 30px 0px;
   border-radius: 5px;

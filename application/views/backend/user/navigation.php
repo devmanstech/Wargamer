@@ -112,13 +112,7 @@ if(count($current_match)) $current_match_id = $current_match[0]['match_id']
 			</ul>
 		</li>
 
-		<!-- History -->
-<!--		<li class="--><?php //if ($page_name == 'history') echo 'active'; ?><!-- ">-->
-<!--			<a href="--><?php //echo site_url('user/history'); ?><!--">-->
-<!--				<i class="fa fa-book"></i>-->
-<!--				<span> --><?php //echo get_phrase('history'); ?><!--</span>-->
-<!--			</a>-->
-<!--		</li>-->
+
 			<!-- Manage Profile -->
 			<li class="<?php if ($page_name == 'manage_profile') echo 'active'; ?>">
 				<a href="<?php echo site_url('user/manage_profile'); ?>">
@@ -126,5 +120,9 @@ if(count($current_match)) $current_match_id = $current_match[0]['match_id']
 					<span><?php echo get_phrase('account'); ?></span>
 				</a>
 			</li>
+
 	</ul>
+
 </div>
+
+

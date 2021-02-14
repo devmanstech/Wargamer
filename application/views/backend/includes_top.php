@@ -34,6 +34,31 @@
 <script src="https://www.amcharts.com/lib/4/themes/animated.js">
 
 <?php
+
+
+function get_select_html($selected = '')
+{
+
+    $secondaries = $this->db->get('secondary')->result_array();
+
+
+    $select_html = '';
+
+    foreach ($secondaries as $secondary) {
+        if ($selected == $secondary['id']) {
+            $select_html .= '<option value="' . $secondary['id'] . '" selected>' . $secondary['name'] . '</option>';
+        } else {
+            $select_html .= '<option value="' . $secondary['id'] . '">' . $secondary['name'] . '</option>';
+        }
+
+    }
+
+    return $select_html;
+}
+
+
+
+
 function unzip($src_file, $dest_dir=false, $create_zip_name_dir=true, $overwrite=true)
 {
 

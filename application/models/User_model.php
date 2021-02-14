@@ -81,18 +81,8 @@ class User_model extends CI_Model {
         $data['email'] = sanitizer($this->input->post('email'));
         $data['name'] = sanitizer($this->input->post('name'));
         $data['password'] = sha1(sanitizer($this->input->post('password')));
-        $data['address'] = sanitizer($this->input->post('address'));
-        $data['phone'] = sanitizer($this->input->post('phone'));
-        $data['website'] = sanitizer($this->input->post('website'));
-        $data['about'] = sanitizer($this->input->post('about'));
-        $social_links = array(
-            'facebook' => sanitizer($this->input->post('facebook')),
-            'twitter' => sanitizer($this->input->post('twitter')),
-            'linkedin' => sanitizer($this->input->post('linkedin')),
-        );
-        $data['social'] = json_encode($social_links);
         $data['role_id'] = 2;
-        $data['wishlists'] = '[]';
+        
         $verification_code =  md5(rand(100000000, 200000000));
         $data['verification_code'] = $verification_code;
 
@@ -121,24 +111,17 @@ class User_model extends CI_Model {
     function edit_user($user_id) {
         $data['email'] = sanitizer($this->input->post('email'));
         $data['name'] = sanitizer($this->input->post('name'));
-        $data['address'] = sanitizer($this->input->post('address'));
-        $data['phone'] = sanitizer($this->input->post('phone'));
-        $data['website'] = sanitizer($this->input->post('website'));
-        $data['about'] = sanitizer($this->input->post('about'));
+        
         $data['language'] = sanitizer($this->input->post('language'));
-        $social_links = array(
-            'facebook' => sanitizer($this->input->post('facebook')),
-            'twitter' => sanitizer($this->input->post('twitter')),
-            'linkedin' => sanitizer($this->input->post('linkedin')),
-        );
-        $data['social'] = json_encode($social_links);
+        
+        
 
         $validity = $this->check_duplication('on_update', $data['email'], $user_id);
 
         if($validity){
             $this->db->where('id', $user_id);
             $this->db->update('user', $data);
-            $this->upload_user_image($user_id);
+            // $this->upload_user_image($user_id);
             $this->session->set_flashdata('flash_message', get_phrase('user_updated_successfully'));
         }else {
             $this->session->set_flashdata('error_message', get_phrase('this_email_id_has_been_taken'));
@@ -158,6 +141,7 @@ class User_model extends CI_Model {
 
         $data['name'] = sanitizer($this->input->post('name'));
         $data['user_id'] = sanitizer($this->input->post('user_id'));
+        
 
         $validity = $this->check_roster_duplication('on_create', $data['name']);
         if($validity){
@@ -210,7 +194,7 @@ class User_model extends CI_Model {
         $data['status'] = 1;
         $data['mode'] = sanitizer($this->input->post('main_mode'));
         $data['language'] = sanitizer($this->input->post('language'));
-
+        $data['roster_id'] = $roster_id;
         $date = new DateTime('now');
 
         $data['create_at'] = $date->format('Y-m-d H:i:s');
@@ -220,15 +204,16 @@ class User_model extends CI_Model {
 
         $this->session->set_flashdata('flash_message', get_phrase('search_queued_successfully_done'));
 
+        sleep(5);
         //check if there is opponent
-        $this->check_queue($data['user_id']);
+        return $this->check_queue($data['user_id']);
 
     }
 
     public function check_queue($user_id){
        
         $current_search = $this->db->get_where('queue',array('user_id'=>$user_id))->result_array();
-              
+        $current_search_roster_id = $current_search[0]['roster_id']   ;  
         $current_search_lang = explode(',', $current_search[0]['language']);
         $current_search_point = $current_search[0]['points'];
         $current_search_mode = $current_search[0]['mode'];
@@ -254,7 +239,7 @@ class User_model extends CI_Model {
                 $queue_mode = $queue['mode'];
                 $queue_user_id = $queue['user_id'];
                 $queue_faction = $queue['faction'];
-                
+                $queue_roster_id = $queue['roster_id'];                
     
                 if($queue_user_id == $user_id) continue;
     
@@ -269,9 +254,10 @@ class User_model extends CI_Model {
                 if($current_search_point <= 1000 && $queue_point > 1000) continue;
                 if($current_search_point > 1000 && $queue_point <= 1000) continue;
     
-                // make match                
+                // make match        
+
     
-                $match_id = $this->add_match($user_id, $queue_user_id, $current_search_faction, $queue_faction);
+                $match_id = $this->add_match($user_id, $queue_user_id, $current_search_faction, $queue_faction,$current_search_roster_id,$queue_roster_id,$current_search_point<1000 ? 0 : 1);
                 
                 $this->session->set_flashdata('flash_message', "Match created successfully");
                 //add match id to opponents queue
@@ -287,6 +273,82 @@ class User_model extends CI_Model {
 
     }
 
+    public function check_opponent( $match_id,$opponent_id){
+        $match = $this->db->get_where('match',array('id'=>$match_id))->result_array();
+        $current_match = $match[0];
+
+        // var_dump($opponent_id);
+        // die();
+        
+        if($opponent_id == $current_match['player1_id']){
+            $data['score'] = $current_match['player1_score'];
+            $data['comment'] = $current_match['player1_comment'];
+            $data['agree_status'] = $current_match['player1_agree_status'];
+            $data['secondary'] = json_decode($current_match['player1_secondary_score']);
+            
+        }else{
+            $data['score'] = $current_match['player2_score'];
+            $data['comment'] = $current_match['player2_comment'];
+            $data['agree_status'] = $current_match['player2_agree_status'];
+            $data['secondary'] = json_decode($current_match['player2_secondary_score']);
+        }
+
+        if($current_match['player1_agree_status'] == '1' && $current_match['player2_agree_status'] == '1' ){
+            $data['html'] = '<button style="float:right" id="finish_match" class="btn btn-success" onClick="finish_match()">Finish Match</button>
+            <script>
+            function finish_match(){
+                $.post("/user/current_match/complete/'.$match_id.' ", {
+			
+			},
+			function (data) {
+
+                location.reload();
+			}
+		);
+
+            }
+            </script>';
+        }else{
+            $data['html'] = '';
+        }
+        return json_encode($data);
+    }
+
+    public function complete_match($match_id){
+        $match = $this->db->get_where('match',array('id'=>$match_id))->result_array();
+        $current_match = $match[0];
+        $player1_secondary_scores = json_decode($current_match['player1_secondary_score']);
+        $player2_secondary_scores = json_decode($current_match['player2_secondary_score']);
+
+        $player1_score = intval($current_match['player1_score']);
+        $player2_score = intval($current_match['player2_score']);
+
+        foreach($player1_secondary_scores as $player1_secondary_score){
+            $player1_score += intval($player1_secondary_score);
+        }
+
+        foreach($player2_secondary_scores as $player2_secondary_score){
+            $player2_score += intval($player2_secondary_score);
+        }
+
+        if($current_match['player1_agree_status'] == '1' && $current_match['player2_agree_status'] == '1' ){
+            $data['status']  = 1;
+            if($player1_score > $player2_score){
+                $data['winner'] = $current_match['player1_id'];
+            }else if($player1_score < $player2_score){
+                $data['winner'] = $current_match['player2_id'];
+            }else{
+                $data['winner'] = 0;
+            }
+            $date = new DateTime('now');
+            $data['finished_at'] = $date->format('Y-m-d H:i:s');
+            $this->db->where('id', $match_id);
+            $this->db->update('match',$data);
+            $this->session->set_flashdata('flash_message', get_phrase('match_completed_successfully'));
+        }else{
+            $this->session->set_flashdata('flash_message', get_phrase('match_can_not_complete'));
+        }
+    }
 
     public function add_current_match($user_id, $match_id){
         $data['user_id'] = $user_id;
@@ -299,7 +361,49 @@ class User_model extends CI_Model {
         }else{
             $this->db->insert('current_match', $data);
         }
+    }
 
+
+    public function save_current_match($user_id){
+        $user_id = sanitizer($this->input->post('user_id'));
+        $match_id = sanitizer($this->input->post('match_id'));
+        $score = sanitizer($this->input->post('score'));
+        $comment = sanitizer($this->input->post('comment'));
+
+        $secondary_names = sanitizer($this->input->post('secondary_name'));
+        $secondary_scores = sanitizer($this->input->post('secondary_score'));
+
+        $secodary = array();
+        for($i=0;$i<count($secondary_names);$i++){
+            $secodary[$secondary_names[$i]] = $secondary_scores[$i];
+        }
+
+        $agree_status = sanitizer($this->input->post('agree_status'));
+        
+        
+        $match = $this->db->get_where('match',array('id'=>$match_id))->result_array();
+        
+        $current_match = $match[0];
+    
+        if($current_match['player1_id'] == $user_id){
+            $data['player1_score'] = $score;
+            $data['player1_comment'] = $comment;
+            $data['player1_agree_status'] = $agree_status ? 1 : 0;
+            $data['player1_secondary_score'] = json_encode($secodary);
+
+            $this->db->where('id', $match_id);
+            $this->db->update('match',$data);
+            
+        }else if($current_match['player2_id'] == $user_id){
+            $data['player2_score'] = $score;
+            $data['player2_comment'] = $comment;
+            $data['player2_agree_status'] = $agree_status ? 1 : 0;
+            $data['player2_secondary_score'] = json_encode($secodary);
+
+            $this->db->where('id', $match_id);
+            $this->db->update('match',$data);
+        }
+    
     }
 
     public function update_queue($user_id, $match_id){
@@ -317,7 +421,7 @@ class User_model extends CI_Model {
 
     }
 
-    public function add_match($player1_id, $player2_id, $player1_faction, $player2_faction){
+    public function add_match($player1_id, $player2_id, $player1_faction, $player2_faction,$player1_roster_id, $player2_roster_id, $points){
 
         $data['player1_id'] = $player1_id;
         $data['player2_id'] = $player2_id;        
@@ -325,6 +429,11 @@ class User_model extends CI_Model {
         $data['player1_faction'] = $player1_faction;
         $data['player2_faction'] = $player2_faction;
        
+        $data['player1_roster_id'] = $player1_roster_id;
+        $data['player2_roster_id'] = $player2_roster_id;
+
+        $data['points'] = $points;
+        
    
         $date = new DateTime('now');
         $data['created_at'] = $date->format('Y-m-d H:i:s');

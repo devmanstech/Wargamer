@@ -82,13 +82,13 @@ class Admin extends CI_Controller {
 			redirect(site_url('login'), 'refresh');
 		}
 		if($param1 == 'add'):
-			$page_data['categories'] = $this->crud_model->get_categories()->result_array();
+			
 			$page_data['page_name'] = 'add_blog_form';
 			$page_data['page_title'] = get_phrase('add_new_blog');
 			$this->load->view('backend/index', $page_data);
 		elseif($param1 == 'edit'):
 			$page_data['blog'] = $this->crud_model->get_blogs($param2)->row_array();
-			$page_data['categories'] = $this->crud_model->get_categories()->result_array();
+			
 			$page_data['page_name'] = 'edit_blog_form';
 			$page_data['page_title'] = get_phrase('blog_edit');
 			$this->load->view('backend/index', $page_data);

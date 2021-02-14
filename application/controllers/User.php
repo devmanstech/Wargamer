@@ -62,13 +62,10 @@ class User extends CI_Controller {
 		if ($this->session->userdata('user_login') != true) {
 			redirect(site_url('login'), 'refresh');
 		}
-		if ($param1 == 'add') {
-			$page_data['page_name']  = 'match_add_wiz';
-			$page_data['page_title'] = get_phrase('add_new_match');
-		}elseif ($param1 == 'edit') {
-			$page_data['page_name']  = 'match_edit_wiz';
-			$page_data['page_title'] = get_phrase('match_edit');
-			$page_data['listing_id'] = $param2;
+		if ($param1 == 'view') {
+			$page_data['match_id'] = $param2;
+			$page_data['page_name']  = 'match_view';
+			$page_data['page_title'] = get_phrase('view_match');
 		}
 		$this->load->view('backend/index.php', $page_data);
 	}
@@ -131,11 +128,16 @@ class User extends CI_Controller {
 			return;
 			
 		}elseif($param1 == 'add'){
-			$this->user_model->add_queue();
-				
+			$match_id = $this->user_model->add_queue();
 			$page_data['search_button_name'] = 'start';
 			$page_data['page_name'] = 'current_match';
-			redirect(site_url('user/current_match'), 'refresh');
+			if($match_id) {
+				redirect(site_url('user/current_match/'.$match_id), 'refresh');
+			}else{
+				redirect(site_url('user/current_match'), 'refresh');
+			}
+			
+			
 		}elseif($param1 == 'stop'){
 			$user_id = $param2;
 			$this->user_model->delete_queue($user_id);
@@ -168,64 +170,48 @@ class User extends CI_Controller {
 
 	}
 
-	function report() {
-		if ($this->session->userdata('user_login') != true) {
-			redirect(site_url('login'), 'refresh');
-		}
-		$page_data['page_name'] = 'report';
-		$page_data['page_title'] = get_phrase('report');
-		$this->load->view('backend/index.php', $page_data);
-	}
-
-	function current_match($param1='') {
+	
+	function current_match($param1='', $param2 = '',$param3 = '') {
 		if ($this->session->userdata('user_login') != true) {
 			redirect(site_url('login'), 'refresh');
 		}
 
 		if($param1==''){
+			
 			$page_data['match_id'] = 0;
-		}else{
+			
+		}else if($param1 == 'save'){
+			$match_id = $param2;
+			$user_id = $this->session->userdata('user_id');
+
+			$this->user_model->save_current_match($user_id);
+			$this->session->set_flashdata('flash_message', get_phrase('match_saved_successfully'));
+			redirect(site_url('user/current_match'), 'refresh');
+
+		}else if($param1 == 'check'){
+			$opponent_id = $param3;
+			$match_id = $param2;
+			echo $this->user_model->check_opponent($match_id,$opponent_id);
+			return;
+		}else if($param1 == 'complete'){
+			$match_id = $param2;
+			$this->user_model->complete_match($match_id);
+			redirect(site_url('user/current_match'), 'refresh');
+		}		
+		else {
 			$page_data['match_id'] = $param1;
 		}
 
 		$page_data['page_name'] = 'current_match';
 		$page_data['page_title'] = get_phrase('current_match');
-//		$page_data['packages'] = $this->crud_model->get_packages()->result_array();
+
 		$this->load->view('backend/index.php', $page_data);
 	}
 
 
-	function filter_listing_table() {
-		$data['status'] 	= sanitizer($this->input->post('status'));
-		$date_range = sanitizer($this->input->post('date_range'));
-		$date_range = explode(" - ", $date_range);
-		$data['timestamp_start'] = strtotime($date_range[0]);
-		$data['timestamp_end']   = strtotime($date_range[1]);
-		$page_data['listings'] = $this->crud_model->filter_listing_table($data)->result_array();
-		$this->load->view('backend/user/filter_listing_table', $page_data);
-	}
+	
 
-	function history() {
-		if ($this->session->userdata('user_login') != true) {
-			redirect(site_url('login'), 'refresh');
-		}
-		$page_data['page_name'] = 'history';
-		$page_data['page_title'] = get_phrase('history');
-//		$page_data['history'] = $this->crud_model->get_user_specific_purchase_history($this->session->userdata('user_id'))->result_array();
-		$this->load->view('backend/index.php', $page_data);
-	}
-
-	function package_invoice($package_purchase_history_id = "") {
-		if ($this->session->userdata('user_login') != true) {
-			redirect(site_url('login'), 'refresh');
-		}
-		$page_data['page_name'] = 'package_invoice';
-		$page_data['page_title'] = get_phrase('invoice');
-		$page_data['purchase_history'] = $this->db->get_where('package_purchased_history', array('id' => $package_purchase_history_id))->row_array();
-		$this->load->view('backend/index.php', $page_data);
-	}
-
-	/******MANAGE OWN PROFILE AND CHANGE PASSWORD***/
+		/******MANAGE OWN PROFILE AND CHANGE PASSWORD***/
     function manage_profile($param1 = '', $param2 = '', $param3 = '')
     {
         if ($this->session->userdata('user_login') != 1)

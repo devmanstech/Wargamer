@@ -12,8 +12,9 @@ class Frontend_model extends CI_Model {
     }
 
     function get_matches() {
-        $this->db->where('status', 'active');
-        return $this->db->get('match');
+        $this->db->where('status', '1');
+        $this->db->order_by('created_at','DESC');
+        return $this->db->get('match')->result_array();
     }
 
 
@@ -427,6 +428,7 @@ class Frontend_model extends CI_Model {
       return $this->db->get('blogs');
     }
 
+   
     //comment select
     public function get_comments($blog_id = 0, $under_comment_id = 0){
         if($blog_id > 0){
@@ -450,15 +452,13 @@ class Frontend_model extends CI_Model {
 
     //blog search
     public function blog_search($searching_key = ""){
-        $this->db->like('name', $searching_key);
-        $categories = $this->db->get('category')->result_array();
-
+        // $this->db->like('name', $searching_key);
+        
         $this->db->like('title', $searching_key);
-        foreach($categories as $category):
-            $this->db->or_like('category_id', $category['id']);
-        endforeach;
+        
         $this->db->or_like('blog_text', $searching_key);
         $this->db->where('status', 1);
+        
         return $this->db->get('blogs')->result_array();
     }
 

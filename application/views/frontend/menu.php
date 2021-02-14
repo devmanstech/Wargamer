@@ -1,7 +1,9 @@
 <nav id="menu" class="main-menu">
     <ul>
         <li><span><a href="<?php echo base_url();?>"><?php echo get_phrase('home'); ?></a></span></li>
+        <li><span><a href="<?php echo base_url();?>home/matches"><?php echo get_phrase('matches'); ?></a></span></li>
         <li><span><a href="<?php echo base_url();?>home/blog"><?php echo get_phrase('blog'); ?></a></span></li>
+
         <?php if ($this->session->userdata('is_logged_in') == 1): ?>
             <li><span><a href="javascript::"><?php echo get_phrase('account'); ?></a></span>
                     <ul class="manage_account_navbar">
@@ -22,5 +24,9 @@
                 </li>
         <?php endif; ?>
     </ul>
+<div>
+
+</div>
 </nav>
+
 

@@ -1,10 +1,10 @@
 <div class="row ">
-  <div class="col-lg-12">
+  <div class="col-lg-8 col-md-10 col-sm-12">
     <a href="<?php echo site_url('admin/blog_form/add'); ?>" class="btn btn-primary alignToTitle"><i class="entypo-plus"></i><?php echo get_phrase('add_new_post'); ?></a>
   </div><!-- end col-->
 </div>
 <div class="row">
-  <div class="col-lg-12">
+  <div class="col-lg-8 col-md-10 col-sm-12">
     <div class="panel panel-primary" data-collapsed="0">
       <div class="panel-heading">
         <div class="panel-title">
@@ -12,15 +12,14 @@
         </div>
       </div>
       <div class="panel-body">
-        <table class="table table-bordered datatable">
+        <table id="blog_table" style="font-size:14px;">
           <thead>
             <tr>
-              <th width="80"><div>#</div></th>
-              <th><div><?php echo get_phrase('title');?></div></th>
-              <!-- <th><div><?php echo get_phrase('blog_text');?></div></th> -->
-             
-              <th><div><?php echo get_phrase('status');?></div></th>
-              <th><div><?php echo get_phrase('options');?></div></th>
+              <th width="80">#</th>
+              <th><?php echo get_phrase('title');?></th>
+                          
+              <th><?php echo get_phrase('status');?></th>
+              <th><?php echo get_phrase('options');?></th>
             </tr>
           </thead>
           <tbody>
@@ -30,24 +29,8 @@
               <tr>
                 <td><?php echo $count; ?></td>
                 <td><a href="<?php echo site_url('home/post/'.$blog['id'].'/'.slugify($blog['title'])); ?>" target="_blank"><?php echo $blog['title']; ?></a></td>
-                <!-- <td class="text-center" style="max-width: 200px;">
-                    <?php 
-                      $string = strip_tags($blog['blog_text']);
-                      if (strlen($string) > 100) {
-
-                          // truncate string
-                          $stringCut = substr($string, 0, 100);
-                          $endPoint = strrpos($stringCut, ' ');
-
-                          //if the string doesn't contain any space then it will cut without word basis.
-                          $string = $endPoint? substr($stringCut, 0, $endPoint) : substr($stringCut, 0);
-                          $string .= '... <br><a class="text-success" href="javascript: void(0)" data-toggle="tooltip" title="'.$blog['blog_text'].'" data-placement="right">'.get_phrase('read_more').'</a>';
-                      }
-                      echo $string;
-                    ?>
-                </td> -->
-                
-                <td class="text-center">
+                             
+                <td>
                   <?php if($blog['status'] == 1): ?>
                     <span class="label label-success"><?php echo get_phrase('active'); ?></span>
                   <?php else: ?>
@@ -101,7 +84,12 @@
 </div>
 
 <script>
-  $(document).ready(function(){
-    $('[data-toggle="tooltip"]').tooltip();
-  });
+    $(document).ready(function () {
+        $('#blog_table').DataTable({            
+            "scrollX": true,
+            "ordering": false,
+            "paging": false,
+            "info": false
+        });
+    });
 </script>

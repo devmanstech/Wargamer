@@ -66,19 +66,3 @@
 </div>
 </footer>
 <!--/footer-->
-
-<script>
-	function more_category(){
-		$.ajax({
-			url: "<?php echo site_url('home/footer_more_category/'); ?>",
-			success: function(response){
-				$('#loader').show();
-				setInterval(function(){
-					$('#loader').hide();
-					$('#footer_category').html(response);
-				},1000);
-
-			}
-		});
-	}
-</script>
