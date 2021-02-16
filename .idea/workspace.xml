@@ -5,19 +5,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6f53d05b-3710-42d7-924f-ffdb0ae0aeda" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/controllers/User.php" afterPath="$PROJECT_DIR$/application/controllers/User.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/language/.json" afterPath="$PROJECT_DIR$/application/language/.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/language/english.json" afterPath="$PROJECT_DIR$/application/language/english.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/models/Crud_model.php" afterPath="$PROJECT_DIR$/application/models/Crud_model.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/models/Frontend_model.php" afterPath="$PROJECT_DIR$/application/models/Frontend_model.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/models/User_model.php" afterPath="$PROJECT_DIR$/application/models/User_model.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/backend/includes_top.php" afterPath="$PROJECT_DIR$/application/views/backend/includes_top.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/backend/modal.php" afterPath="$PROJECT_DIR$/application/views/backend/modal.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/backend/user/current_match.php" afterPath="$PROJECT_DIR$/application/views/backend/user/current_match.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/backend/user/match_view.php" afterPath="$PROJECT_DIR$/application/views/backend/user/match_view.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/backend/user/roster_view.php" afterPath="$PROJECT_DIR$/application/views/backend/user/roster_view.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/frontend/sign_up.php" afterPath="$PROJECT_DIR$/application/views/frontend/sign_up.php" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/uploads/rosters/New roster with user id.zip" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/uploads/rosters/roster with use id.zip" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/uploads/rosters/roster.zip" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/uploads/rosters/rostere10.zip" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/uploads/rosters/user1_roster.zip" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/uploads/rosters/user1_roster2.zip" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/uploads/rosters/user2_roster.rosz" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/uploads/rosters/user2_roster2.rosz" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/uploads/rosters/user2_roster3.rosz" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/uploads/rosters/user2_roster4.rosz" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/uploads/rosters/user2_roster5.rosz" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/uploads/rosters/user2_roster6.rosz" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/uploads/rosters/user2_roster7.rosz" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/uploads/rosters/user2_roster8.rosz" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/uploads/rosters/user2_roster9.rosz" afterPath="" />
     </list>
     <ignored path="htdocs.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -576,7 +578,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.215625" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
