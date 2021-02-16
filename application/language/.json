@@ -187,5 +187,13 @@
     "user_updated_successfully": "User updated successfully",
     "view_match": "View match",
     "match": "Match",
-    "points": "Points"
+    "points": "Points",
+    "your_registration_has_been_successfully_done": "Your registration has been successfully done",
+    "please_check_your_mail_inbox_to_verify_your_email_address": "Please check your mail inbox to verify your email address",
+    "roster_file_saved_successfully_done": "Roster file saved successfully done",
+    "this_roster_name_has_been_taken": "This roster name has been taken",
+    "secondary_items_duplicated": "Secondary items duplicated",
+    "ok": "Ok",
+    "choose_secondary_item": "Choose secondary item",
+    "you_left_match": "You left match"
 }

@@ -18,16 +18,7 @@
                   <input type="text" class="form-control" name="name" placeholder="<?php echo get_phrase('name'); ?> *" required>
                 </div>
               </div>
-              <div class="col-md-12">
-                <div class="form-group">
-                  <input type="text" class="form-control" name="address" placeholder="<?php echo get_phrase('address'); ?> *" required>
-                </div>
-              </div>
-              <div class="col-md-12">
-                <div class="form-group">
-                  <input type="number" class="form-control" name="phone" placeholder="<?php echo get_phrase('phone'); ?> *" required>
-                </div>
-              </div>
+
             </div>
             <hr>
             <div class="row">
@@ -45,14 +36,7 @@
               
             </div>
 
-            <!-- <div class="row">
-              <div class="col-md-6">
-                <input type="submit" value="Sign Up" class="btn_1 full-width">
-              </div>
-              <div class="col-md-6">
-                <a id="login" class="btn_1 full-width" href="<?php echo site_url('home/login'); ?>">Login</a>
-              </div>
-            </div> -->
+
             <div class="row mt-1">
               <div class="col-md-12 mb-2">
                 <input type="submit" value="Sign Up" class="btn_1 w-100">

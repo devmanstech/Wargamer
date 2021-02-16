@@ -99,3 +99,42 @@ function confirm_modal(delete_url, modal_type)
         </div>
     </div>
 </div>
+
+
+<div class="modal fade" id="modal-secondary_dup">
+    <div class="modal-dialog">
+        <div class="modal-content" style="margin-top:100px;">
+
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" style="text-align:center;"><?php echo get_phrase('secondary_items_duplicated'); ?> !</h4>
+            </div>
+
+
+            <div class="modal-footer" style="margin:0px; border-top:0px; text-align:center;">
+
+                <button type="button" class="btn btn-info" data-dismiss="modal"><?php echo get_phrase('ok');?></button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="modal fade" id="modal-secondary_not">
+    <div class="modal-dialog">
+        <div class="modal-content" style="margin-top:100px;">
+
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" style="text-align:center;"><?php echo get_phrase('choose_secondary_item'); ?> !</h4>
+            </div>
+
+
+            <div class="modal-footer" style="margin:0px; border-top:0px; text-align:center;">
+
+                <button type="button" class="btn btn-info" data-dismiss="modal"><?php echo get_phrase('ok');?></button>
+            </div>
+        </div>
+    </div>
+</div>

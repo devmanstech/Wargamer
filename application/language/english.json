@@ -118,6 +118,8 @@
     "frontend_settings": "Frontend settings",
     "smtp_settings": "Smtp settings",
     "general_user_list": "General user list",
+    "secondary_items_duplicated": "Secondary items are duplicated!",
+    "choose_secondary_item": "Please select secondary name.",
     "photo": "Photo",
     "solcial_links": "Solcial links",
     "edit": "Edit",

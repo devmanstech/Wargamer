@@ -18,7 +18,7 @@ if($match_id){
         $your_name = $you['name'];
         $your_roster_id = $current_match['player1_roster_id'];
         $your_roster_filename = ($this->db->get_where('roster', array('id' => $your_roster_id))->result_array())[0]['name'];
-        $your_roster_url = base_url() . 'uploads/rosters/' . $your_roster_filename . '.zip';
+        $your_roster_url = base_url() . 'uploads/rosters/' . $your_roster_filename . '.rosz';
 
         $your_secondary_scores = $current_match['player1_secondary_score'];
 
@@ -28,7 +28,7 @@ if($match_id){
         $opponent_name = $opponent['name'];
         $opponent_roster_id = $current_match['player2_roster_id'];
         $opponent_roster_filename = ($this->db->get_where('roster', array('id' => $opponent_roster_id))->result_array())[0]['name'];
-        $opponent_roster_url = base_url() . 'uploads/rosters/' . $opponent_roster_filename . '.zip';
+        $opponent_roster_url = base_url() . 'uploads/rosters/' . $opponent_roster_filename . '.rosz';
 
         $opponent_secondary_scores = $current_match['player2_secondary_score'];
 
@@ -44,7 +44,7 @@ if($match_id){
         $your_name = $you['name'];
         $your_roster_id = $current_match['player2_roster_id'];
         $your_roster_filename = ($this->db->get_where('roster', array('id' => $your_roster_id))->result_array())[0]['name'];
-        $your_roster_url = base_url() . 'uploads/rosters/' . $your_roster_filename . '.zip';
+        $your_roster_url = base_url() . 'uploads/rosters/' . $your_roster_filename . '.rosz';
 
         $your_secondary_scores = $current_match['player2_secondary_score'];
 
@@ -54,7 +54,7 @@ if($match_id){
         $opponent_name = $opponent['name'];
         $opponent_roster_id = $current_match['player1_roster_id'];
         $opponent_roster_filename = ($this->db->get_where('roster', array('id' => $opponent_roster_id))->result_array())[0]['name'];
-        $opponent_roster_url = base_url() . 'uploads/rosters/' . $opponent_roster_filename . '.zip';
+        $opponent_roster_url = base_url() . 'uploads/rosters/' . $opponent_roster_filename . '.rosz';
 
         $opponent_secondary_scores = $current_match['player1_secondary_score'];
 
@@ -87,8 +87,33 @@ if($match_id){
                             <span><?php echo $diff->format("%H hours %I min") ?> ago</span>
                         </div>
                         <div class="col-lg-6 col-md-12">
+                            <?php
+                            if($status == '0'){?>
+
+                                <a href="<?php echo site_url('user/current_match/leave/') ?>" class="btn btn-primary"
+                                   style="margin-left:20px;float:right"><i class="fas fa-sign-out-alt"> </i>  Leave</a>
+                                <?php
+                            }
+                            ?>
+
                             <a class="btn btn-warning"
-                               style="float:right"><?php echo $status ? 'Completed' : 'In progress' ?></a>
+                               id="match_status" style="float:right"><?php
+
+                                switch($status){
+                                    case '0':
+                                        echo 'In progress';
+                                        break;
+                                    case '1':
+                                        echo 'Completed';
+                                        break;
+                                    case '2':
+                                        echo 'Left';
+                                        break;
+                                }
+
+
+                                ?></a>
+
 
                         </div>
 
@@ -114,11 +139,11 @@ if($match_id){
                                                                 href="<?php echo $your_roster_url ?>"><?php echo $your_roster_filename ?> </a>
                                 </p>
 
-                                <form action="<?php echo site_url('user/current_match/save/' . $logged_in_user_id); ?>"
+                                <form id="match_form" action="<?php echo site_url('user/current_match/save/' . $logged_in_user_id); ?>"
                                       method="post" enctype="multipart/form-data" role="form"
                                       class="form-horizontal  match_add_form">
                                     <label>Primary Score : </label>
-                                    <input type="number" max="45" class="form-control" name="score" id="score"
+                                    <input type="number" max="45" class="primary form-control" name="score" id="score"
                                            value="<?php echo $score ?>"
                                            placeholder="<?php echo get_phrase('enter_score'); ?>" required>
 
@@ -131,9 +156,9 @@ if($match_id){
                                     foreach ($your_scores as $key => $your_score) {
 
                                         ?>
-                                        <div style="margin-bottom: 10px;margin-top: 10px" class="row" id="inputFormRow">
+                                        <div style="margin-bottom: 10px;margin-top: 10px" class="row inputFormRow" id="inputFormRow">
                                             <div class="col-sm-12" style="margin-bottom: 5px"><select
-                                                    name="secondary_name[]" class="inline form-control">
+                                                    name="secondary_name[]" class="secondary_name inline form-control">
                                                     <?php
 
 
@@ -153,9 +178,9 @@ if($match_id){
                                                     ?>
                                                 </select></div>
                                             <div class="col-sm-9"><input max="15" type="number" name="secondary_score[]"
-                                                                         class="inline form-control"
+                                                                         class="secondary inline form-control"
                                                                          value="<?php echo $your_score ?>"
-                                                                         placeholder="Enter points" autocomplete="off">
+                                                                         placeholder="Enter points" required autocomplete="off">
                                             </div>
                                             <div class="col-sm-3">
                                                 <button id="removeRow" type="button"
@@ -185,8 +210,8 @@ if($match_id){
                                     <input type="hidden" name="match_id" id="match_id" value="<?php echo $match_id ?>"/>
                                     <input type="hidden" name="user_id" id="user_id"
                                            value="<?php echo $logged_in_user_id ?>"/>
-                                    <button style="margin-top:5px;float:right" type="submit" class="btn btn-info">Save
-                                    </button>
+                                    <a style="margin-top:5px;float:right" class="btn btn-info" onclick="validate()">Save
+                                    </a>
 
                                 </form>
                                 <br>
@@ -205,7 +230,7 @@ if($match_id){
                                 </p>
 
                                 <label>Primary Score : </label>
-                                <input type="number" max="45" class="form-control" value="<?php echo $opponent_score ?>"
+                                <input type="number" max="45" class="primary form-control" value="<?php echo $opponent_score ?>"
                                        id="opponent_score" placeholder="<?php echo get_phrase('opponent_score'); ?>"
                                        disabled>
 
@@ -249,6 +274,8 @@ if($match_id){
         </div><!-- end col-->
     </div>
 
+
+
     <script>
         var secondary_total = JSON.parse('<?php echo json_encode($secondaries) ?>');
 
@@ -280,6 +307,22 @@ if($match_id){
                             var agree_status = res.agree_status;
                             var secondary = res.secondary;
                             var html = res.html;
+                            var status = res.status;
+                            var status_text = '';
+
+                            switch (status){
+                                case '0':
+                                    status_text = 'In progress';
+                                    break;
+                                case '1':
+                                    status_text = 'Completed';
+                                    break;
+                                case '2':
+                                    status_text = 'Left';
+                                    break;
+                            }
+
+                            $('#match_status').html(status_text);
 
                             $('#opponent_score').val(score);
                             var secondary_html = '';
@@ -336,33 +379,99 @@ if($match_id){
 
 
     <script type="text/javascript">
+
+        function validate(){
+            $('#match_form').validate({debug:false});
+            var secondary_names = $('.secondary_name');
+
+            var selected_items = [];
+
+            var flag = true;
+
+            $.each(secondary_names,function(key, secondary_name) {
+
+                var selected = $(secondary_name).children("option:selected").val();
+
+                if (selected == '0') {
+                    jQuery('#modal-secondary_not').modal('show', {backdrop: 'static'});
+                    flag = false;
+                }
+
+                if (selected_items.includes(selected)) {
+                    jQuery('#modal-secondary_dup').modal('show', {backdrop: 'static'});
+                    flag = false;
+                }else{
+                    selected_items.push(selected);
+                }
+            });
+
+            if(flag) $('#match_form').submit();
+
+        }
+
+
+            $("input.secondary").keydown(function () {
+                // Save old value.
+                if (!$(this).val() || (parseInt($(this).val()) <= 15 && parseInt($(this).val()) >= 0))
+                    $(this).data("old", $(this).val());
+            });
+            $("input.secondary").keyup(function () {
+                // Check correct, else revert back to old value.
+                if (!$(this).val() || (parseInt($(this).val()) <= 15 && parseInt($(this).val()) >= 0))
+                    ;
+                else
+                    $(this).val($(this).data("old"));
+            });
+
+            $("input.primary").keydown(function () {
+                // Save old value.
+                if (!$(this).val() || (parseInt($(this).val()) <= 45 && parseInt($(this).val()) >= 0))
+                    $(this).data("old", $(this).val());
+            });
+            $("input.primary").keyup(function () {
+                // Check correct, else revert back to old value.
+                if (!$(this).val() || (parseInt($(this).val()) <= 45 && parseInt($(this).val()) >= 0))
+                    ;
+                else
+                    $(this).val($(this).data("old"));
+            });
+
+
         // add row
         $("#addRow").click(function () {
-            var html = '';
-            html += '<div style="margin-bottom: 10px;margin-top: 10px" class="row" id="inputFormRow">';
-            html += '<div class="col-sm-12" style="margin-bottom: 5px">';
-            html += '<select name="secondary_name[]" class="inline form-control">' +
-                '<option value="0">Please choose secondary</option>' + '<?php
+            var form_count = $('.inputFormRow').length;
+            if(form_count < 3){
+                var html = '';
+                html += '<div style="margin-bottom: 10px;margin-top: 10px" id="inputFormRow" class="row inputFormRow">';
+                html += '<div class="col-sm-12" style="margin-bottom: 5px">';
+                html += '<select name="secondary_name[]"  class="secondary_name inline form-control">' +
+                    '<option value="0">Please choose secondary</option>' + '<?php
                 $select_html = '';
                 foreach ($secondaries as $secondary) {
                     $select_html .= '<option value="' . $secondary['id'] . '">' . $secondary['name'] . '</option>';
                 }
                 echo $select_html;
                 ?>' + '</select>';
-            html += '</div>';
-            html += '<div class="col-sm-9">';
-            html += '<input max="15" type="number" name="secondary_score[]" class="inline form-control" placeholder="Enter points" autocomplete="off">';
-            html += '</div>';
-            html += '<div class="col-sm-3">';
-            html += '<button id="removeRow" type="button" class="inline btn btn-danger pull-right">Remove</button>';
-            html += '</div>';
-            html += '</div>';
+                html += '</div>';
+                html += '<div class="col-sm-9">';
+                html += '<input max="15" type="number" name="secondary_score[]" class="secondary inline form-control" placeholder="Enter points" value="0" required autocomplete="off">';
+                html += '</div>';
+                html += '<div class="col-sm-3">';
+                html += '<button id="removeRow" type="button" class="inline btn btn-danger pull-right">Remove</button>';
+                html += '</div>';
+                html += '</div>';
 
-            $('#newRow').append(html);
+                $('#newRow').append(html);
+            }
+
+            if(form_count == 2) $('#addRow').hide();
+
         });
 
         // remove row
         $(document).on('click', '#removeRow', function () {
-            $(this).closest('#inputFormRow').remove();
+
+            $(this).closest('.inputFormRow').remove();
+            $('#addRow').show();
         });
     </script>

@@ -198,7 +198,10 @@ class User extends CI_Controller {
 			$this->user_model->complete_match($match_id);
 			redirect(site_url('user/current_match'), 'refresh');
 		}		
-		else {
+		else if($param1 == 'leave'){
+			$this->user_model->leave_match();
+			redirect(site_url('user/current_match'), 'refresh');
+		}else {
 			$page_data['match_id'] = $param1;
 		}
 

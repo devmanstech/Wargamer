@@ -17,7 +17,7 @@ $secondaries = $this->db->get('secondary')->result_array();
         $your_name = $you['name'];
         $your_roster_id = $current_match['player1_roster_id'];
         $your_roster_filename = ($this->db->get_where('roster', array('id' => $your_roster_id))->result_array())[0]['name'];
-        $your_roster_url = base_url() . 'uploads/rosters/' . $your_roster_filename . '.zip';
+        $your_roster_url = base_url() . 'uploads/rosters/' . $your_roster_filename . '.rosz';
 
         $your_secondary_scores = $current_match['player1_secondary_score'];
 
@@ -27,7 +27,7 @@ $secondaries = $this->db->get('secondary')->result_array();
         $opponent_name = $opponent['name'];
         $opponent_roster_id = $current_match['player2_roster_id'];
         $opponent_roster_filename = ($this->db->get_where('roster', array('id' => $opponent_roster_id))->result_array())[0]['name'];
-        $opponent_roster_url = base_url() . 'uploads/rosters/' . $opponent_roster_filename . '.zip';
+        $opponent_roster_url = base_url() . 'uploads/rosters/' . $opponent_roster_filename . '.rosz';
 
         $opponent_secondary_scores = $current_match['player2_secondary_score'];
 
@@ -43,7 +43,7 @@ $secondaries = $this->db->get('secondary')->result_array();
         $your_name = $you['name'];
         $your_roster_id = $current_match['player2_roster_id'];
         $your_roster_filename = ($this->db->get_where('roster', array('id' => $your_roster_id))->result_array())[0]['name'];
-        $your_roster_url = base_url() . 'uploads/rosters/' . $your_roster_filename . '.zip';
+        $your_roster_url = base_url() . 'uploads/rosters/' . $your_roster_filename . '.rosz';
 
         $your_secondary_scores = $current_match['player2_secondary_score'];
 
@@ -53,7 +53,7 @@ $secondaries = $this->db->get('secondary')->result_array();
         $opponent_name = $opponent['name'];
         $opponent_roster_id = $current_match['player1_roster_id'];
         $opponent_roster_filename = ($this->db->get_where('roster', array('id' => $opponent_roster_id))->result_array())[0]['name'];
-        $opponent_roster_url = base_url() . 'uploads/rosters/' . $opponent_roster_filename . '.zip';
+        $opponent_roster_url = base_url() . 'uploads/rosters/' . $opponent_roster_filename . '.rosz';
 
         $opponent_secondary_scores = $current_match['player1_secondary_score'];
 

@@ -371,48 +371,5 @@ function get_application_details() {
         }
   	}
 
-    public function beauty_service_checking_time($param1 = '', $param2 = ''){
-      $times = $this->db->get_where('beauty_service', array('id' => $param1))->row('service_times');
-      $time = explode(',', $times);
-      $starting_hour_and_minute = explode(':', $time[0]);
-      $ending_hour_and_minute = explode(':', $time[1]);
 
-      $booking_time_hour_and_minute = explode(':', $param2);
-
-      if($starting_hour_and_minute[0] == $booking_time_hour_and_minute[0]){
-          if($starting_hour_and_minute[1] <= $booking_time_hour_and_minute[1])
-          {
-              echo 1;
-          }else{
-              echo 0;
-          }
-
-      }elseif($ending_hour_and_minute[0] == $booking_time_hour_and_minute[0]){
-          if($ending_hour_and_minute[1] >= $booking_time_hour_and_minute[1]){
-              echo 1;
-          }else{
-              echo 0;
-          }
-      }else{
-          if($booking_time_hour_and_minute[0] == 00){
-              $booking_hour = 12;
-          }else{
-              $booking_hour = $booking_time_hour_and_minute[0];
-          }
-
-          if($starting_hour_and_minute[0] < $ending_hour_and_minute[0]){
-              if($starting_hour_and_minute[0] < $booking_hour && $ending_hour_and_minute[0] > $booking_hour){
-                  echo 1;
-              }else{
-                  echo 0;
-              }
-          }elseif($starting_hour_and_minute[0] > $ending_hour_and_minute[0]){
-              if($starting_hour_and_minute[0] < $booking_hour || $ending_hour_and_minute[0] > $booking_hour){
-                  echo 1;
-              }else{
-                  echo 0;
-              }
-          }
-      }
-    }
 }
