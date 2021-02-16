@@ -151,13 +151,47 @@ if($match_id){
 
                                     <?php
 
+
                                     $your_scores = json_decode($your_secondary_scores);
 
-                                    foreach ($your_scores as $key => $your_score) {
+                                    if(count($your_scores)>0){
+                                        foreach ($your_scores as $key => $your_score) {
 
-                                        ?>
+                                            ?>
+                                            <div style="margin-bottom: 10px;margin-top: 10px" class="row inputFormRow" id="inputFormRow">
+                                                <div class="col-sm-6" style="margin-bottom: 5px"><select
+                                                        name="secondary_name[]" class="secondary_name inline form-control">
+                                                        <?php
+
+
+                                                        $select_html = '';
+
+                                                        foreach ($secondaries as $secondary) {
+                                                            if ($key == $secondary['id']) {
+                                                                $select_html .= '<option value="' . $secondary['id'] . '" selected>' . $secondary['name'] . '</option>';
+                                                            } else {
+                                                                $select_html .= '<option value="' . $secondary['id'] . '">' . $secondary['name'] . '</option>';
+                                                            }
+
+                                                        }
+
+
+                                                        echo $select_html;
+                                                        ?>
+                                                    </select></div>
+                                                <div class="col-sm-6"><input max="15" type="number" name="secondary_score[]"
+                                                                             class="secondary inline form-control"
+                                                                             value="<?php echo $your_score ?>"
+                                                                             placeholder="Enter points" required autocomplete="off">
+                                                </div>
+
+                                            </div>
+                                            <?php
+                                        }
+
+                                    }else{?>
                                         <div style="margin-bottom: 10px;margin-top: 10px" class="row inputFormRow" id="inputFormRow">
-                                            <div class="col-sm-12" style="margin-bottom: 5px"><select
+                                            <div class="col-sm-6" style="margin-bottom: 5px"><select
                                                     name="secondary_name[]" class="secondary_name inline form-control">
                                                     <?php
 
@@ -165,11 +199,7 @@ if($match_id){
                                                     $select_html = '';
 
                                                     foreach ($secondaries as $secondary) {
-                                                        if ($key == $secondary['id']) {
-                                                            $select_html .= '<option value="' . $secondary['id'] . '" selected>' . $secondary['name'] . '</option>';
-                                                        } else {
-                                                            $select_html .= '<option value="' . $secondary['id'] . '">' . $secondary['name'] . '</option>';
-                                                        }
+                                                        $select_html .= '<option value="' . $secondary['id'] . '">' . $secondary['name'] . '</option>';
 
                                                     }
 
@@ -177,19 +207,66 @@ if($match_id){
                                                     echo $select_html;
                                                     ?>
                                                 </select></div>
-                                            <div class="col-sm-9"><input max="15" type="number" name="secondary_score[]"
+                                            <div class="col-sm-6"><input max="15" type="number" name="secondary_score[]"
                                                                          class="secondary inline form-control"
-                                                                         value="<?php echo $your_score ?>"
+                                                                         value="0"
                                                                          placeholder="Enter points" required autocomplete="off">
                                             </div>
-                                            <div class="col-sm-3">
-                                                <button id="removeRow" type="button"
-                                                        class="inline btn btn-danger pull-right">Remove
-                                                </button>
-                                            </div>
+
                                         </div>
-                                        <?php
+
+                                        <div style="margin-bottom: 10px;margin-top: 10px" class="row inputFormRow" id="inputFormRow">
+                                            <div class="col-sm-6" style="margin-bottom: 5px"><select
+                                                    name="secondary_name[]" class="secondary_name inline form-control">
+                                                    <?php
+
+
+                                                    $select_html = '';
+
+                                                    foreach ($secondaries as $secondary) {
+                                                        $select_html .= '<option value="' . $secondary['id'] . '">' . $secondary['name'] . '</option>';
+
+                                                    }
+
+
+                                                    echo $select_html;
+                                                    ?>
+                                                </select></div>
+                                            <div class="col-sm-6"><input max="15" type="number" name="secondary_score[]"
+                                                                         class="secondary inline form-control"
+                                                                         value="0"
+                                                                         placeholder="Enter points" required autocomplete="off">
+                                            </div>
+
+                                        </div>
+
+                                        <div style="margin-bottom: 10px;margin-top: 10px" class="row inputFormRow" id="inputFormRow">
+                                            <div class="col-sm-6" style="margin-bottom: 5px"><select
+                                                    name="secondary_name[]" class="secondary_name inline form-control">
+                                                    <?php
+
+
+                                                    $select_html = '';
+
+                                                    foreach ($secondaries as $secondary) {
+                                                        $select_html .= '<option value="' . $secondary['id'] . '">' . $secondary['name'] . '</option>';
+
+                                                    }
+
+
+                                                    echo $select_html;
+                                                    ?>
+                                                </select></div>
+                                            <div class="col-sm-6"><input max="15" type="number" name="secondary_score[]"
+                                                                         class="secondary inline form-control"
+                                                                         value="0"
+                                                                         placeholder="Enter points" required autocomplete="off">
+                                            </div>
+
+                                        </div>
+                                    <?php
                                     }
+
 
                                     ?>
 
@@ -437,41 +514,5 @@ if($match_id){
             });
 
 
-        // add row
-        $("#addRow").click(function () {
-            var form_count = $('.inputFormRow').length;
-            if(form_count < 3){
-                var html = '';
-                html += '<div style="margin-bottom: 10px;margin-top: 10px" id="inputFormRow" class="row inputFormRow">';
-                html += '<div class="col-sm-12" style="margin-bottom: 5px">';
-                html += '<select name="secondary_name[]"  class="secondary_name inline form-control">' +
-                    '<option value="0">Please choose secondary</option>' + '<?php
-                $select_html = '';
-                foreach ($secondaries as $secondary) {
-                    $select_html .= '<option value="' . $secondary['id'] . '">' . $secondary['name'] . '</option>';
-                }
-                echo $select_html;
-                ?>' + '</select>';
-                html += '</div>';
-                html += '<div class="col-sm-9">';
-                html += '<input max="15" type="number" name="secondary_score[]" class="secondary inline form-control" placeholder="Enter points" value="0" required autocomplete="off">';
-                html += '</div>';
-                html += '<div class="col-sm-3">';
-                html += '<button id="removeRow" type="button" class="inline btn btn-danger pull-right">Remove</button>';
-                html += '</div>';
-                html += '</div>';
 
-                $('#newRow').append(html);
-            }
-
-            if(form_count == 2) $('#addRow').hide();
-
-        });
-
-        // remove row
-        $(document).on('click', '#removeRow', function () {
-
-            $(this).closest('.inputFormRow').remove();
-            $('#addRow').show();
-        });
     </script>

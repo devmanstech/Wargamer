@@ -6,7 +6,7 @@ $roster_name = $roster[0]['name'];
 
 $roster_uri = '/uploads/rosters/'.$roster_name.'.rosz';
 
-$res_file = unrosz(dirname(BASEPATH).$roster_uri, false, true, true);
+$res_file = unzip(dirname(BASEPATH).$roster_uri, false, true, true);
 
 
  ?>

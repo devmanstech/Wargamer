@@ -36,55 +36,100 @@ $factions2 = $this->db->get('faction')->result_array();
             </div>
             <div class="panel-body">
             <ul class="nav nav-tabs justify-content-center">
-                <li class="active"><a data-toggle="tab" href="#home">All</a></li>
-                <li><a data-toggle="tab" href="#menu1">1000</a></li>
-                <li><a data-toggle="tab" href="#menu2">2000</a></li>
+                <li class="active"><a data-toggle="tab" href="#all">All</a></li>
+                <li><a data-toggle="tab" href="#first">1000</a></li>
+                <li><a data-toggle="tab" href="#second">2000</a></li>
             </ul>
 
             <div class="tab-content">
-                <div id="home" class="tab-pane fade in active">
-                    <table class="cell-border  faction_table" style="width:100%;font-size:14px">
-                        <thead class="cell-border">
+                <div id="all" class="tab-pane fade in active">
+                    <table class=" faction_table" style="width:100%;font-size:14px">
+                        <thead>
                         <tr>
-                            <th>Faction <br> (wins/total)</th>
+                            <th style="text-align-last: center">Faction <br> (loss\win)</th>
                             <?php
+
+                            $cols = array();
+                            $rows = array();
+
                             foreach ($factions1 as $faction1) {
-                                ?>
-                                <th><?php echo $faction1['name'] ?></th>
-                                <?php
+
+                                $this->db->where('player1_faction', $faction1['name']);
+
+                                $player1 = $this->db->get('match')->result_array();
+
+                                $this->db->where('player2_faction', $faction1['name']);
+
+                                $player2 = $this->db->get('match')->result_array();
+
+                                if(count($player1) + count($player2) >0){
+                                    array_push($cols,$faction1['name']);
+
+                                    ?>
+                                    <th style="text-align-last: center"><?php echo $faction1['name'] ?></th>
+                                    <?php
+
+                                }
+
+
+
                             }
+
+                            $rows = $cols;
                             ?>
                         </tr>
                         </thead>
                         <tbody>
                         <?php
-                        foreach ($factions2 as $faction2) {
+                        foreach ($rows as $row) {
                             ?>
                             <tr>
-                                <td><?php echo $faction2['name']; ?></td>
                                 <?php
-                                foreach ($factions1 as $faction1) {
+
+                                echo '<td style="text-align-last: center">'.$row.'</td>';
+
+                                foreach ($cols as $col) {
                                     $total = 0;
                                     $wins = 0;
-                                    $total = count(array_merge(
-                                        $this->db->get_where('match', array('player1_id'=>$logged_in_user_id,'player1_faction'=>$faction2['name'], 'player2_faction'=>$faction1['name'], 'status'=>1))->result_array(),
-                                        $this->db->get_where('match', array('player2_id'=>$logged_in_user_id,'player1_faction'=>$faction2['name'], 'player2_faction'=>$faction1['name'], 'status'=>1))->result_array()
-                                    ));
 
-                                    $wins = count(array_merge(
-                                        $this->db->get_where('match', array('player1_id'=>$logged_in_user_id,'player1_faction'=>$faction2['name'], 'player2_faction'=>$faction1['name'], 'status'=>1, 'winner'=>$logged_in_user_id))->result_array(),
-                                        $this->db->get_where('match', array('player2_id'=>$logged_in_user_id,'player1_faction'=>$faction2['name'], 'player2_faction'=>$faction1['name'], 'status'=>1, 'winner'=>$logged_in_user_id))->result_array()
-                                    ));
-                                    ?>
-                                    <td style="text-align-last: center"><?php
+                                    $this->db->where('player1_id=winner');
+                                    $this->db->where('player1_faction', $col);
+                                    $this->db->where('player2_faction', $row);
+
+                                    $player1_wins = $this->db->get('match')->result_array();
+
+                                    $this->db->where('player2_id=winner');
+                                    $this->db->where('player2_faction', $col);
+                                    $this->db->where('player1_faction', $row);
+
+                                    $player2_wins = $this->db->get('match')->result_array();
+
+
+                                    $this->db->where('player1_id=winner');
+                                    $this->db->where('player1_faction', $row);
+                                    $this->db->where('player2_faction', $col);
+
+                                    $player2_loss = $this->db->get('match')->result_array();
+
+                                    $this->db->where('player2_id=winner');
+                                    $this->db->where('player1_faction', $col);
+                                    $this->db->where('player2_faction', $row);
+
+                                    $player1_loss = $this->db->get('match')->result_array();
+
+
+
+                                    $total = count($player1_wins) + count($player1_loss) + count($player2_loss) + count($player2_wins);
+
+                                    $wins = count($player1_wins) + count($player2_wins);
+
 
                                         if($total>0){
-                                            echo $wins*100/$total.'%' ;
+                                            echo '<td style="text-align-last: center">'.$wins*100/$total.'%</td>' ;
                                         }else{
-                                            echo '-';
+                                            echo '<td style="text-align-last: center">-</td>' ;
                                         }
-                                        ?></td>
-                                    <?php
+
                                 }
                                 ?>
                             </tr>
@@ -94,49 +139,98 @@ $factions2 = $this->db->get('faction')->result_array();
                         </tbody>
                     </table>
                 </div>
-                <div id="menu1" class="tab-pane fade">
-                <table class="cell-border faction_table" style="width:100%;font-size:14px">
-                        <thead class="cell-border">
+                <div id="first" class="tab-pane fade in active" >
+                    <table class=" faction_table" style="width:100%;font-size:14px">
+                        <thead>
                         <tr>
-                            <th>Faction <br> (wins/total)</th>
+                            <th style="text-align-last: center">Faction <br> (loss\win)</th>
                             <?php
+
+                            $cols = array();
+                            $rows = array();
+
                             foreach ($factions1 as $faction1) {
-                                ?>
-                                <th><?php echo $faction1['name'] ?></th>
-                                <?php
+
+                                $this->db->where('player1_faction', $faction1['name']);
+
+                                $player1 = $this->db->get('match')->result_array();
+
+                                $this->db->where('player2_faction', $faction1['name']);
+
+                                $player2 = $this->db->get('match')->result_array();
+
+                                if(count($player1) + count($player2) >0){
+                                    array_push($cols,$faction1['name']);
+
+                                    ?>
+                                    <th style="text-align-last: center"><?php echo $faction1['name'] ?></th>
+                                    <?php
+
+                                }
+
+
+
                             }
+
+                            $rows = $cols;
                             ?>
                         </tr>
                         </thead>
                         <tbody>
                         <?php
-                        foreach ($factions2 as $faction2) {
+                        foreach ($rows as $row) {
                             ?>
                             <tr>
-                                <td><?php echo $faction2['name']; ?></td>
                                 <?php
-                                foreach ($factions1 as $faction1) {
+
+                                echo '<td style="text-align-last: center">'.$row.'</td>';
+
+                                foreach ($cols as $col) {
                                     $total = 0;
                                     $wins = 0;
-                                    $total = count(array_merge(
-                                        $this->db->get_where('match', array('player1_id'=>$logged_in_user_id,'player1_faction'=>$faction2['name'], 'player2_faction'=>$faction1['name'], 'status'=>1, 'points'=>0))->result_array(),
-                                        $this->db->get_where('match', array('player2_id'=>$logged_in_user_id,'player1_faction'=>$faction2['name'], 'player2_faction'=>$faction1['name'], 'status'=>1, 'points'=>0))->result_array()
-                                    ));
 
-                                    $wins = count(array_merge(
-                                        $this->db->get_where('match', array('player1_id'=>$logged_in_user_id,'player1_faction'=>$faction2['name'], 'player2_faction'=>$faction1['name'], 'status'=>1, 'winner'=>$logged_in_user_id, 'points'=>0))->result_array(),
-                                        $this->db->get_where('match', array('player2_id'=>$logged_in_user_id,'player1_faction'=>$faction2['name'], 'player2_faction'=>$faction1['name'], 'status'=>1, 'winner'=>$logged_in_user_id, 'points'=>0))->result_array()
-                                    ));
-                                    ?>
-                                    <td style="text-align-last: center"><?php
+                                    $this->db->where('player1_id=winner');
+                                    $this->db->where('player1_faction', $col);
+                                    $this->db->where('player2_faction', $row);
+                                    $this->db->where('points', '0');
 
-                                        if($total>0){
-                                            echo $wins*100/$total.'%' ;
-                                        }else{
-                                            echo '-';
-                                        }
-                                        ?></td>
-                                    <?php
+                                    $player1_wins = $this->db->get('match')->result_array();
+
+                                    $this->db->where('player2_id=winner');
+                                    $this->db->where('player2_faction', $col);
+                                    $this->db->where('player1_faction', $row);
+                                    $this->db->where('points', '0');
+
+                                    $player2_wins = $this->db->get('match')->result_array();
+
+
+                                    $this->db->where('player1_id=winner');
+                                    $this->db->where('player1_faction', $row);
+                                    $this->db->where('player2_faction', $col);
+                                    $this->db->where('points', '0');
+
+                                    $player2_loss = $this->db->get('match')->result_array();
+
+                                    $this->db->where('player2_id=winner');
+                                    $this->db->where('player1_faction', $col);
+                                    $this->db->where('player2_faction', $row);
+                                    $this->db->where('points', '0');
+
+                                    $player1_loss = $this->db->get('match')->result_array();
+
+
+
+                                    $total = count($player1_wins) + count($player1_loss) + count($player2_loss) + count($player2_wins);
+
+                                    $wins = count($player1_wins) + count($player2_wins);
+
+
+                                    if($total>0){
+                                        echo '<td style="text-align-last: center">'.$wins*100/$total.'%</td>' ;
+                                    }else{
+                                        echo '<td style="text-align-last: center">-</td>' ;
+                                    }
+
                                 }
                                 ?>
                             </tr>
@@ -146,49 +240,98 @@ $factions2 = $this->db->get('faction')->result_array();
                         </tbody>
                     </table>
                 </div>
-                <div id="menu2" class="tab-pane fade">
-                <table class="cell-border faction_table" style="width:100%;font-size:14px">
-                        <thead class="cell-border">
+                <div id="second" class="tab-pane fade in active">
+                    <table class=" faction_table" style="width:100%;font-size:14px">
+                        <thead>
                         <tr>
-                            <th>Faction <br> (wins/total)</th>
+                            <th style="text-align-last: center">Faction <br> (loss\win)</th>
                             <?php
+
+                            $cols = array();
+                            $rows = array();
+
                             foreach ($factions1 as $faction1) {
-                                ?>
-                                <th><?php echo $faction1['name'] ?></th>
-                                <?php
+
+                                $this->db->where('player1_faction', $faction1['name']);
+
+                                $player1 = $this->db->get('match')->result_array();
+
+                                $this->db->where('player2_faction', $faction1['name']);
+
+                                $player2 = $this->db->get('match')->result_array();
+
+                                if(count($player1) + count($player2) >0){
+                                    array_push($cols,$faction1['name']);
+
+                                    ?>
+                                    <th style="text-align-last: center"><?php echo $faction1['name'] ?></th>
+                                    <?php
+
+                                }
+
+
+
                             }
+
+                            $rows = $cols;
                             ?>
                         </tr>
                         </thead>
                         <tbody>
                         <?php
-                        foreach ($factions2 as $faction2) {
+                        foreach ($rows as $row) {
                             ?>
                             <tr>
-                                <td><?php echo $faction2['name']; ?></td>
                                 <?php
-                                foreach ($factions1 as $faction1) {
+
+                                echo '<td style="text-align-last: center">'.$row.'</td>';
+
+                                foreach ($cols as $col) {
                                     $total = 0;
                                     $wins = 0;
-                                    $total = count(array_merge(
-                                        $this->db->get_where('match', array('player1_id'=>$logged_in_user_id,'player1_faction'=>$faction2['name'], 'player2_faction'=>$faction1['name'], 'status'=>1, 'points'=>1))->result_array(),
-                                        $this->db->get_where('match', array('player2_id'=>$logged_in_user_id,'player1_faction'=>$faction2['name'], 'player2_faction'=>$faction1['name'], 'status'=>1, 'points'=>1))->result_array()
-                                    ));
 
-                                    $wins = count(array_merge(
-                                        $this->db->get_where('match', array('player1_id'=>$logged_in_user_id,'player1_faction'=>$faction2['name'], 'player2_faction'=>$faction1['name'], 'status'=>1, 'winner'=>$logged_in_user_id, 'points'=>1))->result_array(),
-                                        $this->db->get_where('match', array('player2_id'=>$logged_in_user_id,'player1_faction'=>$faction2['name'], 'player2_faction'=>$faction1['name'], 'status'=>1, 'winner'=>$logged_in_user_id, 'points'=>1))->result_array()
-                                    ));
-                                    ?>
-                                    <td style="text-align-last: center"><?php
+                                    $this->db->where('player1_id=winner');
+                                    $this->db->where('player1_faction', $col);
+                                    $this->db->where('player2_faction', $row);
+                                    $this->db->where('points', '1');
 
-                                        if($total>0){
-                                            echo $wins*100/$total.'%' ;
-                                        }else{
-                                            echo '-';
-                                        }
-                                        ?></td>
-                                    <?php
+                                    $player1_wins = $this->db->get('match')->result_array();
+
+                                    $this->db->where('player2_id=winner');
+                                    $this->db->where('player2_faction', $col);
+                                    $this->db->where('player1_faction', $row);
+
+                                    $this->db->where('points', '1');
+                                    $player2_wins = $this->db->get('match')->result_array();
+
+
+                                    $this->db->where('player1_id=winner');
+                                    $this->db->where('player1_faction', $row);
+                                    $this->db->where('player2_faction', $col);
+                                    $this->db->where('points', '1');
+
+                                    $player2_loss = $this->db->get('match')->result_array();
+
+                                    $this->db->where('player2_id=winner');
+                                    $this->db->where('player1_faction', $col);
+                                    $this->db->where('player2_faction', $row);
+                                    $this->db->where('points', '1');
+
+                                    $player1_loss = $this->db->get('match')->result_array();
+
+
+
+                                    $total = count($player1_wins) + count($player1_loss) + count($player2_loss) + count($player2_wins);
+
+                                    $wins = count($player1_wins) + count($player2_wins);
+
+
+                                    if($total>0){
+                                        echo '<td style="text-align-last: center">'.$wins*100/$total.'%</td>' ;
+                                    }else{
+                                        echo '<td style="text-align-last: center">-</td>' ;
+                                    }
+
                                 }
                                 ?>
                             </tr>
