@@ -127,12 +127,14 @@
 
 <script>
     $(document).ready(function () {
-        $('#match_table').DataTable({
+        var table1 = $('#match_table').DataTable({
             "scrollY": 600,
             "scrollX": true,
-            "ordering": false,
+            "ordering": true,
             "paging": false,
             "info": false
         });
+
+        table1.order( [ 0, 'desc' ] ).draw();
     });
 </script>

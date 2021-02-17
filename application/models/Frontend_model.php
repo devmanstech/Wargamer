@@ -13,7 +13,7 @@ class Frontend_model extends CI_Model {
 
     function get_matches() {
         $this->db->where('status', '1');
-        $this->db->order_by('created_at','DESC');
+        $this->db->order_by('id','DESC');
         return $this->db->get('match')->result_array();
     }
 

@@ -5946,17 +5946,17 @@ blockquote.blockquote-danger small strong {
   -webkit-transition: all 300ms ease-in-out;
   transition: all 300ms ease-in-out;
 }
-.dataTables_wrapper table thead tr th.sorting_asc:before,
-.dataTables_wrapper table thead tr th.sorting_desc:before {
-  display: block;
-  float: right;
-  color: #303641;
-  font-family: 'Entypo';
-  content: '\e876';
-}
-.dataTables_wrapper table thead tr th.sorting_desc:before {
-  content: '\e873';
-}
+/*.dataTables_wrapper table thead tr th.sorting_asc:before,*/
+/*.dataTables_wrapper table thead tr th.sorting_desc:before {*/
+  /*display: block;*/
+  /*float: right;*/
+  /*color: #303641;*/
+  /*font-family: 'Entypo';*/
+  /*content: '\e876';*/
+/*}*/
+/*.dataTables_wrapper table thead tr th.sorting_desc:before {*/
+  /*content: '\e873';*/
+/*}*/
 .dataTables_wrapper table thead tr th:active {
   outline: none;
 }
